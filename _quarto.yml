@@ -20,10 +20,6 @@ website:
         text: Home
       - href: paper.qmd
         text: Paper
-      - section: "Talks"
-        contents:
-        - href: dagstat2022.qmd
-          text: DAGStat 2022
 
 format:
   html:

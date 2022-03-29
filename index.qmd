@@ -2,10 +2,6 @@
 title: "tidyperspective"
 ---
 
-This is a Quarto website.
+This repository contains slides, code, and supplementary materials for the "An educator's perspective of the tidyverse" talks.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
-
-```{r}
-1 + 1
-```
+-   DAGStat 2022 - Hamburg, Germany \[slides\]

@@ -1,9 +1,5 @@
 ---
-title: "About"
+title: "Paper"
 ---
 
-About this site
-
-```{r}
-1 + 1
-```
+Read the paper on [arXiv](https://arxiv.org/abs/2108.03510), to be updated soon...
