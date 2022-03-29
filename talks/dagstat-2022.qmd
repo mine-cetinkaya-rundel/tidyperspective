@@ -1,7 +1,7 @@
 ---
 title: "an educator's perpective of the tidyverse"
 author: "mine çetinkaya-rundel"
-url: "https://mine-cetinkaya-rundel.github.io/tidyperspective/talks/dagstat-2022.html"
+date: "[bit.ly/tidyperspective-dagstat](https://bit.ly/tidyperspective-dagstat)"
 format:
   revealjs:
     theme: slides.scss
@@ -27,6 +27,14 @@ library(colorblindr)
 options(dplyr.print_min = 6, dplyr.print_max = 6)
 theme_set(theme_gray(base_size = 18))
 ```
+
+## collaborators
+
+-   Johanna Hardin, Pomona College
+-   Benjamin S. Baumer, Smith College
+-   Amelia McNamara, University of St Thomas
+-   Nicholas J. Horton, Amherst College
+-   Colin W. Rundel, Duke University
 
 ## setting the scene
 
@@ -806,4 +814,4 @@ arXiv preprint arXiv:2108.03510.
 
 # thank you!
 
-[https://mine-cetinkaya-rundel.github.io/tidyperspective/talks/dagstat-2022.html](mine-cetinkaya-rundel.github.io/tidyperspective/talks/dagstat-2022.html)
+[https://bit.ly/tidyperspective-dagstat](bit.ly/tidyperspective-dagstat)
