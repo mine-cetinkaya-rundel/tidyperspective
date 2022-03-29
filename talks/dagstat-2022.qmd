@@ -208,9 +208,11 @@ loans %>%
 
 ## the tidyverse approach
 
+::: incremental
 -   tidyverse functions take a `data` argument that allows them to localize computations inside the specified data frame
 
 -   does not muddy the concept of what is in the current environment: variables always accessed from within in a data frame without the use of an additional function (like `with()`) or quotation marks, never as a vector
+:::
 
 # teaching with the tidyverse
 
@@ -730,11 +732,13 @@ Modeling and inference with **tidymodels**:
 
 ## teaching consistently
 
+::: incremental
 -   Challenge: Google and Stack Overflow can be less useful -- demo problem solving
 
 -   Counter-proposition: teach *all* (or multiple) syntaxes at once -- trying to teach two (or more!) syntaxes at once will slow the pace of the course, introduce unnecessary syntactic confusion, and make it harder for students to complete their work.
 
 -   "Disciplined in what we teach, liberal in what we accept"
+:::
 
 ::: aside
 Postel, J.
@@ -772,7 +776,7 @@ Interfaces that are designed to produce readable code
 
 ## shared syntax
 
-Get SQL for free!
+Get SQL for free with **dplyr** verbs!
 
 # final thoughts
 
@@ -814,4 +818,4 @@ arXiv preprint arXiv:2108.03510.
 
 # thank you!
 
-[https://bit.ly/tidyperspective-dagstat](bit.ly/tidyperspective-dagstat)
+[bit.ly/tidyperspective-dagstat](https://bit.ly/tidyperspective-dagstat)
