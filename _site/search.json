@@ -81,7 +81,7 @@
     "href": "talks/dagstat-2022.html#the-tidyverse-approach",
     "title": "an educator’s perpective of the tidyverse",
     "section": "the tidyverse approach",
-    "text": "the tidyverse approach\n\ntidyverse functions take a data argument that allows them to localize computations inside the specified data frame\ndoes not muddy the concept of what is in the current environment: variables always accessed from within in a data frame without the use of an additional function (like with()) or quotation marks, never as a vector"
+    "text": "the tidyverse approach\n\n\ntidyverse functions take a data argument that allows them to localize computations inside the specified data frame\ndoes not muddy the concept of what is in the current environment: variables always accessed from within in a data frame without the use of an additional function (like with()) or quotation marks, never as a vector"
   },
   {
     "objectID": "talks/dagstat-2022.html#task-grouped-summary",
@@ -319,7 +319,7 @@
     "href": "talks/dagstat-2022.html#shared-syntax",
     "title": "an educator’s perpective of the tidyverse",
     "section": "shared syntax",
-    "text": "shared syntax\nGet SQL for free!"
+    "text": "shared syntax\nGet SQL for free with dplyr verbs!"
   },
   {
     "objectID": "talks/dagstat-2022.html#building-a-curriculum",
@@ -333,7 +333,7 @@
     "href": "talks/dagstat-2022.html#keeping-up-with-the-tidyverse",
     "title": "an educator’s perpective of the tidyverse",
     "section": "keeping up with the tidyverse",
-    "text": "keeping up with the tidyverse\n\n\nLifecycle stages and badges:\n\n\nBlog posts highlight updates, along with the reasoning behind them and worked examples"
+    "text": "keeping up with the tidyverse\n\nBlog posts highlight updates, along with the reasoning behind them and worked examples\n\nLifecycle stages and badges"
   },
   {
     "objectID": "talks/dagstat-2022.html#coda",
@@ -355,5 +355,12 @@
     "title": "About",
     "section": "",
     "text": "1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "talks/dagstat-2022.html#collaborators",
+    "href": "talks/dagstat-2022.html#collaborators",
+    "title": "an educator’s perpective of the tidyverse",
+    "section": "collaborators",
+    "text": "collaborators\n\nJohanna Hardin, Pomona College\nBenjamin S. Baumer, Smith College\nAmelia McNamara, University of St Thomas\nNicholas J. Horton, Amherst College\nColin W. Rundel, Duke University"
   }
 ]

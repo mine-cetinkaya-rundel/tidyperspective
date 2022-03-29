@@ -732,13 +732,11 @@ Modeling and inference with **tidymodels**:
 
 ## teaching consistently
 
-::: incremental
 -   Challenge: Google and Stack Overflow can be less useful -- demo problem solving
 
 -   Counter-proposition: teach *all* (or multiple) syntaxes at once -- trying to teach two (or more!) syntaxes at once will slow the pace of the course, introduce unnecessary syntactic confusion, and make it harder for students to complete their work.
 
 -   "Disciplined in what we teach, liberal in what we accept"
-:::
 
 ::: aside
 Postel, J.
@@ -788,11 +786,11 @@ Get SQL for free with **dplyr** verbs!
 
 ## keeping up with the tidyverse
 
--   Lifecycle stages and badges:
+-   Blog posts highlight updates, along with the reasoning behind them and worked examples
+
+-   [Lifecycle stages](https://lifecycle.r-lib.org/articles/stages.html) and badges
 
     ![](images/lifecycle.png)
-
--   Blog posts highlight updates, along with the reasoning behind them and worked examples
 
 ## coda {.smaller}
 
