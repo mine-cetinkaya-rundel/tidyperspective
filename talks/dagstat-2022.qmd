@@ -1,6 +1,7 @@
 ---
 title: "an educator's perpective of the tidyverse"
 author: "mine çetinkaya-rundel"
+url: "https://mine-cetinkaya-rundel.github.io/tidyperspective/talks/dagstat-2022.html"
 format:
   revealjs:
     theme: slides.scss
@@ -804,3 +805,5 @@ arXiv preprint arXiv:2108.03510.
 :::
 
 # thank you!
+
+[https://mine-cetinkaya-rundel.github.io/tidyperspective/talks/dagstat-2022.html](mine-cetinkaya-rundel.github.io/tidyperspective/talks/dagstat-2022.html)
