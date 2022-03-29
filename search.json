@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "talks/dagstat-2022.html#collaborators",
+    "href": "talks/dagstat-2022.html#collaborators",
+    "title": "an educator’s perpective of the tidyverse",
+    "section": "collaborators",
+    "text": "collaborators\n\nJohanna Hardin, Pomona College\nBenjamin S. Baumer, Smith College\nAmelia McNamara, University of St Thomas\nNicholas J. Horton, Amherst College\nColin W. Rundel, Duke University"
+  },
+  {
     "objectID": "talks/dagstat-2022.html#setting-the-scene",
     "href": "talks/dagstat-2022.html#setting-the-scene",
     "title": "an educator’s perpective of the tidyverse",
@@ -74,7 +81,7 @@
     "href": "talks/dagstat-2022.html#the-tidyverse-approach",
     "title": "an educator’s perpective of the tidyverse",
     "section": "the tidyverse approach",
-    "text": "the tidyverse approach\n\ntidyverse functions take a data argument that allows them to localize computations inside the specified data frame\ndoes not muddy the concept of what is in the current environment: variables always accessed from within in a data frame without the use of an additional function (like with()) or quotation marks, never as a vector"
+    "text": "the tidyverse approach\n\n\ntidyverse functions take a data argument that allows them to localize computations inside the specified data frame\ndoes not muddy the concept of what is in the current environment: variables always accessed from within in a data frame without the use of an additional function (like with()) or quotation marks, never as a vector"
   },
   {
     "objectID": "talks/dagstat-2022.html#task-grouped-summary",
@@ -270,7 +277,7 @@
     "href": "talks/dagstat-2022.html#teaching-consistently",
     "title": "an educator’s perpective of the tidyverse",
     "section": "teaching consistently",
-    "text": "teaching consistently\n\nChallenge: Google and Stack Overflow can be less useful – demo problem solving\nCounter-proposition: teach all (or multiple) syntaxes at once – trying to teach two (or more!) syntaxes at once will slow the pace of the course, introduce unnecessary syntactic confusion, and make it harder for students to complete their work.\n“Disciplined in what we teach, liberal in what we accept”\n\n\n\nPostel, J. (1980). DoD standard internet protocol. ACM SIGCOMM Computer Communication Review, 10(4), 12-51. datatracker.ietf.org/doc/html/rfc760"
+    "text": "teaching consistently\n\n\nChallenge: Google and Stack Overflow can be less useful – demo problem solving\nCounter-proposition: teach all (or multiple) syntaxes at once – trying to teach two (or more!) syntaxes at once will slow the pace of the course, introduce unnecessary syntactic confusion, and make it harder for students to complete their work.\n“Disciplined in what we teach, liberal in what we accept”\n\n\n\n\nPostel, J. (1980). DoD standard internet protocol. ACM SIGCOMM Computer Communication Review, 10(4), 12-51. datatracker.ietf.org/doc/html/rfc760"
   },
   {
     "objectID": "talks/dagstat-2022.html#mixability",
@@ -312,7 +319,7 @@
     "href": "talks/dagstat-2022.html#shared-syntax",
     "title": "an educator’s perpective of the tidyverse",
     "section": "shared syntax",
-    "text": "shared syntax\nGet SQL for free!"
+    "text": "shared syntax\nGet SQL for free with dplyr verbs!"
   },
   {
     "objectID": "talks/dagstat-2022.html#building-a-curriculum",
