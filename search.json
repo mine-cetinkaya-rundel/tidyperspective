@@ -277,7 +277,7 @@
     "href": "talks/dagstat-2022.html#teaching-consistently",
     "title": "an educator’s perpective of the tidyverse",
     "section": "teaching consistently",
-    "text": "teaching consistently\n\n\nChallenge: Google and Stack Overflow can be less useful – demo problem solving\nCounter-proposition: teach all (or multiple) syntaxes at once – trying to teach two (or more!) syntaxes at once will slow the pace of the course, introduce unnecessary syntactic confusion, and make it harder for students to complete their work.\n“Disciplined in what we teach, liberal in what we accept”\n\n\n\n\nPostel, J. (1980). DoD standard internet protocol. ACM SIGCOMM Computer Communication Review, 10(4), 12-51. datatracker.ietf.org/doc/html/rfc760"
+    "text": "teaching consistently\n\nChallenge: Google and Stack Overflow can be less useful – demo problem solving\nCounter-proposition: teach all (or multiple) syntaxes at once – trying to teach two (or more!) syntaxes at once will slow the pace of the course, introduce unnecessary syntactic confusion, and make it harder for students to complete their work.\n“Disciplined in what we teach, liberal in what we accept”\n\n\n\nPostel, J. (1980). DoD standard internet protocol. ACM SIGCOMM Computer Communication Review, 10(4), 12-51. datatracker.ietf.org/doc/html/rfc760"
   },
   {
     "objectID": "talks/dagstat-2022.html#mixability",
@@ -333,7 +333,7 @@
     "href": "talks/dagstat-2022.html#keeping-up-with-the-tidyverse",
     "title": "an educator’s perpective of the tidyverse",
     "section": "keeping up with the tidyverse",
-    "text": "keeping up with the tidyverse\n\nLifecycle stages and badges:\n\nBlog posts highlight updates, along with the reasoning behind them and worked examples"
+    "text": "keeping up with the tidyverse\n\nBlog posts highlight updates, along with the reasoning behind them and worked examples\nLifecycle stages and badges"
   },
   {
     "objectID": "talks/dagstat-2022.html#coda",
