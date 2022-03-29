@@ -4,7 +4,7 @@ project:
 website:
   title: "An educator's perspective of the tidyverse"
   description: "Code and supplementary materials for the An educator's perspective of the tidyverse talk."
-  site-url: "https://mine-cetinkaya-rundel.github.io/tidyperspective"
+  site-url: "https://mine-cetinkaya-rundel.github.io/tidyperspective/"
 
   page-footer:
     right: "This page is built with ❤️ and [Quarto](https://quarto.org/)."
