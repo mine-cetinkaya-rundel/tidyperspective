@@ -21,6 +21,7 @@
   --quarto-hl-in-color: #ffcc66;
   --quarto-hl-kw-color: #ffa759;
   --quarto-hl-op-color: #f29e74;
+  --quarto-hl-ot-color: #5ccfe6;
   --quarto-hl-pp-color: #f28779;
   --quarto-hl-re-color: #73d0ff;
   --quarto-hl-sc-color: #95e6cb;
@@ -137,6 +138,10 @@ div.sourceCode pre.sourceCode {
 
 code span.op {
   color: #f29e74;
+}
+
+code span.ot {
+  color: #5ccfe6;
 }
 
 code span.pp {

@@ -362,5 +362,285 @@
     "title": "an educator’s perpective of the tidyverse",
     "section": "collaborators",
     "text": "collaborators\n\nJohanna Hardin, Pomona College\nBenjamin S. Baumer, Smith College\nAmelia McNamara, University of St Thomas\nNicholas J. Horton, Amherst College\nColin W. Rundel, Duke University"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#bu-projeye-katkıda-bulunanlar",
+    "href": "talks/whyR-turkey-2022.html#bu-projeye-katkıda-bulunanlar",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "bu projeye katkıda bulunanlar",
+    "text": "bu projeye katkıda bulunanlar\n\nJohanna Hardin, Pomona College\nBenjamin S. Baumer, Smith College\nAmelia McNamara, University of St Thomas\nNicholas J. Horton, Amherst College\nColin W. Rundel, Duke University"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#sahne",
+    "href": "talks/whyR-turkey-2022.html#sahne",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "sahne",
+    "text": "sahne\n\n\n\nAssumption 1:\nOtantik araçları öğretmeliyiz\n\n\nAssumption 2:\nOtantik araç olarak R öğretelim"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#takeaway",
+    "href": "talks/whyR-turkey-2022.html#takeaway",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "takeaway",
+    "text": "takeaway\n\n\ntidyverse, tüm seviyelerdeki lisans öğrencileri için veri bilimi döngüsü boyunca ihtiyaç duyulan hesaplama becerilerini ve düşünmeyi kazanmaları için etkili ve verimli bir yol sağlar.\n\n\n\nÇetinkaya-Rundel, M., Hardin, J., Baumer, B. S., McNamara, A., Horton, N. J., & Rundel, C. (2021). An educator’s perspective of the tidyverse. arXiv preprint arXiv:2108.03510. arxiv.org/abs/2108.03510"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#tidyverse",
+    "href": "talks/whyR-turkey-2022.html#tidyverse",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "tidyverse",
+    "text": "tidyverse\n\n\n\nçağrıldığında sekiz çekirdek paketi yükleyen ve ayrıca kurulum sırasında çok sayıda başka paketi bir araya getiren meta R paketi\ntidyverse paketleri bir tasarım felsefesini, ortak dil bilgisini, ve veri yapılarını paylaşır"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#setup",
+    "href": "talks/whyR-turkey-2022.html#setup",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "setup",
+    "text": "setup\nData: Bir eşler arası kredi platformu olan Lending Club’dan binlerce kredi ile ilgili very, openintro paketinden, birkaç değişiklikle\n\nlibrary(tidyverse)\nlibrary(openintro)\n\nloans <- loans_full_schema %>%\n  mutate(\n    homeownership = str_to_title(homeownership), \n    bankruptcy = if_else(public_record_bankrupt >= 1, \"Yes\", \"No\")\n  ) %>%\n  filter(annual_income >= 10) %>%\n  select(\n    loan_amount, homeownership, bankruptcy,\n    application_type, annual_income, interest_rate\n  )"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#loans",
+    "href": "talks/whyR-turkey-2022.html#loans",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "loans",
+    "text": "loans\n\nglimpse(loans)\n\nRows: 9,976\nColumns: 6\n$ loan_amount      <int> 28000, 5000, 2000, 21600, 23000, 5000, 24000, 20000, …\n$ homeownership    <chr> \"Mortgage\", \"Rent\", \"Rent\", \"Rent\", \"Rent\", \"Own\", \"M…\n$ bankruptcy       <chr> \"No\", \"Yes\", \"No\", \"No\", \"No\", \"No\", \"No\", \"No\", \"No\"…\n$ application_type <fct> individual, individual, individual, individual, joint…\n$ annual_income    <dbl> 90000, 40000, 40000, 30000, 35000, 34000, 35000, 1100…\n$ interest_rate    <dbl> 14.07, 12.61, 17.09, 6.72, 14.07, 6.72, 13.59, 11.99,…"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#hedef-gruplandırılmış-özetleme",
+    "href": "talks/whyR-turkey-2022.html#hedef-gruplandırılmış-özetleme",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "hedef: gruplandırılmış özetleme",
+    "text": "hedef: gruplandırılmış özetleme\n\nBaşvuranların ev sahipliği durumuna göre, ortalama kredi tutarını ve başvuran sayısını hesaplayın. Sonuçları azalan ortalama kredi tutarına göre görüntüleyin.\n\n\n\n\n\n\n\n Homeownership \n    Number of applicants \n    Average loan amount \n  \n\n\n Mortgage \n    $18,132 \n    4,778 \n  \n\n Own \n    $15,665 \n    1,350 \n  \n\n Rent \n    $14,396 \n    3,848"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#adım-adım-i",
+    "href": "talks/whyR-turkey-2022.html#adım-adım-i",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "adım adım I",
+    "text": "adım adım I\n\n\nBaşvuranların ev sahipliği durumuna göre, ortalama kredi tutarını ve başvuran sayısını hesaplayın. Sonuçları azalan ortalama kredi tutarına göre görüntüleyin.\n\n\nloans\n\n# A tibble: 9,976 × 6\n  loan_amount homeownership bankruptcy application_type annual_income\n        <int> <chr>         <chr>      <fct>                    <dbl>\n1       28000 Mortgage      No         individual               90000\n2        5000 Rent          Yes        individual               40000\n3        2000 Rent          No         individual               40000\n4       21600 Rent          No         individual               30000\n5       23000 Rent          No         joint                    35000\n6        5000 Own           No         individual               34000\n# … with 9,970 more rows, and 1 more variable: interest_rate <dbl>"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#adım-adım-ii",
+    "href": "talks/whyR-turkey-2022.html#adım-adım-ii",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "adım adım II",
+    "text": "adım adım II\n\n\nBaşvuranların ev sahipliği durumuna göre, ortalama kredi tutarını ve başvuran sayısını hesaplayın. Sonuçları azalan ortalama kredi tutarına göre görüntüleyin.\n\n\n\n[input] veri çerçevesi\n\n\n\n\nloans %>%\n  group_by(homeownership)\n\n# A tibble: 9,976 × 6\n# Groups:   homeownership [3]\n  loan_amount homeownership bankruptcy application_type annual_income\n        <int> <chr>         <chr>      <fct>                    <dbl>\n1       28000 Mortgage      No         individual               90000\n2        5000 Rent          Yes        individual               40000\n3        2000 Rent          No         individual               40000\n4       21600 Rent          No         individual               30000\n5       23000 Rent          No         joint                    35000\n6        5000 Own           No         individual               34000\n# … with 9,970 more rows, and 1 more variable: interest_rate <dbl>\n\n\n\n\n\nveri çerçevesi [output]"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#adım-adım-iii",
+    "href": "talks/whyR-turkey-2022.html#adım-adım-iii",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "adım adım III",
+    "text": "adım adım III\n\n\nBaşvuranların ev sahipliği durumuna göre, ortalama kredi tutarını ve başvuran sayısını hesaplayın. Sonuçları azalan ortalama kredi tutarına göre görüntüleyin.\n\n\nloans %>%\n  group_by(homeownership) %>% \n  summarize(\n    avg_loan_amount = mean(loan_amount)\n    )\n\n# A tibble: 3 × 2\n  homeownership avg_loan_amount\n  <chr>                   <dbl>\n1 Mortgage               18132.\n2 Own                    15665.\n3 Rent                   14396."
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#adım-adım-iv",
+    "href": "talks/whyR-turkey-2022.html#adım-adım-iv",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "adım adım IV",
+    "text": "adım adım IV\n\n\nBaşvuranların ev sahipliği durumuna göre, ortalama kredi tutarını ve başvuran sayısını hesaplayın. Sonuçları azalan ortalama kredi tutarına göre görüntüleyin.\n\n\nloans %>%\n  group_by(homeownership) %>% \n  summarize(\n    avg_loan_amount = mean(loan_amount),\n    n_applicants = n()\n    )\n\n# A tibble: 3 × 3\n  homeownership avg_loan_amount n_applicants\n  <chr>                   <dbl>        <int>\n1 Mortgage               18132.         4778\n2 Own                    15665.         1350\n3 Rent                   14396.         3848"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#adım-adım-v",
+    "href": "talks/whyR-turkey-2022.html#adım-adım-v",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "adım adım V",
+    "text": "adım adım V\n\n\nBaşvuranların ev sahipliği durumuna göre, ortalama kredi tutarını ve başvuran sayısını hesaplayın. Sonuçları azalan ortalama kredi tutarına göre görüntüleyin.\n\n\nloans %>%\n  group_by(homeownership) %>% \n  summarize(\n    avg_loan_amount = mean(loan_amount),\n    n_applicants = n()\n    ) %>%\n  arrange(desc(avg_loan_amount))\n\n# A tibble: 3 × 3\n  homeownership avg_loan_amount n_applicants\n  <chr>                   <dbl>        <int>\n1 Mortgage               18132.         4778\n2 Own                    15665.         1350\n3 Rent                   14396.         3848"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#hep-beraber",
+    "href": "talks/whyR-turkey-2022.html#hep-beraber",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "hep beraber",
+    "text": "hep beraber\n\n[input] veri çerçevesi\n\n\nloans %>%\n  group_by(homeownership) %>% \n  summarize(\n    avg_loan_amount = mean(loan_amount),\n    n_applicants = n()\n    ) %>%\n  arrange(desc(avg_loan_amount))\n\n# A tibble: 3 × 3\n  homeownership avg_loan_amount n_applicants\n  <chr>                   <dbl>        <int>\n1 Mortgage               18132.         4778\n2 Own                    15665.         1350\n3 Rent                   14396.         3848\n\n\n\n[output] veri çerçevesi"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#aggregate-ile-gruplandırılmış-özet",
+    "href": "talks/whyR-turkey-2022.html#aggregate-ile-gruplandırılmış-özet",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "\naggregate() ile gruplandırılmış özet",
+    "text": "aggregate() ile gruplandırılmış özet\n\nres1 <- aggregate(loan_amount ~ homeownership, \n                  data = loans, FUN = length)\nres1\n\n  homeownership loan_amount\n1      Mortgage        4778\n2           Own        1350\n3          Rent        3848\n\nnames(res1)[2] <- \"n_applicants\"\nres1\n\n  homeownership n_applicants\n1      Mortgage         4778\n2           Own         1350\n3          Rent         3848"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#aggregate-ile-gruplandırılmış-özet-1",
+    "href": "talks/whyR-turkey-2022.html#aggregate-ile-gruplandırılmış-özet-1",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "\naggregate() ile gruplandırılmış özet",
+    "text": "aggregate() ile gruplandırılmış özet\n\nres2 <- aggregate(loan_amount ~ homeownership, \n                  data = loans, FUN = mean)\nnames(res2)[2] <- \"avg_loan_amount\"\n\nres2\n\n  homeownership avg_loan_amount\n1      Mortgage        18132.45\n2           Own        15665.44\n3          Rent        14396.44\n\n\n\n\nres <- merge(res1, res2)\nres[order(res$avg_loan_amount, decreasing = TRUE), ]\n\n  homeownership n_applicants avg_loan_amount\n1      Mortgage         4778        18132.45\n2           Own         1350        15665.44\n3          Rent         3848        14396.44"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#aggregate-ile-gruplandırılmış-özet-2",
+    "href": "talks/whyR-turkey-2022.html#aggregate-ile-gruplandırılmış-özet-2",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "\naggregate() ile gruplandırılmış özet",
+    "text": "aggregate() ile gruplandırılmış özet\n\n\nres1 <- aggregate(loan_amount ~ homeownership, data = loans, FUN = length)\nnames(res1)[2] <- \"n_applicants\"\nres2 <- aggregate(loan_amount ~ homeownership, data = loans, FUN = mean)\nnames(res2)[2] <- \"avg_loan_amount\"\nres <- merge(res1, res2)\nres[order(res$avg_loan_amount, decreasing = TRUE), ]\n\n\n\n\n\nGood: Giren ve çıkan veri çerçevesi\n\nNot so good: Butun bunlari tanıtmak gerekiyor:\n\nformül sözdizimi\nfonksiyonları argüman olarak iletme\nveri cercevelerini birleştirme\nsatırlara erişmek için köşeli parantez gösterimi"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#tapply-ile-gruplandırılmış-özet",
+    "href": "talks/whyR-turkey-2022.html#tapply-ile-gruplandırılmış-özet",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "\ntapply() ile gruplandırılmış özet",
+    "text": "tapply() ile gruplandırılmış özet\n\nsort(\n  tapply(loans$loan_amount, loans$homeownership, mean),\n  decreasing = TRUE\n  )\n\nMortgage      Own     Rent \n18132.45 15665.44 14396.44 \n\n\n\n\nNot so good:\n\npassing functions as arguments\ndistinguishing between the various apply() functions\nending up with a new data structure (array)\nreading nested functions"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#hedef-veri-görselleştirme",
+    "href": "talks/whyR-turkey-2022.html#hedef-veri-görselleştirme",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "hedef: veri görselleştirme",
+    "text": "hedef: veri görselleştirme\n\nKredi tutarı ile başvuru türü arasındaki ilişkiyi ev sahipliğine göre gösteren yan yana kutu grafikleri oluşturun."
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#adım-adım-i-1",
+    "href": "talks/whyR-turkey-2022.html#adım-adım-i-1",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "adım adım I",
+    "text": "adım adım I\n\n\nCreate side-by-side box plots that shows the relationship between annual income and application type, faceted by homeownership.\n\n\nggplot(loans)"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#adım-adım-ii-1",
+    "href": "talks/whyR-turkey-2022.html#adım-adım-ii-1",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "adım adım II",
+    "text": "adım adım II\n\n\nCreate side-by-side box plots that shows the relationship between annual income and application type, faceted by homeownership.\n\n\nggplot(loans, \n       aes(x = application_type))"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#adım-adım-iii-1",
+    "href": "talks/whyR-turkey-2022.html#adım-adım-iii-1",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "adım adım III",
+    "text": "adım adım III\n\n\nCreate side-by-side box plots that shows the relationship between annual income and application type, faceted by homeownership.\n\n\nggplot(loans, \n       aes(x = application_type,\n           y = loan_amount))"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#adım-adım-iv-1",
+    "href": "talks/whyR-turkey-2022.html#adım-adım-iv-1",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "adım adım IV",
+    "text": "adım adım IV\n\n\nCreate side-by-side box plots that shows the relationship between annual income and application type, faceted by homeownership.\n\n\nggplot(loans, \n       aes(x = application_type,\n           y = loan_amount)) +\n  geom_boxplot()"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#adım-adım-iv-2",
+    "href": "talks/whyR-turkey-2022.html#adım-adım-iv-2",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "adım adım IV",
+    "text": "adım adım IV\n\n\nCreate side-by-side box plots that shows the relationship between annual income and application type, faceted by homeownership.\n\n\nggplot(loans, \n       aes(x = application_type,\n           y = loan_amount)) +\n  geom_boxplot() +\n  facet_wrap(~ homeownership)"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#plotting-with-ggplot",
+    "href": "talks/whyR-turkey-2022.html#plotting-with-ggplot",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "plotting with ggplot()\n",
+    "text": "plotting with ggplot()\n\n\nggplot(loans, \n       aes(x = application_type, y = loan_amount)) +\n  geom_boxplot() +\n  facet_wrap(~ homeownership)\n\n\n\nEach layer produces a valid plot\nFaceting by a third variable takes only one new function"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#plotting-with-boxplot",
+    "href": "talks/whyR-turkey-2022.html#plotting-with-boxplot",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "plotting with boxplot()\n",
+    "text": "plotting with boxplot()\n\n\nlevels <- sort(unique(loans$homeownership))\nlevels\n\n[1] \"Mortgage\" \"Own\"      \"Rent\"    \n\nloans1 <- loans[loans$homeownership == levels[1],]\nloans2 <- loans[loans$homeownership == levels[2],]\nloans3 <- loans[loans$homeownership == levels[3],]"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#plotting-with-boxplot-1",
+    "href": "talks/whyR-turkey-2022.html#plotting-with-boxplot-1",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "plotting with boxplot()\n",
+    "text": "plotting with boxplot()\n\n\npar(mfrow = c(1, 3))\n\nboxplot(loan_amount ~ application_type, \n        data = loans1, main = levels[1])\nboxplot(loan_amount ~ application_type, \n        data = loans2, main = levels[2])\nboxplot(loan_amount ~ application_type, \n        data = loans3, main = levels[3])"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#visualizing-a-different-relationship",
+    "href": "talks/whyR-turkey-2022.html#visualizing-a-different-relationship",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "visualizing a different relationship",
+    "text": "visualizing a different relationship\n\nVisualize the relationship between interest rate and annual income, conditioned on whether the applicant had a bankruptcy."
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#plotting-with-ggplot-1",
+    "href": "talks/whyR-turkey-2022.html#plotting-with-ggplot-1",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "plotting with ggplot()\n",
+    "text": "plotting with ggplot()\n\n\nggplot(loans, \n       aes(y = interest_rate, x = annual_income, \n           color = bankruptcy)) +\n  geom_point(alpha = 0.1) + \n  geom_smooth(method = \"lm\", size = 2, se = FALSE) + \n  scale_x_log10()"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#further-customizing-ggplot",
+    "href": "talks/whyR-turkey-2022.html#further-customizing-ggplot",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "further customizing ggplot()\n",
+    "text": "further customizing ggplot()\n\n\nggplot(loans, \n       aes(y = interest_rate, x = annual_income, \n           color = bankruptcy)) +\n  geom_point(alpha = 0.1) + \n  geom_smooth(method = \"lm\", size = 2, se = FALSE) + \n  scale_x_log10(labels = scales::label_dollar()) +\n  scale_y_continuous(labels = scales::label_percent(scale = 1)) +\n  scale_color_OkabeIto() +\n  labs(x = \"Annual Income\", y = \"Interest Rate\", \n       color = \"Previous\\nBankruptcy\") +\n  theme_minimal(base_size = 18)"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#plotting-with-plot",
+    "href": "talks/whyR-turkey-2022.html#plotting-with-plot",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "plotting with plot()\n",
+    "text": "plotting with plot()\n\n\n# From the OkabeIto palette\ncols = c(No = \"#e6a003\", Yes = \"#57b4e9\")\n\nplot(\n  loans$annual_income,\n  loans$interest_rate,\n  pch = 16,\n  col = adjustcolor(cols[loans$bankruptcy], alpha.f = 0.1),\n  log = \"x\",\n  xlab = \"Annual Income ($)\",\n  ylab = \"Interest Rate (%)\",\n  xaxp = c(1000, 10000000, 1)\n)\n\nlm_b_no = lm(\n  interest_rate ~ log10(annual_income), \n  data = loans[loans$bankruptcy == \"No\",]\n)\nlm_b_yes = lm(\n  interest_rate ~ log10(annual_income), \n  data = loans[loans$bankruptcy == \"Yes\",]\n)\n\nabline(lm_b_no, col = cols[\"No\"], lwd = 3)\nabline(lm_b_yes, col = cols[\"Yes\"], lwd = 3)\n\nlegend(\n  \"topright\", \n  legend = c(\"Yes\", \"No\"), \n  title = \"Previous\\nBankruptcy\", \n  col = cols[c(\"Yes\", \"No\")], \n  pch = 16, lwd = 1\n)"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#plotting-with-plot-1",
+    "href": "talks/whyR-turkey-2022.html#plotting-with-plot-1",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "plotting with plot()\n",
+    "text": "plotting with plot()"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#beyond-wrangling-summaries-visualizations",
+    "href": "talks/whyR-turkey-2022.html#beyond-wrangling-summaries-visualizations",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "beyond wrangling, summaries, visualizations",
+    "text": "beyond wrangling, summaries, visualizations\nModeling and inference with tidymodels:\n\nA unified interface to modeling functions available in a large variety of packages\nSticking to the data frame in / data frame out paradigm\nGuardrails for methodology"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#tidyverse-in-pedagojik-güçlü-yönleri",
+    "href": "talks/whyR-turkey-2022.html#tidyverse-in-pedagojik-güçlü-yönleri",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "tidyverse’ in pedagojik güçlü yönleri",
+    "text": "tidyverse’ in pedagojik güçlü yönleri\n\ntutarlılık\nkarıştırılabilirlik: base R koduyla (ya da başka paketlerin kodlarıyla) karıştırmamak mümkün değil!\nölçeklenebilirlik: bir görselleştirmeye veya yeni bir özet istatistiğe yeni bir değişken eklemek, çok sayıda işlev, arabirim ve veri yapısının tanıtılmasını gerektirmez.\nkullanıcı merkezli tasarım: kullanıcı deneyimi (ve öğrenimi) düşünülerek tasarlanmış ve devamlı olarak geliştirilen arayüzler\nokunabilirlik: okunabilir kod üretmek için tasarlanmış arayüzler\nkomünite + dokümentasyon: teşvik edici ve kapsayıcı komünite + kullanıcı dostu dokümentasyon\npaylaşılan sözdizimi: dplyr fiilleriyle SQL’i ücretsiz edinin!"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#müfredat-oluşturmak",
+    "href": "talks/whyR-turkey-2022.html#müfredat-oluşturmak",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "müfredat oluşturmak",
+    "text": "müfredat oluşturmak\n\nlibrary(tidyverse) ile başlayin\nPaketlerle değil, öğrenme hedefleriyle öğretin"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#tidyversei-takip-etmek",
+    "href": "talks/whyR-turkey-2022.html#tidyversei-takip-etmek",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "tidyverse’i takip etmek",
+    "text": "tidyverse’i takip etmek\n\nBlog gönderileri, güncellemeleri, bunların arkasındaki mantık ve işe yarayan örneklerle birlikte vurgular\n\nYaşam döngüsü aşamaları ve rozetler"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#koda",
+    "href": "talks/whyR-turkey-2022.html#koda",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "koda",
+    "text": "koda\n\n\n\nHepimiz tidyverse’e döndük ve onu araştırmamızda ve öğretimimizde kullanmak için bilinçli bir seçim yaptık. Her birimiz R’i tidyverse oncesinde öğrendik ve senelerce tidyverse’siz R ogrettik. Bu makale, tidyverse seçimimizi destekleyen nedenlerin yanı sıra, tidyverse ile istatistik öğretimi ile ilgili faydaların ve zorlukların bir sentezidir.\n\n\n\n\n\n\n\nÇetinkaya-Rundel, M., Hardin, J., Baumer, B. S., McNamara, A., Horton, N. J., & Rundel, C. (2021). An educator’s perspective of the tidyverse. arXiv preprint arXiv:2108.03510. arxiv.org/abs/2108.03510"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#varsayımlar",
+    "href": "talks/whyR-turkey-2022.html#varsayımlar",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "varsayımlar",
+    "text": "varsayımlar\n\n\n\nvarsayım 1:\nOtantik araçları öğretmeliyiz\n\n\nvarsayım 2:\nOtantik araç olarak R öğretelim"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#örneklerde-kullanılacak-veri",
+    "href": "talks/whyR-turkey-2022.html#örneklerde-kullanılacak-veri",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "örneklerde kullanılacak veri",
+    "text": "örneklerde kullanılacak veri\ndata: Bir eşler arası kredi platformu olan Lending Club’dan binlerce kredi ile ilgili veri, openintro paketinden, birkaç değişiklikle\n\nlibrary(tidyverse)\nlibrary(openintro)\n\nloans <- loans_full_schema %>%\n  mutate(\n    homeownership = str_to_title(homeownership), \n    bankruptcy = if_else(public_record_bankrupt >= 1, \"Yes\", \"No\")\n  ) %>%\n  filter(annual_income >= 10) %>%\n  select(\n    loan_amount, homeownership, bankruptcy,\n    application_type, annual_income, interest_rate\n  )"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#akılda-kalması-gereken",
+    "href": "talks/whyR-turkey-2022.html#akılda-kalması-gereken",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "akılda kalması gereken",
+    "text": "akılda kalması gereken\n\n\ntidyverse, tüm seviyelerdeki lisans öğrencileri için veri bilimi döngüsü boyunca ihtiyaç duyulan hesaplama becerilerini ve düşünmeyi kazanmaları için etkili ve verimli bir yol sağlar.\n\n\n\nÇetinkaya-Rundel, M., Hardin, J., Baumer, B. S., McNamara, A., Horton, N. J., & Rundel, C. (2021). An educator’s perspective of the tidyverse. arXiv preprint arXiv:2108.03510. arxiv.org/abs/2108.03510"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#alternatifler",
+    "href": "talks/whyR-turkey-2022.html#alternatifler",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "alternatifler",
+    "text": "alternatifler\n\naggregate()\ntapply()"
   }
 ]
