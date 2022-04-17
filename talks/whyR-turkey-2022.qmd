@@ -89,7 +89,7 @@ arXiv preprint arXiv:2108.03510.
 
 ## örneklerde kullanılacak veri
 
-**data:** Bir eşler arası kredi platformu olan Lending Club'dan binlerce kredi ile ilgili veri, **openintro** paketinden, birkaç değişiklikle
+**data:** Bir peer-to-peer lending platformu olan Lending Club'dan binlerce kredi ile ilgili veri, **openintro** paketinden, birkaç değişiklikle
 
 ```{r}
 library(tidyverse)

@@ -627,7 +627,7 @@
     "href": "talks/whyR-turkey-2022.html#örneklerde-kullanılacak-veri",
     "title": "bir eğitimcinin perspektifinden tidyverse",
     "section": "örneklerde kullanılacak veri",
-    "text": "örneklerde kullanılacak veri\ndata: Bir eşler arası kredi platformu olan Lending Club’dan binlerce kredi ile ilgili veri, openintro paketinden, birkaç değişiklikle\n\nlibrary(tidyverse)\nlibrary(openintro)\n\nloans <- loans_full_schema %>%\n  mutate(\n    homeownership = str_to_title(homeownership), \n    bankruptcy = if_else(public_record_bankrupt >= 1, \"Yes\", \"No\")\n  ) %>%\n  filter(annual_income >= 10) %>%\n  select(\n    loan_amount, homeownership, bankruptcy,\n    application_type, annual_income, interest_rate\n  )"
+    "text": "örneklerde kullanılacak veri\ndata: Bir peer-to-peer lending platformu olan Lending Club’dan binlerce kredi ile ilgili veri, openintro paketinden, birkaç değişiklikle\n\nlibrary(tidyverse)\nlibrary(openintro)\n\nloans <- loans_full_schema %>%\n  mutate(\n    homeownership = str_to_title(homeownership), \n    bankruptcy = if_else(public_record_bankrupt >= 1, \"Yes\", \"No\")\n  ) %>%\n  filter(annual_income >= 10) %>%\n  select(\n    loan_amount, homeownership, bankruptcy,\n    application_type, annual_income, interest_rate\n  )"
   },
   {
     "objectID": "talks/whyR-turkey-2022.html#akılda-kalması-gereken",
