@@ -32,14 +32,14 @@
     "href": "talks/whyR-turkey-2022.html#varsayımlar",
     "title": "bir eğitimcinin perspektifinden tidyverse",
     "section": "varsayımlar",
-    "text": "varsayımlar\n\n\n\nvarsayım 1:\nOtantik araçları öğretmeliyiz\n\n\nvarsayım 2:\nOtantik araç olarak R öğretelim"
+    "text": "varsayımlar\n\n\n\nvarsayım 1:\notantik araçları öğretmeliyiz\n\n\nvarsayım 2:\notantik araç olarak R öğretelim"
   },
   {
     "objectID": "talks/whyR-turkey-2022.html#akılda-kalması-gereken",
     "href": "talks/whyR-turkey-2022.html#akılda-kalması-gereken",
     "title": "bir eğitimcinin perspektifinden tidyverse",
     "section": "akılda kalması gereken",
-    "text": "akılda kalması gereken\n\n\ntidyverse, tüm seviyelerdeki lisans öğrencileri için veri bilimi döngüsü boyunca ihtiyaç duyulan bilişimsel becerilerini ve düşünmeyi kazanmaları için etkili ve verimli bir yol sağlar.\n\n\n\nÇetinkaya-Rundel, M., Hardin, J., Baumer, B. S., McNamara, A., Horton, N. J., & Rundel, C. (2021). An educator’s perspective of the tidyverse. arXiv preprint arXiv:2108.03510. arxiv.org/abs/2108.03510"
+    "text": "akılda kalması gereken\n\n\ntidyverse tüm seviyelerdeki lisans öğrencileri için veri bilimi döngüsü boyunca ihtiyaç duyulan bilişimsel becerilerini ve düşünmeyi kazanmaları için etkili ve verimli bir yol sağlar.\n\n\n\nÇetinkaya-Rundel, M., Hardin, J., Baumer, B. S., McNamara, A., Horton, N. J., & Rundel, C. (2021). An educator’s perspective of the tidyverse. arXiv preprint arXiv:2108.03510. arxiv.org/abs/2108.03510"
   },
   {
     "objectID": "talks/whyR-turkey-2022.html#tidyverse",
@@ -53,7 +53,7 @@
     "href": "talks/whyR-turkey-2022.html#örneklerde-kullanılacak-veri",
     "title": "bir eğitimcinin perspektifinden tidyverse",
     "section": "örneklerde kullanılacak veri",
-    "text": "örneklerde kullanılacak veri\ndata: Bir peer-to-peer lending platformu olan Lending Club’dan binlerce borçlanma ile ilgili veri, openintro paketinden, birkaç değişiklikle\n\nlibrary(tidyverse)\nlibrary(openintro)\n\nloans <- loans_full_schema %>%\n  mutate(\n    homeownership = str_to_title(homeownership), \n    bankruptcy = if_else(public_record_bankrupt >= 1, \"Yes\", \"No\")\n  ) %>%\n  filter(annual_income >= 10) %>%\n  select(\n    loan_amount, homeownership, bankruptcy,\n    application_type, annual_income, interest_rate\n  )"
+    "text": "örneklerde kullanılacak veri\ndata: peer-to-peer lending platformu olan Lending Club’dan binlerce borçlanma ile ilgili veri, openintro paketinden, birkaç değişiklikle\n\nlibrary(tidyverse)\nlibrary(openintro)\n\nloans <- loans_full_schema %>%\n  mutate(\n    homeownership = str_to_title(homeownership), \n    bankruptcy = if_else(public_record_bankrupt >= 1, \"Yes\", \"No\")\n  ) %>%\n  filter(annual_income >= 10) %>%\n  select(\n    loan_amount, homeownership, bankruptcy,\n    application_type, annual_income, interest_rate\n  )"
   },
   {
     "objectID": "talks/whyR-turkey-2022.html#loans",
@@ -193,7 +193,7 @@
     "href": "talks/whyR-turkey-2022.html#ggplot-ile-görselleştirme",
     "title": "bir eğitimcinin perspektifinden tidyverse",
     "section": "ggplot() ile görselleştirme",
-    "text": "ggplot() ile görselleştirme\n\nggplot(loans, \n       aes(x = application_type, y = loan_amount)) +\n  geom_boxplot() +\n  facet_wrap(~ homeownership)\n\n\n\nHer katman geçerli bir görselleştirme üretir\nÜçüncü bir değişkenle facet oluşturma yalnızca bir yeni fonksiyon gerektirir"
+    "text": "ggplot() ile görselleştirme\n\nggplot(loans, \n       aes(x = application_type, y = loan_amount)) +\n  geom_boxplot() +\n  facet_wrap(~ homeownership)\n\n\n\nher katman geçerli bir görselleştirme üretiyor\nüçüncü bir değişkenle facet oluşturma yalnızca bir yeni fonksiyon gerektiriyor"
   },
   {
     "objectID": "talks/whyR-turkey-2022.html#alternatif-boxplot",
@@ -270,7 +270,7 @@
     "href": "talks/whyR-turkey-2022.html#data-science-in-a-box",
     "title": "bir eğitimcinin perspektifinden tidyverse",
     "section": "data science in a box",
-    "text": "data science in a box\ndatasciencebox.org"
+    "text": "data science in a box\n\ndatasciencebox.org"
   },
   {
     "objectID": "talks/whyR-turkey-2022.html#tidyversei-takip-etmek",
