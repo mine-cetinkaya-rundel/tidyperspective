@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://mine-cetinkaya-rundel.github.io/tidyperspective/talks/dagstat-2022.html</loc>
-    <lastmod>2022-03-29T16:00:20.445Z</lastmod>
+    <loc>https://mine-cetinkaya-rundel.github.io/tidyperspective/paper.html</loc>
+    <lastmod>2022-04-17T16:34:24.787Z</lastmod>
   </url>
   <url>
     <loc>https://mine-cetinkaya-rundel.github.io/tidyperspective/dagstat2022.html</loc>
-    <lastmod>2022-03-29T16:00:22.365Z</lastmod>
+    <lastmod>2022-04-17T16:34:26.755Z</lastmod>
   </url>
   <url>
     <loc>https://mine-cetinkaya-rundel.github.io/tidyperspective/index.html</loc>
-    <lastmod>2022-03-29T16:00:22.721Z</lastmod>
+    <lastmod>2022-04-17T16:34:27.107Z</lastmod>
   </url>
   <url>
-    <loc>https://mine-cetinkaya-rundel.github.io/tidyperspective/paper.html</loc>
-    <lastmod>2022-03-29T16:00:23.029Z</lastmod>
+    <loc>https://mine-cetinkaya-rundel.github.io/tidyperspective/talks/whyR-turkey-2022.html</loc>
+    <lastmod>2022-04-17T16:34:40.144Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mine-cetinkaya-rundel.github.io/tidyperspective/talks/dagstat-2022.html</loc>
+    <lastmod>2022-04-17T16:34:53.088Z</lastmod>
   </url>
 </urlset>

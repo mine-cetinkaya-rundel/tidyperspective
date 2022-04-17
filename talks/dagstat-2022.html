@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="utf-8">
-  <meta name="generator" content="quarto-0.9.161">
+  <meta name="generator" content="quarto-0.9.271">
+
   <meta name="author" content="mine çetinkaya-rundel">
   <title>An educator’s perspective of the tidyverse - an educator’s perpective of the tidyverse</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -81,7 +82,6 @@
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css" id="theme">
-
   <script src="../site_libs/clipboard/clipboard.min.js"></script>
   <script src="../site_libs/quarto-html/tabby.min.js"></script>
   <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -461,7 +461,7 @@
 <h2>setup</h2>
 <p><strong>Data:</strong> Thousands of loans made through the Lending Club, a peer-to-peer lending platform available in the <strong>openintro</strong> package, with a few modifications.</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(openintro)</span>
 <span id="cb1-3"><a href="#cb1-3"></a></span>
 <span id="cb1-4"><a href="#cb1-4"></a>loans <span class="ot">&lt;-</span> loans_full_schema <span class="sc">%&gt;%</span></span>
@@ -479,8 +479,8 @@
 <section id="start-with-a-data-frame" class="slide level2">
 <h2>start with a data frame</h2>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>loans</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>loans</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9,976 × 6
   loan_amount homeownership bankruptcy application_type annual_income
         &lt;int&gt; &lt;chr&gt;         &lt;chr&gt;      &lt;fct&gt;                    &lt;dbl&gt;
@@ -511,8 +511,8 @@
 <p>Calculate the mean loan amount.</p>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>loans</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>loans</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9,976 × 6
   loan_amount homeownership bankruptcy application_type annual_income
         &lt;int&gt; &lt;chr&gt;         &lt;chr&gt;      &lt;fct&gt;                    &lt;dbl&gt;
@@ -527,12 +527,12 @@
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">mean</span>(loan_amount)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">mean</span>(loan_amount)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="cell-output-error">
+<div class="cell-output cell-output-error">
 <pre><code>Error in mean(loan_amount): object 'loan_amount' not found</code></pre>
 </div>
 </div>
@@ -542,9 +542,9 @@
 <h2>accessing a variable</h2>
 <p><strong>Approach 1:</strong> With <code>attach()</code>:</p>
 <div class="cell">
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">attach</span>(loans)</span>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">attach</span>(loans)</span>
 <span id="cb8-2"><a href="#cb8-2"></a><span class="fu">mean</span>(loan_amount)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>[1] 16357.53</code></pre>
 </div>
 </div>
@@ -560,8 +560,8 @@
 <h2>accessing a variable</h2>
 <p><strong>Approach 2:</strong> Using <code>$</code>:</p>
 <div class="cell">
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">mean</span>(loans<span class="sc">$</span>loan_amount)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">mean</span>(loans<span class="sc">$</span>loan_amount)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
 <pre><code>[1] 16357.53</code></pre>
 </div>
 </div>
@@ -569,8 +569,8 @@
 <p><br></p>
 <p><strong>Approach 3:</strong> Using <code>with()</code>:</p>
 <div class="cell">
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">with</span>(loans, <span class="fu">mean</span>(loan_amount))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">with</span>(loans, <span class="fu">mean</span>(loan_amount))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
 <pre><code>[1] 16357.53</code></pre>
 </div>
 </div>
@@ -580,9 +580,9 @@
 <h2>accessing a variable</h2>
 <p><strong>Approach 4:</strong> The tidyverse approach:</p>
 <div class="cell">
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>loans <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>loans <span class="sc">%&gt;%</span></span>
 <span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">summarise</span>(<span class="at">mean_loan_amount =</span> <span class="fu">mean</span>(loan_amount))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
   mean_loan_amount
              &lt;dbl&gt;
@@ -657,8 +657,8 @@
 <p>Based on the applicants’ home ownership status, compute the average loan amount and the number of applicants. Display the results in descending order of average loan amount.</p>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>loans</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>loans</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9,976 × 6
   loan_amount homeownership bankruptcy application_type annual_income
         &lt;int&gt; &lt;chr&gt;         &lt;chr&gt;      &lt;fct&gt;                    &lt;dbl&gt;
@@ -687,9 +687,9 @@
 </div>
 <div class="fragment" data-fragment-index="3">
 <div class="cell">
-<div class="sourceCode" id="cb18" data-code-line-numbers="2"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>loans <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb18" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>loans <span class="sc">%&gt;%</span></span>
 <span id="cb18-2"><a href="#cb18-2"></a>  <span class="fu">group_by</span>(homeownership)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9,976 × 6
 # Groups:   homeownership [3]
   loan_amount homeownership bankruptcy application_type annual_income
@@ -719,12 +719,12 @@
 <p>Based on the applicants’ home ownership status, <span style="font-weight:bold;background-color:#ccddeb;">compute the average loan amount</span> and the number of applicants. Display the results in descending order of average loan amount.</p>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<div class="sourceCode" id="cb20" data-code-line-numbers="3-5"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>loans <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb20" data-code-line-numbers="3-5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>loans <span class="sc">%&gt;%</span></span>
 <span id="cb20-2"><a href="#cb20-2"></a>  <span class="fu">group_by</span>(homeownership) <span class="sc">%&gt;%</span> </span>
 <span id="cb20-3"><a href="#cb20-3"></a>  <span class="fu">summarize</span>(</span>
 <span id="cb20-4"><a href="#cb20-4"></a>    <span class="at">avg_loan_amount =</span> <span class="fu">mean</span>(loan_amount)</span>
 <span id="cb20-5"><a href="#cb20-5"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
   homeownership avg_loan_amount
   &lt;chr&gt;                   &lt;dbl&gt;
@@ -743,13 +743,13 @@
 <p>Based on the applicants’ home ownership status, compute the average loan amount and <span style="font-weight:bold;background-color:#ccddeb;">the number of applicants</span>. Display the results in descending order of average loan amount.</p>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<div class="sourceCode" id="cb22" data-code-line-numbers="5"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>loans <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb22" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>loans <span class="sc">%&gt;%</span></span>
 <span id="cb22-2"><a href="#cb22-2"></a>  <span class="fu">group_by</span>(homeownership) <span class="sc">%&gt;%</span> </span>
 <span id="cb22-3"><a href="#cb22-3"></a>  <span class="fu">summarize</span>(</span>
 <span id="cb22-4"><a href="#cb22-4"></a>    <span class="at">avg_loan_amount =</span> <span class="fu">mean</span>(loan_amount),</span>
 <span id="cb22-5"><a href="#cb22-5"></a>    <span class="at">n_applicants =</span> <span class="fu">n</span>()</span>
 <span id="cb22-6"><a href="#cb22-6"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 3
   homeownership avg_loan_amount n_applicants
   &lt;chr&gt;                   &lt;dbl&gt;        &lt;int&gt;
@@ -768,14 +768,14 @@
 <p>Based on the applicants’ home ownership status, compute the average loan amount and the number of applicants. <span style="font-weight:bold;background-color:#ccddeb;">Display the results in descending order of average loan amount.</span></p>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<div class="sourceCode" id="cb24" data-code-line-numbers="7"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>loans <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb24" data-code-line-numbers="7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>loans <span class="sc">%&gt;%</span></span>
 <span id="cb24-2"><a href="#cb24-2"></a>  <span class="fu">group_by</span>(homeownership) <span class="sc">%&gt;%</span> </span>
 <span id="cb24-3"><a href="#cb24-3"></a>  <span class="fu">summarize</span>(</span>
 <span id="cb24-4"><a href="#cb24-4"></a>    <span class="at">avg_loan_amount =</span> <span class="fu">mean</span>(loan_amount),</span>
 <span id="cb24-5"><a href="#cb24-5"></a>    <span class="at">n_applicants =</span> <span class="fu">n</span>()</span>
 <span id="cb24-6"><a href="#cb24-6"></a>    ) <span class="sc">%&gt;%</span></span>
 <span id="cb24-7"><a href="#cb24-7"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(avg_loan_amount))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 3
   homeownership avg_loan_amount n_applicants
   &lt;chr&gt;                   &lt;dbl&gt;        &lt;int&gt;
@@ -793,14 +793,14 @@
 <p><strong>[input]</strong> data frame</p>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>loans <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>loans <span class="sc">%&gt;%</span></span>
 <span id="cb26-2"><a href="#cb26-2"></a>  <span class="fu">group_by</span>(homeownership) <span class="sc">%&gt;%</span> </span>
 <span id="cb26-3"><a href="#cb26-3"></a>  <span class="fu">summarize</span>(</span>
 <span id="cb26-4"><a href="#cb26-4"></a>    <span class="at">avg_loan_amount =</span> <span class="fu">mean</span>(loan_amount),</span>
 <span id="cb26-5"><a href="#cb26-5"></a>    <span class="at">n_applicants =</span> <span class="fu">n</span>()</span>
 <span id="cb26-6"><a href="#cb26-6"></a>    ) <span class="sc">%&gt;%</span></span>
 <span id="cb26-7"><a href="#cb26-7"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(avg_loan_amount))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 3
   homeownership avg_loan_amount n_applicants
   &lt;chr&gt;                   &lt;dbl&gt;        &lt;int&gt;
@@ -816,18 +816,18 @@
 <section id="grouped-summary-with-aggregate" class="slide level2">
 <h2>grouped summary with <code>aggregate()</code></h2>
 <div class="cell">
-<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>res1 <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(loan_amount <span class="sc">~</span> homeownership, </span>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>res1 <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(loan_amount <span class="sc">~</span> homeownership, </span>
 <span id="cb28-2"><a href="#cb28-2"></a>                  <span class="at">data =</span> loans, <span class="at">FUN =</span> length)</span>
 <span id="cb28-3"><a href="#cb28-3"></a>res1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>  homeownership loan_amount
 1      Mortgage        4778
 2           Own        1350
 3          Rent        3848</code></pre>
 </div>
-<div class="sourceCode" id="cb30"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="fu">names</span>(res1)[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">"n_applicants"</span></span>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="fu">names</span>(res1)[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">"n_applicants"</span></span>
 <span id="cb30-2"><a href="#cb30-2"></a>res1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>  homeownership n_applicants
 1      Mortgage         4778
 2           Own         1350
@@ -838,12 +838,12 @@
 <section id="grouped-summary-with-aggregate-1" class="slide level2">
 <h2>grouped summary with <code>aggregate()</code></h2>
 <div class="cell">
-<div class="sourceCode" id="cb32"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>res2 <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(loan_amount <span class="sc">~</span> homeownership, </span>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>res2 <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(loan_amount <span class="sc">~</span> homeownership, </span>
 <span id="cb32-2"><a href="#cb32-2"></a>                  <span class="at">data =</span> loans, <span class="at">FUN =</span> mean)</span>
 <span id="cb32-3"><a href="#cb32-3"></a><span class="fu">names</span>(res2)[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">"avg_loan_amount"</span></span>
 <span id="cb32-4"><a href="#cb32-4"></a></span>
 <span id="cb32-5"><a href="#cb32-5"></a>res2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>  homeownership avg_loan_amount
 1      Mortgage        18132.45
 2           Own        15665.44
@@ -852,9 +852,9 @@
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode" id="cb34"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>res <span class="ot">&lt;-</span> <span class="fu">merge</span>(res1, res2)</span>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>res <span class="ot">&lt;-</span> <span class="fu">merge</span>(res1, res2)</span>
 <span id="cb34-2"><a href="#cb34-2"></a>res[<span class="fu">order</span>(res<span class="sc">$</span>avg_loan_amount, <span class="at">decreasing =</span> <span class="cn">TRUE</span>), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>  homeownership n_applicants avg_loan_amount
 1      Mortgage         4778        18132.45
 2           Own         1350        15665.44
@@ -867,7 +867,7 @@
 <h2>grouped summary with <code>aggregate()</code></h2>
 <div class="small">
 <div class="cell">
-<div class="sourceCode" id="cb36"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>res1 <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(loan_amount <span class="sc">~</span> homeownership, <span class="at">data =</span> loans, <span class="at">FUN =</span> length)</span>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>res1 <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(loan_amount <span class="sc">~</span> homeownership, <span class="at">data =</span> loans, <span class="at">FUN =</span> length)</span>
 <span id="cb36-2"><a href="#cb36-2"></a><span class="fu">names</span>(res1)[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">"n_applicants"</span></span>
 <span id="cb36-3"><a href="#cb36-3"></a>res2 <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(loan_amount <span class="sc">~</span> homeownership, <span class="at">data =</span> loans, <span class="at">FUN =</span> mean)</span>
 <span id="cb36-4"><a href="#cb36-4"></a><span class="fu">names</span>(res2)[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">"avg_loan_amount"</span></span>
@@ -891,11 +891,11 @@
 <section id="grouped-summary-with-tapply" class="slide level2">
 <h2>grouped summary with <code>tapply()</code></h2>
 <div class="cell">
-<div class="sourceCode" id="cb37"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="fu">sort</span>(</span>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="fu">sort</span>(</span>
 <span id="cb37-2"><a href="#cb37-2"></a>  <span class="fu">tapply</span>(loans<span class="sc">$</span>loan_amount, loans<span class="sc">$</span>homeownership, mean),</span>
 <span id="cb37-3"><a href="#cb37-3"></a>  <span class="at">decreasing =</span> <span class="cn">TRUE</span></span>
 <span id="cb37-4"><a href="#cb37-4"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>Mortgage      Own     Rent 
 18132.45 15665.44 14396.44 </code></pre>
 </div>
@@ -925,7 +925,7 @@
 <p><span style="font-weight:bold;background-color:#ccddeb;">Create side-by-side box plots that shows the relationship between annual income and application type</span>, faceted by homeownership.</p>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<div class="sourceCode" id="cb39" data-code-line-numbers="1"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="fu">ggplot</span>(loans)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39" data-code-line-numbers="1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="fu">ggplot</span>(loans)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img data-src="dagstat-2022_files/figure-revealjs/unnamed-chunk-25-1.png" width="960"></p>
 </div>
@@ -940,7 +940,7 @@
 <p><span style="font-weight:bold;background-color:#ccddeb;">Create side-by-side box plots that shows the relationship between annual income and application type</span>, faceted by homeownership.</p>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<div class="sourceCode" id="cb40" data-code-line-numbers="2"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="fu">ggplot</span>(loans, </span>
+<div class="sourceCode cell-code" id="cb40" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="fu">ggplot</span>(loans, </span>
 <span id="cb40-2"><a href="#cb40-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> application_type))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img data-src="dagstat-2022_files/figure-revealjs/unnamed-chunk-26-1.png" width="960"></p>
@@ -956,7 +956,7 @@
 <p><span style="font-weight:bold;background-color:#ccddeb;">Create side-by-side box plots that shows the relationship between annual income and application type</span>, faceted by homeownership.</p>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<div class="sourceCode" id="cb41" data-code-line-numbers="3"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="fu">ggplot</span>(loans, </span>
+<div class="sourceCode cell-code" id="cb41" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="fu">ggplot</span>(loans, </span>
 <span id="cb41-2"><a href="#cb41-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> application_type,</span>
 <span id="cb41-3"><a href="#cb41-3"></a>           <span class="at">y =</span> loan_amount))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -973,7 +973,7 @@
 <p><span style="font-weight:bold;background-color:#ccddeb;">Create side-by-side box plots that shows the relationship between annual income and application type</span>, faceted by homeownership.</p>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<div class="sourceCode" id="cb42" data-code-line-numbers="4"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="fu">ggplot</span>(loans, </span>
+<div class="sourceCode cell-code" id="cb42" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="fu">ggplot</span>(loans, </span>
 <span id="cb42-2"><a href="#cb42-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> application_type,</span>
 <span id="cb42-3"><a href="#cb42-3"></a>           <span class="at">y =</span> loan_amount)) <span class="sc">+</span></span>
 <span id="cb42-4"><a href="#cb42-4"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -991,7 +991,7 @@
 <p>Create side-by-side box plots that shows the relationship between annual income and application type, <span style="font-weight:bold;background-color:#ccddeb;">faceted by homeownership.</span></p>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<div class="sourceCode" id="cb43" data-code-line-numbers="5"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="fu">ggplot</span>(loans, </span>
+<div class="sourceCode cell-code" id="cb43" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="fu">ggplot</span>(loans, </span>
 <span id="cb43-2"><a href="#cb43-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> application_type,</span>
 <span id="cb43-3"><a href="#cb43-3"></a>           <span class="at">y =</span> loan_amount)) <span class="sc">+</span></span>
 <span id="cb43-4"><a href="#cb43-4"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
@@ -1006,7 +1006,7 @@
 <section id="plotting-with-ggplot" class="slide level2">
 <h2>plotting with <code>ggplot()</code></h2>
 <div class="cell">
-<div class="sourceCode" id="cb44"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="fu">ggplot</span>(loans, </span>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="fu">ggplot</span>(loans, </span>
 <span id="cb44-2"><a href="#cb44-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> application_type, <span class="at">y =</span> loan_amount)) <span class="sc">+</span></span>
 <span id="cb44-3"><a href="#cb44-3"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
 <span id="cb44-4"><a href="#cb44-4"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> homeownership)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1021,12 +1021,12 @@
 <section id="plotting-with-boxplot" class="slide level2">
 <h2>plotting with <code>boxplot()</code></h2>
 <div class="cell">
-<div class="sourceCode" id="cb45"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>levels <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">unique</span>(loans<span class="sc">$</span>homeownership))</span>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>levels <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">unique</span>(loans<span class="sc">$</span>homeownership))</span>
 <span id="cb45-2"><a href="#cb45-2"></a>levels</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>[1] "Mortgage" "Own"      "Rent"    </code></pre>
 </div>
-<div class="sourceCode" id="cb47"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a>loans1 <span class="ot">&lt;-</span> loans[loans<span class="sc">$</span>homeownership <span class="sc">==</span> levels[<span class="dv">1</span>],]</span>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a>loans1 <span class="ot">&lt;-</span> loans[loans<span class="sc">$</span>homeownership <span class="sc">==</span> levels[<span class="dv">1</span>],]</span>
 <span id="cb47-2"><a href="#cb47-2"></a>loans2 <span class="ot">&lt;-</span> loans[loans<span class="sc">$</span>homeownership <span class="sc">==</span> levels[<span class="dv">2</span>],]</span>
 <span id="cb47-3"><a href="#cb47-3"></a>loans3 <span class="ot">&lt;-</span> loans[loans<span class="sc">$</span>homeownership <span class="sc">==</span> levels[<span class="dv">3</span>],]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1034,7 +1034,7 @@
 <section id="plotting-with-boxplot-1" class="slide level2">
 <h2>plotting with <code>boxplot()</code></h2>
 <div class="cell">
-<div class="sourceCode" id="cb48"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</span>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</span>
 <span id="cb48-2"><a href="#cb48-2"></a></span>
 <span id="cb48-3"><a href="#cb48-3"></a><span class="fu">boxplot</span>(loan_amount <span class="sc">~</span> application_type, </span>
 <span id="cb48-4"><a href="#cb48-4"></a>        <span class="at">data =</span> loans1, <span class="at">main =</span> levels[<span class="dv">1</span>])</span>
@@ -1055,7 +1055,7 @@
 <section id="plotting-with-ggplot-1" class="slide level2">
 <h2>plotting with <code>ggplot()</code></h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb49" data-code-line-numbers="|4|5|6"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="fu">ggplot</span>(loans, </span>
+<div class="sourceCode cell-code" id="cb49" data-code-line-numbers="|4|5|6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="fu">ggplot</span>(loans, </span>
 <span id="cb49-2"><a href="#cb49-2"></a>       <span class="fu">aes</span>(<span class="at">y =</span> interest_rate, <span class="at">x =</span> annual_income, </span>
 <span id="cb49-3"><a href="#cb49-3"></a>           <span class="at">color =</span> bankruptcy)) <span class="sc">+</span></span>
 <span id="cb49-4"><a href="#cb49-4"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.1</span>) <span class="sc">+</span> </span>
@@ -1067,7 +1067,7 @@
 <section id="further-customizing-ggplot" class="slide level2">
 <h2>further customizing <code>ggplot()</code></h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb50" data-code-line-numbers="|6|7|8|9,10|11"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="fu">ggplot</span>(loans, </span>
+<div class="sourceCode cell-code" id="cb50" data-code-line-numbers="|6|7|8|9,10|11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="fu">ggplot</span>(loans, </span>
 <span id="cb50-2"><a href="#cb50-2"></a>       <span class="fu">aes</span>(<span class="at">y =</span> interest_rate, <span class="at">x =</span> annual_income, </span>
 <span id="cb50-3"><a href="#cb50-3"></a>           <span class="at">color =</span> bankruptcy)) <span class="sc">+</span></span>
 <span id="cb50-4"><a href="#cb50-4"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.1</span>) <span class="sc">+</span> </span>
@@ -1084,7 +1084,7 @@
 <section id="plotting-with-plot" class="slide level2">
 <h2>plotting with <code>plot()</code></h2>
 <div class="cell">
-<div class="sourceCode" id="cb51"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="co"># From the OkabeIto palette</span></span>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="co"># From the OkabeIto palette</span></span>
 <span id="cb51-2"><a href="#cb51-2"></a>cols <span class="ot">=</span> <span class="fu">c</span>(<span class="at">No =</span> <span class="st">"#e6a003"</span>, <span class="at">Yes =</span> <span class="st">"#57b4e9"</span>)</span>
 <span id="cb51-3"><a href="#cb51-3"></a></span>
 <span id="cb51-4"><a href="#cb51-4"></a><span class="fu">plot</span>(</span>
@@ -1236,19 +1236,18 @@
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
   <script src="../site_libs/revealjs/dist/reveal.js"></script>
-
   <!-- reveal.js plugins -->
-  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+    <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+    <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+    <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+    <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+    <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
   <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
   <script src="../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
-
 
   <script>
 
@@ -1262,10 +1261,9 @@
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
 'smaller': false,
-
+ 
         // Display controls in the bottom right corner
         controls: false,
 
