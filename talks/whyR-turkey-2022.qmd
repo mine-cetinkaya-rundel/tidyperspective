@@ -60,7 +60,7 @@ Otantik araç olarak R öğretelim
 
 <br><br>
 
-> tidyverse, tüm seviyelerdeki lisans öğrencileri için veri bilimi döngüsü boyunca ihtiyaç duyulan hesaplama becerilerini ve düşünmeyi kazanmaları için etkili ve verimli bir yol sağlar.
+> tidyverse, tüm seviyelerdeki lisans öğrencileri için veri bilimi döngüsü boyunca ihtiyaç duyulan bilişimsel becerilerini ve düşünmeyi kazanmaları için etkili ve verimli bir yol sağlar.
 
 ::: aside
 Çetinkaya-Rundel, M., Hardin, J., Baumer, B. S., McNamara, A., Horton, N. J., & Rundel, C.
@@ -383,7 +383,7 @@ ggplot(loans,
 
 ::: columns
 ::: {.column width="40%"}
-[Create side-by-side box plots that shows the relationship between annual income and application type]{style="font-weight:bold;background-color:#ccddeb;"}, faceted by homeownership.
+[Kredi tutarı ile başvuru türü arasındaki ilişkiyi]{style="font-weight:bold;background-color:#ccddeb;"} ev sahipliğine göre [gösteren yan yana kutu grafikleri oluşturun.]{style="font-weight:bold;background-color:#ccddeb;"}
 :::
 
 ::: {.column width="60%"}
@@ -399,7 +399,7 @@ ggplot(loans)
 
 ::: columns
 ::: {.column width="40%"}
-[Create side-by-side box plots that shows the relationship between annual income and application type]{style="font-weight:bold;background-color:#ccddeb;"}, faceted by homeownership.
+[Kredi tutarı ile başvuru türü arasındaki ilişkiyi]{style="font-weight:bold;background-color:#ccddeb;"} ev sahipliğine göre [gösteren yan yana kutu grafikleri oluşturun.]{style="font-weight:bold;background-color:#ccddeb;"}
 :::
 
 ::: {.column width="60%"}
@@ -416,7 +416,7 @@ ggplot(loans,
 
 ::: columns
 ::: {.column width="40%"}
-[Create side-by-side box plots that shows the relationship between annual income and application type]{style="font-weight:bold;background-color:#ccddeb;"}, faceted by homeownership.
+[Kredi tutarı ile başvuru türü arasındaki ilişkiyi]{style="font-weight:bold;background-color:#ccddeb;"} ev sahipliğine göre [gösteren yan yana kutu grafikleri oluşturun.]{style="font-weight:bold;background-color:#ccddeb;"}
 :::
 
 ::: {.column width="60%"}
@@ -434,7 +434,7 @@ ggplot(loans,
 
 ::: columns
 ::: {.column width="40%"}
-[Create side-by-side box plots that shows the relationship between annual income and application type]{style="font-weight:bold;background-color:#ccddeb;"}, faceted by homeownership.
+[Kredi tutarı ile başvuru türü arasındaki ilişkiyi]{style="font-weight:bold;background-color:#ccddeb;"} ev sahipliğine göre [gösteren yan yana kutu grafikleri oluşturun.]{style="font-weight:bold;background-color:#ccddeb;"}
 :::
 
 ::: {.column width="60%"}
@@ -453,7 +453,7 @@ ggplot(loans,
 
 ::: columns
 ::: {.column width="40%"}
-Create side-by-side box plots that shows the relationship between annual income and application type, [faceted by homeownership.]{style="font-weight:bold;background-color:#ccddeb;"}
+Kredi tutarı ile başvuru türü arasındaki ilişkiyi [ev sahipliğine göre]{style="font-weight:bold;background-color:#ccddeb;"} gösteren yan yana kutu grafikleri oluşturun.
 :::
 
 ::: {.column width="60%"}
@@ -469,7 +469,7 @@ ggplot(loans,
 :::
 :::
 
-## plotting with `ggplot()`
+## `ggplot()` ile görselleştirme
 
 ```{r}
 #| eval: false
@@ -482,10 +482,10 @@ ggplot(loans,
 
 . . .
 
--   Each layer produces a valid plot
--   Faceting by a third variable takes only one new function
+-   Her katman geçerli bir görselleştirme üretir
+-   Üçüncü bir değişkenle facet oluşturma yalnızca bir yeni fonksiyon gerektirir
 
-## plotting with `boxplot()`
+## `boxplot()` ile görselleştirme
 
 ```{r}
 levels <- sort(unique(loans$homeownership))
@@ -496,7 +496,7 @@ loans2 <- loans[loans$homeownership == levels[2],]
 loans3 <- loans[loans$homeownership == levels[3],]
 ```
 
-## plotting with `boxplot()`
+## `boxplot()` ile görselleştirme
 
 ```{r}
 par(mfrow = c(1, 3))
@@ -509,10 +509,10 @@ boxplot(loan_amount ~ application_type,
         data = loans3, main = levels[3])
 ```
 
-## visualizing a different relationship
+## farklı bir ilişkiyi görselleştirmek
 
 ::: goal
-Visualize the relationship between interest rate and annual income, conditioned on whether the applicant had a bankruptcy.
+Faiz oranı ile yıllık gelir arasındaki ilişkiyi başvuranın iflasına bağlı olarak gözünüzde canlandırın.
 :::
 
 ```{r}
@@ -533,7 +533,7 @@ ggplot(loans,
   theme_minimal(base_size = 18)
 ```
 
-## plotting with `ggplot()`
+## `ggplot()` ile görselleştirme
 
 ```{r}
 #| fig-align: center
@@ -548,7 +548,7 @@ ggplot(loans,
   scale_x_log10()
 ```
 
-## further customizing `ggplot()`
+## `ggplot()` ile özelleştirme
 
 ```{r}
 #| fig-align: center
@@ -568,7 +568,7 @@ ggplot(loans,
   theme_minimal(base_size = 18)
 ```
 
-## plotting with `plot()`
+## `plot()` ile görselleştirme
 
 ```{r}
 #| label: base-r-viz-extend
@@ -609,22 +609,22 @@ legend(
 )
 ```
 
-## plotting with `plot()`
+## `plot()` ile görselleştirme
 
 ```{r}
 #| ref.label: base-r-viz-extend
 #| echo: false
 ```
 
-## beyond wrangling, summaries, visualizations
+## modelleme
 
-Modeling and inference with **tidymodels**:
+**tidymodels** ile modelleme ve istatistiki çıkarım:
 
--   A unified interface to modeling functions available in a large variety of packages
+-   çok çeşitli paketlerde bulunan modelleme işlevlerine yönelik birleşik bir arayüz
 
--   Sticking to the data frame in / data frame out paradigm
+-   veri çerçevesi içeri / veri çerçevesi dışarı paradigmasına bağlı kalmak
 
--   Guardrails for methodology
+-   metodoloji için korkuluklar
 
 # son düşünceler
 

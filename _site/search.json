@@ -494,35 +494,35 @@
     "href": "talks/whyR-turkey-2022.html#adım-adım-i-1",
     "title": "bir eğitimcinin perspektifinden tidyverse",
     "section": "adım adım I",
-    "text": "adım adım I\n\n\nCreate side-by-side box plots that shows the relationship between annual income and application type, faceted by homeownership.\n\n\nggplot(loans)"
+    "text": "adım adım I\n\n\nKredi tutarı ile başvuru türü arasındaki ilişkiyi ev sahipliğine göre gösteren yan yana kutu grafikleri oluşturun.\n\n\nggplot(loans)"
   },
   {
     "objectID": "talks/whyR-turkey-2022.html#adım-adım-ii-1",
     "href": "talks/whyR-turkey-2022.html#adım-adım-ii-1",
     "title": "bir eğitimcinin perspektifinden tidyverse",
     "section": "adım adım II",
-    "text": "adım adım II\n\n\nCreate side-by-side box plots that shows the relationship between annual income and application type, faceted by homeownership.\n\n\nggplot(loans, \n       aes(x = application_type))"
+    "text": "adım adım II\n\n\nKredi tutarı ile başvuru türü arasındaki ilişkiyi ev sahipliğine göre gösteren yan yana kutu grafikleri oluşturun.\n\n\nggplot(loans, \n       aes(x = application_type))"
   },
   {
     "objectID": "talks/whyR-turkey-2022.html#adım-adım-iii-1",
     "href": "talks/whyR-turkey-2022.html#adım-adım-iii-1",
     "title": "bir eğitimcinin perspektifinden tidyverse",
     "section": "adım adım III",
-    "text": "adım adım III\n\n\nCreate side-by-side box plots that shows the relationship between annual income and application type, faceted by homeownership.\n\n\nggplot(loans, \n       aes(x = application_type,\n           y = loan_amount))"
+    "text": "adım adım III\n\n\nKredi tutarı ile başvuru türü arasındaki ilişkiyi ev sahipliğine göre gösteren yan yana kutu grafikleri oluşturun.\n\n\nggplot(loans, \n       aes(x = application_type,\n           y = loan_amount))"
   },
   {
     "objectID": "talks/whyR-turkey-2022.html#adım-adım-iv-1",
     "href": "talks/whyR-turkey-2022.html#adım-adım-iv-1",
     "title": "bir eğitimcinin perspektifinden tidyverse",
     "section": "adım adım IV",
-    "text": "adım adım IV\n\n\nCreate side-by-side box plots that shows the relationship between annual income and application type, faceted by homeownership.\n\n\nggplot(loans, \n       aes(x = application_type,\n           y = loan_amount)) +\n  geom_boxplot()"
+    "text": "adım adım IV\n\n\nKredi tutarı ile başvuru türü arasındaki ilişkiyi ev sahipliğine göre gösteren yan yana kutu grafikleri oluşturun.\n\n\nggplot(loans, \n       aes(x = application_type,\n           y = loan_amount)) +\n  geom_boxplot()"
   },
   {
     "objectID": "talks/whyR-turkey-2022.html#adım-adım-iv-2",
     "href": "talks/whyR-turkey-2022.html#adım-adım-iv-2",
     "title": "bir eğitimcinin perspektifinden tidyverse",
     "section": "adım adım IV",
-    "text": "adım adım IV\n\n\nCreate side-by-side box plots that shows the relationship between annual income and application type, faceted by homeownership.\n\n\nggplot(loans, \n       aes(x = application_type,\n           y = loan_amount)) +\n  geom_boxplot() +\n  facet_wrap(~ homeownership)"
+    "text": "adım adım IV\n\n\nKredi tutarı ile başvuru türü arasındaki ilişkiyi ev sahipliğine göre gösteren yan yana kutu grafikleri oluşturun.\n\n\nggplot(loans, \n       aes(x = application_type,\n           y = loan_amount)) +\n  geom_boxplot() +\n  facet_wrap(~ homeownership)"
   },
   {
     "objectID": "talks/whyR-turkey-2022.html#plotting-with-ggplot",
@@ -634,7 +634,7 @@
     "href": "talks/whyR-turkey-2022.html#akılda-kalması-gereken",
     "title": "bir eğitimcinin perspektifinden tidyverse",
     "section": "akılda kalması gereken",
-    "text": "akılda kalması gereken\n\n\ntidyverse, tüm seviyelerdeki lisans öğrencileri için veri bilimi döngüsü boyunca ihtiyaç duyulan hesaplama becerilerini ve düşünmeyi kazanmaları için etkili ve verimli bir yol sağlar.\n\n\n\nÇetinkaya-Rundel, M., Hardin, J., Baumer, B. S., McNamara, A., Horton, N. J., & Rundel, C. (2021). An educator’s perspective of the tidyverse. arXiv preprint arXiv:2108.03510. arxiv.org/abs/2108.03510"
+    "text": "akılda kalması gereken\n\n\ntidyverse, tüm seviyelerdeki lisans öğrencileri için veri bilimi döngüsü boyunca ihtiyaç duyulan bilişimsel becerilerini ve düşünmeyi kazanmaları için etkili ve verimli bir yol sağlar.\n\n\n\nÇetinkaya-Rundel, M., Hardin, J., Baumer, B. S., McNamara, A., Horton, N. J., & Rundel, C. (2021). An educator’s perspective of the tidyverse. arXiv preprint arXiv:2108.03510. arxiv.org/abs/2108.03510"
   },
   {
     "objectID": "talks/whyR-turkey-2022.html#alternatifler",
@@ -642,5 +642,68 @@
     "title": "bir eğitimcinin perspektifinden tidyverse",
     "section": "alternatifler",
     "text": "alternatifler\n\naggregate()\ntapply()"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#ggplot-ile-görselleştirme",
+    "href": "talks/whyR-turkey-2022.html#ggplot-ile-görselleştirme",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "\nggplot() ile görselleştirme",
+    "text": "ggplot() ile görselleştirme\n\nggplot(loans, \n       aes(x = application_type, y = loan_amount)) +\n  geom_boxplot() +\n  facet_wrap(~ homeownership)\n\n\n\nHer katman geçerli bir görselleştirme üretir\nÜçüncü bir değişkenle facet oluşturma yalnızca bir yeni fonksiyon gerektirir"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#boxplot-ile-görselleştirme",
+    "href": "talks/whyR-turkey-2022.html#boxplot-ile-görselleştirme",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "\nboxplot() ile görselleştirme",
+    "text": "boxplot() ile görselleştirme\n\nlevels <- sort(unique(loans$homeownership))\nlevels\n\n[1] \"Mortgage\" \"Own\"      \"Rent\"    \n\nloans1 <- loans[loans$homeownership == levels[1],]\nloans2 <- loans[loans$homeownership == levels[2],]\nloans3 <- loans[loans$homeownership == levels[3],]"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#boxplot-ile-görselleştirme-1",
+    "href": "talks/whyR-turkey-2022.html#boxplot-ile-görselleştirme-1",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "\nboxplot() ile görselleştirme",
+    "text": "boxplot() ile görselleştirme\n\npar(mfrow = c(1, 3))\n\nboxplot(loan_amount ~ application_type, \n        data = loans1, main = levels[1])\nboxplot(loan_amount ~ application_type, \n        data = loans2, main = levels[2])\nboxplot(loan_amount ~ application_type, \n        data = loans3, main = levels[3])"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#farklı-bir-ilişkiyi-görselleştirmek",
+    "href": "talks/whyR-turkey-2022.html#farklı-bir-ilişkiyi-görselleştirmek",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "farklı bir ilişkiyi görselleştirmek",
+    "text": "farklı bir ilişkiyi görselleştirmek\n\nFaiz oranı ile yıllık gelir arasındaki ilişkiyi başvuranın iflasına bağlı olarak gözünüzde canlandırın."
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#ggplot-ile-görselleştirme-1",
+    "href": "talks/whyR-turkey-2022.html#ggplot-ile-görselleştirme-1",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "\nggplot() ile görselleştirme",
+    "text": "ggplot() ile görselleştirme\n\nggplot(loans, \n       aes(y = interest_rate, x = annual_income, \n           color = bankruptcy)) +\n  geom_point(alpha = 0.1) + \n  geom_smooth(method = \"lm\", size = 2, se = FALSE) + \n  scale_x_log10()"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#ggplot-ile-özelleştirme",
+    "href": "talks/whyR-turkey-2022.html#ggplot-ile-özelleştirme",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "\nggplot() ile özelleştirme",
+    "text": "ggplot() ile özelleştirme\n\nggplot(loans, \n       aes(y = interest_rate, x = annual_income, \n           color = bankruptcy)) +\n  geom_point(alpha = 0.1) + \n  geom_smooth(method = \"lm\", size = 2, se = FALSE) + \n  scale_x_log10(labels = scales::label_dollar()) +\n  scale_y_continuous(labels = scales::label_percent(scale = 1)) +\n  scale_color_OkabeIto() +\n  labs(x = \"Annual Income\", y = \"Interest Rate\", \n       color = \"Previous\\nBankruptcy\") +\n  theme_minimal(base_size = 18)"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#plot-ile-görselleştirme",
+    "href": "talks/whyR-turkey-2022.html#plot-ile-görselleştirme",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "\nplot() ile görselleştirme",
+    "text": "plot() ile görselleştirme\n\n# From the OkabeIto palette\ncols = c(No = \"#e6a003\", Yes = \"#57b4e9\")\n\nplot(\n  loans$annual_income,\n  loans$interest_rate,\n  pch = 16,\n  col = adjustcolor(cols[loans$bankruptcy], alpha.f = 0.1),\n  log = \"x\",\n  xlab = \"Annual Income ($)\",\n  ylab = \"Interest Rate (%)\",\n  xaxp = c(1000, 10000000, 1)\n)\n\nlm_b_no = lm(\n  interest_rate ~ log10(annual_income), \n  data = loans[loans$bankruptcy == \"No\",]\n)\nlm_b_yes = lm(\n  interest_rate ~ log10(annual_income), \n  data = loans[loans$bankruptcy == \"Yes\",]\n)\n\nabline(lm_b_no, col = cols[\"No\"], lwd = 3)\nabline(lm_b_yes, col = cols[\"Yes\"], lwd = 3)\n\nlegend(\n  \"topright\", \n  legend = c(\"Yes\", \"No\"), \n  title = \"Previous\\nBankruptcy\", \n  col = cols[c(\"Yes\", \"No\")], \n  pch = 16, lwd = 1\n)"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#plot-ile-görselleştirme-1",
+    "href": "talks/whyR-turkey-2022.html#plot-ile-görselleştirme-1",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "\nplot() ile görselleştirme",
+    "text": "plot() ile görselleştirme"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#modelleme",
+    "href": "talks/whyR-turkey-2022.html#modelleme",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "modelleme",
+    "text": "modelleme\ntidymodels ile modelleme ve istatistiki çıkarım:\n\nçok çeşitli paketlerde bulunan modelleme işlevlerine yönelik birleşik bir arayüz\nveri çerçevesi içeri / veri çerçevesi dışarı paradigmasına bağlı kalmak\nmetodoloji için korkuluklar"
   }
 ]
