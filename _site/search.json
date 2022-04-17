@@ -466,7 +466,7 @@
     "href": "talks/whyR-turkey-2022.html#aggregate-ile-gruplandırılmış-özet-1",
     "title": "bir eğitimcinin perspektifinden tidyverse",
     "section": "\naggregate() ile gruplandırılmış özet",
-    "text": "aggregate() ile gruplandırılmış özet\n\n\nres1 <- aggregate(loan_amount ~ homeownership, data = loans, FUN = length)\nnames(res1)[2] <- \"n_applicants\"\nres2 <- aggregate(loan_amount ~ homeownership, data = loans, FUN = mean)\nnames(res2)[2] <- \"avg_loan_amount\"\nres <- merge(res1, res2)\nres[order(res$avg_loan_amount, decreasing = TRUE), ]\n\n\n\n\n\nGood: Giren ve çıkan veri çerçevesi\n\nNot so good: Butun bunlari tanıtmak gerekiyor:\n\nformül sözdizimi\nfonksiyonları argüman olarak iletme\nveri cercevelerini birleştirme\nsatırlara erişmek için köşeli parantez gösterimi"
+    "text": "aggregate() ile gruplandırılmış özet\n\n\nres1 <- aggregate(loan_amount ~ homeownership, data = loans, FUN = length)\nnames(res1)[2] <- \"n_applicants\"\nres2 <- aggregate(loan_amount ~ homeownership, data = loans, FUN = mean)\nnames(res2)[2] <- \"avg_loan_amount\"\nres <- merge(res1, res2)\nres[order(res$avg_loan_amount, decreasing = TRUE), ]\n\n\n\n\n😀 Giren ve çıkan veri çerçevesi\n😕 Butun bunlari tanıtmak gerekiyor:\n\nformül sözdizimi\nfonksiyonları argüman olarak iletme\nveri cercevelerini birleştirme\nsatırlara erişmek için köşeli parantez gösterimi"
   },
   {
     "objectID": "talks/whyR-turkey-2022.html#aggregate-ile-gruplandırılmış-özet-2",
@@ -732,7 +732,7 @@
     "href": "talks/whyR-turkey-2022.html#alternatif-tapply",
     "title": "bir eğitimcinin perspektifinden tidyverse",
     "section": "alternatif: tapply()\n",
-    "text": "alternatif: tapply()\n\n\nsort(\n  tapply(loans$loan_amount, loans$homeownership, mean),\n  decreasing = TRUE\n  )\n\nMortgage      Own     Rent \n18132.45 15665.44 14396.44 \n\n\n\n\nNot so good:\n\npassing functions as arguments\ndistinguishing between the various apply() functions\nending up with a new data structure (array)\nreading nested functions"
+    "text": "alternatif: tapply()\n\n\nsort(\n  tapply(loans$loan_amount, loans$homeownership, mean),\n  decreasing = TRUE\n  )\n\nMortgage      Own     Rent \n18132.45 15665.44 14396.44 \n\n\n\n\n😕 :\n\nfonksiyonları argüman olarak iletme\nçeşitli ‘apply()’ fonksiyonlarıni ayırmak\nyeni bir veri yapısı ile biten (array)\niç içe işlevleri okuma"
   },
   {
     "objectID": "talks/whyR-turkey-2022.html#alternatif-boxplot",

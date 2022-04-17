@@ -329,8 +329,8 @@ res[order(res$avg_loan_amount, decreasing = TRUE), ]
 
 . . .
 
--   **Good:** Giren ve çıkan veri çerçevesi
--   **Not so good:** Butun bunlari tanıtmak gerekiyor:
+-   😀 Giren ve çıkan veri çerçevesi
+-   😕 Butun bunlari tanıtmak gerekiyor:
     -   formül sözdizimi
 
     -   fonksiyonları argüman olarak iletme
@@ -352,12 +352,15 @@ sort(
 
 <br>
 
-**Not so good:**
+😕 :
 
--   passing functions as arguments
--   distinguishing between the various `apply()` functions
--   ending up with a new data structure (`array`)
--   reading nested functions
+-   fonksiyonları argüman olarak iletme
+
+-   çeşitli 'apply()' fonksiyonlarıni ayırmak
+
+-   yeni bir veri yapısı ile biten (`array`)
+
+-   iç içe işlevleri okuma
 
 ## hedef: veri görselleştirme
 
