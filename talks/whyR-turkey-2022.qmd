@@ -329,9 +329,9 @@ res[order(res$avg_loan_amount, decreasing = TRUE), ]
 
 . . .
 
--   😀 Giren ve çıkan veri çerçevesi
--   😕 Butun bunlari tanıtmak gerekiyor:
-    -   formül sözdizimi
+-   😀 giren ve çıkan veri çerçevesi
+-   😕 bütün bunlari tanıtmak gerekiyor:
+    -   formül sözdizimi (formula syntax)
 
     -   fonksiyonları argüman olarak iletme
 
