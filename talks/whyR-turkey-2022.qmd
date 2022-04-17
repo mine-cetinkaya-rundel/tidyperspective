@@ -630,13 +630,15 @@ legend(
 
 ## tidyverse' in pedagojik güçlü yönleri {.smaller}
 
--   tutarlılık: öğrencilerin fonksiyon argümanları hakkındaki bilgileri uzun süreli hafızalarına taşımalarına izin verir
--   bağdaşabilirlik: base R koduyla (ya da başka paketlerin kodlarıyla) bir arada kullanmamak mümkün değil!
--   ölçeklenebilirlik: bir görselleştirmeye veya yeni bir özet istatistiğe yeni bir değişken eklemek, çok sayıda işlev, arabirim ve veri yapısının tanıtılmasını gerektirmez.
--   kullanıcı merkezli tasarım: kullanıcı deneyimi (ve öğrenimi) düşünülerek tasarlanmış ve devamlı olarak geliştirilen arayüzler
--   okunabilirlik: okunabilir kod üretmek için tasarlanmış arayüzler
--   komünite + dokümentasyon: teşvik edici ve kapsayıcı komünite + kullanıcı dostu dokümentasyon
--   paylaşılan sözdizimi: **dplyr** fiilleriyle SQL'i ücretsiz edinin!
+::: incremental
+-   **tutarlılık:** öğrencilerin fonksiyon argümanları hakkındaki bilgileri uzun süreli hafızalarına taşımalarına izin verir
+-   **bağdaşabilirlik:** base R koduyla (ya da başka paketlerin kodlarıyla) bir arada kullanmamak mümkün değil!
+-   **ölçeklenebilirlik:** bir görselleştirmeye veya yeni bir özet istatistiğe yeni bir değişken eklemek, çok sayıda işlev, arabirim ve veri yapısının tanıtılmasını gerektirmez.
+-   **kullanıcı merkezli tasarım:** kullanıcı deneyimi (ve öğrenimi) düşünülerek tasarlanmış ve devamlı olarak geliştirilen arayüzler
+-   **okunabilirlik:** okunabilir kod üretmek için tasarlanmış arayüzler
+-   **komünite + dokümentasyon:** teşvik edici ve kapsayıcı komünite + kullanıcı dostu dokümentasyon
+-   **paylaşılan sözdizimi:** **dplyr** fiilleriyle SQL'i ücretsiz edinin!
+:::
 
 ## müfredat oluşturmak
 
