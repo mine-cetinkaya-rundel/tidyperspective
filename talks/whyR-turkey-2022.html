@@ -497,6 +497,13 @@ $ interest_rate    &lt;dbl&gt; 14.07, 12.61, 17.09, 6.72, 14.07, 6.72, 13.59, 11
 <h1>tidyverse ile R eğitimi</h1>
 
 </section>
+<section id="hedefler" class="slide level2">
+<h2>hedefler</h2>
+<ol type="1">
+<li><strong>gruplandırılmış özetleme:</strong> Başvuranların ev sahipliği durumuna göre, ortalama borçlanma tutarını ve başvuran sayısını hesaplayın. Sonuçları azalan ortalama borçlanma tutarına göre görüntüleyin.</li>
+<li><strong>veri görselleştirme:</strong> Borçlanma tutarı ile başvuru türü arasındaki ilişkiyi ev sahipliğine göre gösteren yan yana kutu grafikleri oluşturun.</li>
+</ol>
+</section>
 <section id="hedef-gruplandırılmış-özetleme" class="slide level2">
 <h2>hedef: gruplandırılmış özetleme</h2>
 <div class="goal">
@@ -700,15 +707,8 @@ $ interest_rate    &lt;dbl&gt; 14.07, 12.61, 17.09, 6.72, 14.07, 6.72, 13.59, 11
 <p><strong>[output]</strong> veri çerçevesi</p>
 </div>
 </section>
-<section id="alternatifler" class="slide level2">
-<h2>alternatifler</h2>
-<ul>
-<li><code>aggregate()</code></li>
-<li><code>tapply()</code></li>
-</ul>
-</section>
-<section id="aggregate-ile-gruplandırılmış-özet" class="slide level2">
-<h2><code>aggregate()</code> ile gruplandırılmış özet</h2>
+<section id="alternatif-aggregate" class="slide level2">
+<h2>alternatif: <code>aggregate()</code></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>res1 <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(loan_amount <span class="sc">~</span> homeownership, </span>
 <span id="cb16-2"><a href="#cb16-2"></a>                  <span class="at">data =</span> loans, <span class="at">FUN =</span> length)</span>
@@ -729,7 +729,7 @@ $ interest_rate    &lt;dbl&gt; 14.07, 12.61, 17.09, 6.72, 14.07, 6.72, 13.59, 11
 </div>
 </div>
 </section>
-<section id="aggregate-ile-gruplandırılmış-özet-1" class="slide level2">
+<section id="aggregate-ile-gruplandırılmış-özet" class="slide level2">
 <h2><code>aggregate()</code> ile gruplandırılmış özet</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>res2 <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(loan_amount <span class="sc">~</span> homeownership, </span>
@@ -757,7 +757,7 @@ $ interest_rate    &lt;dbl&gt; 14.07, 12.61, 17.09, 6.72, 14.07, 6.72, 13.59, 11
 </div>
 </div>
 </section>
-<section id="aggregate-ile-gruplandırılmış-özet-2" class="slide level2">
+<section id="aggregate-ile-gruplandırılmış-özet-1" class="slide level2">
 <h2><code>aggregate()</code> ile gruplandırılmış özet</h2>
 <div class="small">
 <div class="cell">
@@ -782,8 +782,8 @@ $ interest_rate    &lt;dbl&gt; 14.07, 12.61, 17.09, 6.72, 14.07, 6.72, 13.59, 11
 </ul>
 </div>
 </section>
-<section id="tapply-ile-gruplandırılmış-özet" class="slide level2">
-<h2><code>tapply()</code> ile gruplandırılmış özet</h2>
+<section id="alternatif-tapply" class="slide level2">
+<h2>alternatif: <code>tapply()</code></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">sort</span>(</span>
 <span id="cb25-2"><a href="#cb25-2"></a>  <span class="fu">tapply</span>(loans<span class="sc">$</span>loan_amount, loans<span class="sc">$</span>homeownership, mean),</span>
@@ -912,8 +912,8 @@ $ interest_rate    &lt;dbl&gt; 14.07, 12.61, 17.09, 6.72, 14.07, 6.72, 13.59, 11
 </ul>
 </div>
 </section>
-<section id="boxplot-ile-görselleştirme" class="slide level2">
-<h2><code>boxplot()</code> ile görselleştirme</h2>
+<section id="alternatif-boxplot" class="slide level2">
+<h2>alternatif: <code>boxplot()</code></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>levels <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">unique</span>(loans<span class="sc">$</span>homeownership))</span>
 <span id="cb33-2"><a href="#cb33-2"></a>levels</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -925,7 +925,7 @@ $ interest_rate    &lt;dbl&gt; 14.07, 12.61, 17.09, 6.72, 14.07, 6.72, 13.59, 11
 <span id="cb35-3"><a href="#cb35-3"></a>loans3 <span class="ot">&lt;-</span> loans[loans<span class="sc">$</span>homeownership <span class="sc">==</span> levels[<span class="dv">3</span>],]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="boxplot-ile-görselleştirme-1" class="slide level2">
+<section id="boxplot-ile-görselleştirme" class="slide level2">
 <h2><code>boxplot()</code> ile görselleştirme</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</span>
@@ -1050,6 +1050,11 @@ $ interest_rate    &lt;dbl&gt; 14.07, 12.61, 17.09, 6.72, 14.07, 6.72, 13.59, 11
 <li><p>paket paket değil, öğrenme hedeflerinin sırasına gore öğretin</p></li>
 </ul>
 </section>
+<section id="data-science-in-a-box" class="slide level2">
+<h2>data science in a box</h2>
+<h3 id="datasciencebox.org">datasciencebox.org</h3>
+
+<img data-src="images/dsbox.png" alt="Data Science in a Box logo" class="r-stretch"></section>
 <section id="tidyversei-takip-etmek" class="slide level2">
 <h2>tidyverse’i takip etmek</h2>
 <ul>
@@ -1057,7 +1062,7 @@ $ interest_rate    &lt;dbl&gt; 14.07, 12.61, 17.09, 6.72, 14.07, 6.72, 13.59, 11
 <li><p><a href="https://lifecycle.r-lib.org/articles/stages.html">lifecycle stages</a> (yaşam döngüsü aşamaları) ve rozetler</p>
 </li>
 </ul>
-<img data-src="images/lifecycle.png" class="r-stretch"></section>
+<img data-src="images/lifecycle.png" alt="Lifecycle stages: experimental to stable to either deprecated or superseded" class="r-stretch"></section>
 <section id="koda" class="slide level2 smaller">
 <h2>koda</h2>
 <div class="columns">
