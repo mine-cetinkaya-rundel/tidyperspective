@@ -14,7 +14,7 @@ execute:
   freeze: auto
 ---
 
-# introduction
+# merhaba
 
 ```{r}
 #| echo: false
@@ -89,7 +89,7 @@ arXiv preprint arXiv:2108.03510.
 
 ## örneklerde kullanılacak veri
 
-**data:** Bir peer-to-peer lending platformu olan Lending Club'dan binlerce kredi ile ilgili veri, **openintro** paketinden, birkaç değişiklikle
+**data:** Bir peer-to-peer lending platformu olan Lending Club'dan binlerce borçlanma ile ilgili veri, **openintro** paketinden, birkaç değişiklikle
 
 ```{r}
 library(tidyverse)
@@ -118,8 +118,8 @@ glimpse(loans)
 ## hedef: gruplandırılmış özetleme
 
 ::: goal
-Başvuranların ev sahipliği durumuna göre, ortalama kredi tutarını ve başvuran sayısını hesaplayın.
-Sonuçları azalan ortalama kredi tutarına göre görüntüleyin.
+Başvuranların ev sahipliği durumuna göre, ortalama borçlanma tutarını ve başvuran sayısını hesaplayın.
+Sonuçları azalan ortalama borçlanma tutarına göre görüntüleyin.
 :::
 
 <br>
@@ -150,8 +150,8 @@ loans %>%
 
 ::: columns
 ::: {.column width="40%"}
-Başvuranların ev sahipliği durumuna göre, ortalama kredi tutarını ve başvuran sayısını hesaplayın.
-Sonuçları azalan ortalama kredi tutarına göre görüntüleyin.
+Başvuranların ev sahipliği durumuna göre, ortalama borçlanma tutarını ve başvuran sayısını hesaplayın.
+Sonuçları azalan ortalama borçlanma tutarına göre görüntüleyin.
 :::
 
 ::: {.column width="60%"}
@@ -165,8 +165,8 @@ loans
 
 ::: columns
 ::: {.column width="40%"}
-[Başvuranların ev sahipliği durumuna göre]{style="font-weight:bold;background-color:#ccddeb;"}, ortalama kredi tutarını ve başvuran sayısını hesaplayın.
-Sonuçları azalan ortalama kredi tutarına göre görüntüleyin.
+[Başvuranların ev sahipliği durumuna göre]{style="font-weight:bold;background-color:#ccddeb;"}, ortalama borçlanma tutarını ve başvuran sayısını hesaplayın.
+Sonuçları azalan ortalama borçlanma tutarına göre görüntüleyin.
 :::
 
 ::: {.column width="60%"}
@@ -197,8 +197,8 @@ veri çerçevesi **\[output\]**
 
 ::: columns
 ::: {.column width="40%"}
-Başvuranların ev sahipliği durumuna göre, [ortalama kredi tutarını]{style="font-weight:bold;background-color:#ccddeb;"} ve başvuran sayısını [hesaplayın]{style="font-weight:bold;background-color:#ccddeb;"}.
-Sonuçları azalan ortalama kredi tutarına göre görüntüleyin.
+Başvuranların ev sahipliği durumuna göre, [ortalama borçlanma tutarını]{style="font-weight:bold;background-color:#ccddeb;"} ve başvuran sayısını [hesaplayın]{style="font-weight:bold;background-color:#ccddeb;"}.
+Sonuçları azalan ortalama borçlanma tutarına göre görüntüleyin.
 :::
 
 ::: {.column width="60%"}
@@ -218,8 +218,8 @@ loans %>%
 
 ::: columns
 ::: {.column width="40%"}
-Başvuranların ev sahipliği durumuna göre, ortalama kredi tutarını ve [başvuran sayısını hesaplayın]{style="font-weight:bold;background-color:#ccddeb;"}.
-Sonuçları azalan ortalama kredi tutarına göre görüntüleyin.
+Başvuranların ev sahipliği durumuna göre, ortalama borçlanma tutarını ve [başvuran sayısını hesaplayın]{style="font-weight:bold;background-color:#ccddeb;"}.
+Sonuçları azalan ortalama borçlanma tutarına göre görüntüleyin.
 :::
 
 ::: {.column width="60%"}
@@ -240,8 +240,8 @@ loans %>%
 
 ::: columns
 ::: {.column width="40%"}
-Başvuranların ev sahipliği durumuna göre, ortalama kredi tutarını ve başvuran sayısını hesaplayın.
-[Sonuçları azalan ortalama kredi tutarına göre görüntüleyin]{style="font-weight:bold;background-color:#ccddeb;"}.
+Başvuranların ev sahipliği durumuna göre, ortalama borçlanma tutarını ve başvuran sayısını hesaplayın.
+[Sonuçları azalan ortalama borçlanma tutarına göre görüntüleyin]{style="font-weight:bold;background-color:#ccddeb;"}.
 :::
 
 ::: {.column width="60%"}
@@ -362,7 +362,7 @@ sort(
 ## hedef: veri görselleştirme
 
 ::: goal
-Kredi tutarı ile başvuru türü arasındaki ilişkiyi ev sahipliğine göre gösteren yan yana kutu grafikleri oluşturun.
+Borçlanma tutarı ile başvuru türü arasındaki ilişkiyi ev sahipliğine göre gösteren yan yana kutu grafikleri oluşturun.
 :::
 
 ```{r}
@@ -383,7 +383,7 @@ ggplot(loans,
 
 ::: columns
 ::: {.column width="40%"}
-[Kredi tutarı ile başvuru türü arasındaki ilişkiyi]{style="font-weight:bold;background-color:#ccddeb;"} ev sahipliğine göre [gösteren yan yana kutu grafikleri oluşturun.]{style="font-weight:bold;background-color:#ccddeb;"}
+[**Borçlanma tutarı ile başvuru türü arasındaki ilişkiyi**]{style="font-weight:bold;background-color:#ccddeb;"} ev sahipliğine göre [gösteren yan yana kutu grafikleri oluşturun.]{style="font-weight:bold;background-color:#ccddeb;"}
 :::
 
 ::: {.column width="60%"}
@@ -399,7 +399,7 @@ ggplot(loans)
 
 ::: columns
 ::: {.column width="40%"}
-[Kredi tutarı ile başvuru türü arasındaki ilişkiyi]{style="font-weight:bold;background-color:#ccddeb;"} ev sahipliğine göre [gösteren yan yana kutu grafikleri oluşturun.]{style="font-weight:bold;background-color:#ccddeb;"}
+[Borçlanma tutarı ile başvuru türü arasındaki ilişkiyi]{style="font-weight:bold;background-color:#ccddeb;"} ev sahipliğine göre [gösteren yan yana kutu grafikleri oluşturun.]{style="font-weight:bold;background-color:#ccddeb;"}
 :::
 
 ::: {.column width="60%"}
@@ -416,7 +416,7 @@ ggplot(loans,
 
 ::: columns
 ::: {.column width="40%"}
-[Kredi tutarı ile başvuru türü arasındaki ilişkiyi]{style="font-weight:bold;background-color:#ccddeb;"} ev sahipliğine göre [gösteren yan yana kutu grafikleri oluşturun.]{style="font-weight:bold;background-color:#ccddeb;"}
+[Borçlanma tutarı ile başvuru türü arasındaki ilişkiyi]{style="font-weight:bold;background-color:#ccddeb;"} ev sahipliğine göre [gösteren yan yana kutu grafikleri oluşturun.]{style="font-weight:bold;background-color:#ccddeb;"}
 :::
 
 ::: {.column width="60%"}
@@ -434,7 +434,7 @@ ggplot(loans,
 
 ::: columns
 ::: {.column width="40%"}
-[Kredi tutarı ile başvuru türü arasındaki ilişkiyi]{style="font-weight:bold;background-color:#ccddeb;"} ev sahipliğine göre [gösteren yan yana kutu grafikleri oluşturun.]{style="font-weight:bold;background-color:#ccddeb;"}
+[Borçlanma tutarı ile başvuru türü arasındaki ilişkiyi]{style="font-weight:bold;background-color:#ccddeb;"} ev sahipliğine göre [gösteren yan yana kutu grafikleri oluşturun.]{style="font-weight:bold;background-color:#ccddeb;"}
 :::
 
 ::: {.column width="60%"}
@@ -453,7 +453,7 @@ ggplot(loans,
 
 ::: columns
 ::: {.column width="40%"}
-Kredi tutarı ile başvuru türü arasındaki ilişkiyi [ev sahipliğine göre]{style="font-weight:bold;background-color:#ccddeb;"} gösteren yan yana kutu grafikleri oluşturun.
+Borçlanma tutarı ile başvuru türü arasındaki ilişkiyi [ev sahipliğine göre]{style="font-weight:bold;background-color:#ccddeb;"} gösteren yan yana kutu grafikleri oluşturun.
 :::
 
 ::: {.column width="60%"}
