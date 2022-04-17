@@ -115,6 +115,11 @@ glimpse(loans)
 
 # tidyverse ile R eğitimi
 
+## hedefler
+
+1.  **gruplandırılmış özetleme:** Başvuranların ev sahipliği durumuna göre, ortalama borçlanma tutarını ve başvuran sayısını hesaplayın. Sonuçları azalan ortalama borçlanma tutarına göre görüntüleyin.
+2.  **veri görselleştirme:** Borçlanma tutarı ile başvuru türü arasındaki ilişkiyi ev sahipliğine göre gösteren yan yana kutu grafikleri oluşturun.
+
 ## hedef: gruplandırılmış özetleme
 
 ::: goal
@@ -279,12 +284,7 @@ loans %>%
 **\[output\]** veri çerçevesi
 :::
 
-## alternatifler
-
--   `aggregate()`
--   `tapply()`
-
-## `aggregate()` ile gruplandırılmış özet
+## alternatif: `aggregate()`
 
 ```{r}
 res1 <- aggregate(loan_amount ~ homeownership, 
@@ -339,7 +339,7 @@ res[order(res$avg_loan_amount, decreasing = TRUE), ]
 
     -   satırlara erişmek için köşeli parantez gösterimi
 
-## `tapply()` ile gruplandırılmış özet
+## alternatif: `tapply()`
 
 ```{r}
 sort(
@@ -485,7 +485,7 @@ ggplot(loans,
 -   Her katman geçerli bir görselleştirme üretir
 -   Üçüncü bir değişkenle facet oluşturma yalnızca bir yeni fonksiyon gerektirir
 
-## `boxplot()` ile görselleştirme
+## alternatif: `boxplot()`
 
 ```{r}
 levels <- sort(unique(loans$homeownership))
@@ -644,13 +644,19 @@ legend(
 
 -   paket paket değil, öğrenme hedeflerinin sırasına gore öğretin
 
+## data science in a box
+
+### datasciencebox.org
+
+![](images/dsbox.png){fig-alt="Data Science in a Box logo"}
+
 ## tidyverse'i takip etmek
 
 -   blog gönderileri, güncellemeleri, bunların arkasındaki mantık ve işe yarayan örneklerle birlikte vurgular
 
 -   [lifecycle stages](https://lifecycle.r-lib.org/articles/stages.html) (yaşam döngüsü aşamaları) ve rozetler
 
-    ![](images/lifecycle.png)
+    ![](images/lifecycle.png){alt="Lifecycle stages: experimental to stable to either deprecated or superseded"}
 
 ## koda {.smaller}
 
