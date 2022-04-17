@@ -281,8 +281,8 @@ loans %>%
 
 ## alternatifler
 
-- `aggregate()`
-- `tapply()`
+-   `aggregate()`
+-   `tapply()`
 
 ## `aggregate()` ile gruplandırılmış özet
 
@@ -628,28 +628,27 @@ legend(
 
 # son düşünceler
 
-## tidyverse' in pedagojik güçlü yönleri
+## tidyverse' in pedagojik güçlü yönleri {.smaller}
 
-- tutarlılık
-- karıştırılabilirlik: base R koduyla (ya da başka paketlerin kodlarıyla) karıştırmamak mümkün değil!
-- ölçeklenebilirlik: bir görselleştirmeye veya yeni bir özet istatistiğe yeni bir değişken eklemek, çok sayıda işlev, arabirim ve veri yapısının tanıtılmasını gerektirmez.
-- kullanıcı merkezli tasarım: kullanıcı deneyimi (ve öğrenimi) düşünülerek tasarlanmış ve devamlı olarak
-geliştirilen arayüzler
-- okunabilirlik: okunabilir kod üretmek için tasarlanmış arayüzler
-- komünite + dokümentasyon: teşvik edici ve kapsayıcı komünite + kullanıcı dostu dokümentasyon
-- paylaşılan sözdizimi: **dplyr** fiilleriyle SQL'i ücretsiz edinin!
+-   tutarlılık: öğrencilerin fonksiyon argümanları hakkındaki bilgileri uzun süreli hafızalarına taşımalarına izin verir
+-   bağdaşabilirlik: base R koduyla (ya da başka paketlerin kodlarıyla) bir arada kullanmamak mümkün değil!
+-   ölçeklenebilirlik: bir görselleştirmeye veya yeni bir özet istatistiğe yeni bir değişken eklemek, çok sayıda işlev, arabirim ve veri yapısının tanıtılmasını gerektirmez.
+-   kullanıcı merkezli tasarım: kullanıcı deneyimi (ve öğrenimi) düşünülerek tasarlanmış ve devamlı olarak geliştirilen arayüzler
+-   okunabilirlik: okunabilir kod üretmek için tasarlanmış arayüzler
+-   komünite + dokümentasyon: teşvik edici ve kapsayıcı komünite + kullanıcı dostu dokümentasyon
+-   paylaşılan sözdizimi: **dplyr** fiilleriyle SQL'i ücretsiz edinin!
 
 ## müfredat oluşturmak
 
 -   `library(tidyverse)` ile başlayin
 
--   Paketlerle değil, öğrenme hedefleriyle öğretin
+-   paket paket değil, öğrenme hedeflerinin sırasına gore öğretin
 
 ## tidyverse'i takip etmek
 
--   Blog gönderileri, güncellemeleri, bunların arkasındaki mantık ve işe yarayan örneklerle birlikte vurgular
+-   blog gönderileri, güncellemeleri, bunların arkasındaki mantık ve işe yarayan örneklerle birlikte vurgular
 
--   [Yaşam döngüsü aşamaları](https://lifecycle.r-lib.org/articles/stages.html) ve rozetler
+-   [lifecycle stages](https://lifecycle.r-lib.org/articles/stages.html) (yaşam döngüsü aşamaları) ve rozetler
 
     ![](images/lifecycle.png)
 
@@ -657,9 +656,9 @@ geliştirilen arayüzler
 
 ::: columns
 ::: {.column width="60%"}
-> Hepimiz tidyverse'e döndük ve onu araştırmamızda ve öğretimimizde kullanmak için bilinçli bir seçim yaptık.
 > Her birimiz R'i tidyverse oncesinde öğrendik ve senelerce tidyverse'siz R ogrettik.
-> Bu makale, tidyverse seçimimizi destekleyen nedenlerin yanı sıra, tidyverse ile istatistik öğretimi ile ilgili faydaların ve zorlukların bir sentezidir.
+> Daha sonra araştırmamızda ve öğretimimizde tidyverse'i kullanmaya karar verdik.
+> Bu makale, tidyverse seçimimizi destekleyen nedenlerin yanı sıra, tidyverse ile istatistik öğretiminin faydalarının ve zorluklarının bir sentezidir.
 :::
 
 ::: {.column width="40%"}
