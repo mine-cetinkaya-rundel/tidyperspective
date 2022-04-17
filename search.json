@@ -53,7 +53,7 @@
     "href": "talks/whyR-turkey-2022.html#örneklerde-kullanılacak-veri",
     "title": "bir eğitimcinin perspektifinden tidyverse",
     "section": "örneklerde kullanılacak veri",
-    "text": "örneklerde kullanılacak veri\ndata: Bir peer-to-peer lending platformu olan Lending Club’dan binlerce kredi ile ilgili veri, openintro paketinden, birkaç değişiklikle\n\nlibrary(tidyverse)\nlibrary(openintro)\n\nloans <- loans_full_schema %>%\n  mutate(\n    homeownership = str_to_title(homeownership), \n    bankruptcy = if_else(public_record_bankrupt >= 1, \"Yes\", \"No\")\n  ) %>%\n  filter(annual_income >= 10) %>%\n  select(\n    loan_amount, homeownership, bankruptcy,\n    application_type, annual_income, interest_rate\n  )"
+    "text": "örneklerde kullanılacak veri\ndata: Bir peer-to-peer lending platformu olan Lending Club’dan binlerce borçlanma ile ilgili veri, openintro paketinden, birkaç değişiklikle\n\nlibrary(tidyverse)\nlibrary(openintro)\n\nloans <- loans_full_schema %>%\n  mutate(\n    homeownership = str_to_title(homeownership), \n    bankruptcy = if_else(public_record_bankrupt >= 1, \"Yes\", \"No\")\n  ) %>%\n  filter(annual_income >= 10) %>%\n  select(\n    loan_amount, homeownership, bankruptcy,\n    application_type, annual_income, interest_rate\n  )"
   },
   {
     "objectID": "talks/whyR-turkey-2022.html#loans",
@@ -67,42 +67,42 @@
     "href": "talks/whyR-turkey-2022.html#hedef-gruplandırılmış-özetleme",
     "title": "bir eğitimcinin perspektifinden tidyverse",
     "section": "hedef: gruplandırılmış özetleme",
-    "text": "hedef: gruplandırılmış özetleme\n\nBaşvuranların ev sahipliği durumuna göre, ortalama kredi tutarını ve başvuran sayısını hesaplayın. Sonuçları azalan ortalama kredi tutarına göre görüntüleyin.\n\n\n\n\n\n\n \n  \n    Homeownership \n    Number of applicants \n    Average loan amount \n  \n \n\n  \n    Mortgage \n    $18,132 \n    4,778 \n  \n  \n    Own \n    $15,665 \n    1,350 \n  \n  \n    Rent \n    $14,396 \n    3,848"
+    "text": "hedef: gruplandırılmış özetleme\n\nBaşvuranların ev sahipliği durumuna göre, ortalama borçlanma tutarını ve başvuran sayısını hesaplayın. Sonuçları azalan ortalama borçlanma tutarına göre görüntüleyin.\n\n\n\n\n\n\n \n  \n    Homeownership \n    Number of applicants \n    Average loan amount \n  \n \n\n  \n    Mortgage \n    $18,132 \n    4,778 \n  \n  \n    Own \n    $15,665 \n    1,350 \n  \n  \n    Rent \n    $14,396 \n    3,848"
   },
   {
     "objectID": "talks/whyR-turkey-2022.html#adım-adım-i",
     "href": "talks/whyR-turkey-2022.html#adım-adım-i",
     "title": "bir eğitimcinin perspektifinden tidyverse",
     "section": "adım adım I",
-    "text": "adım adım I\n\n\nBaşvuranların ev sahipliği durumuna göre, ortalama kredi tutarını ve başvuran sayısını hesaplayın. Sonuçları azalan ortalama kredi tutarına göre görüntüleyin.\n\n\nloans\n\n# A tibble: 9,976 × 6\n  loan_amount homeownership bankruptcy application_type annual_income\n        <int> <chr>         <chr>      <fct>                    <dbl>\n1       28000 Mortgage      No         individual               90000\n2        5000 Rent          Yes        individual               40000\n3        2000 Rent          No         individual               40000\n4       21600 Rent          No         individual               30000\n5       23000 Rent          No         joint                    35000\n6        5000 Own           No         individual               34000\n# … with 9,970 more rows, and 1 more variable: interest_rate <dbl>"
+    "text": "adım adım I\n\n\nBaşvuranların ev sahipliği durumuna göre, ortalama borçlanma tutarını ve başvuran sayısını hesaplayın. Sonuçları azalan ortalama borçlanma tutarına göre görüntüleyin.\n\n\nloans\n\n# A tibble: 9,976 × 6\n  loan_amount homeownership bankruptcy application_type annual_income\n        <int> <chr>         <chr>      <fct>                    <dbl>\n1       28000 Mortgage      No         individual               90000\n2        5000 Rent          Yes        individual               40000\n3        2000 Rent          No         individual               40000\n4       21600 Rent          No         individual               30000\n5       23000 Rent          No         joint                    35000\n6        5000 Own           No         individual               34000\n# … with 9,970 more rows, and 1 more variable: interest_rate <dbl>"
   },
   {
     "objectID": "talks/whyR-turkey-2022.html#adım-adım-ii",
     "href": "talks/whyR-turkey-2022.html#adım-adım-ii",
     "title": "bir eğitimcinin perspektifinden tidyverse",
     "section": "adım adım II",
-    "text": "adım adım II\n\n\nBaşvuranların ev sahipliği durumuna göre, ortalama kredi tutarını ve başvuran sayısını hesaplayın. Sonuçları azalan ortalama kredi tutarına göre görüntüleyin.\n\n\n\n[input] veri çerçevesi\n\n\n\n\nloans %>%\n  group_by(homeownership)\n\n# A tibble: 9,976 × 6\n# Groups:   homeownership [3]\n  loan_amount homeownership bankruptcy application_type annual_income\n        <int> <chr>         <chr>      <fct>                    <dbl>\n1       28000 Mortgage      No         individual               90000\n2        5000 Rent          Yes        individual               40000\n3        2000 Rent          No         individual               40000\n4       21600 Rent          No         individual               30000\n5       23000 Rent          No         joint                    35000\n6        5000 Own           No         individual               34000\n# … with 9,970 more rows, and 1 more variable: interest_rate <dbl>\n\n\n\n\n\nveri çerçevesi [output]"
+    "text": "adım adım II\n\n\nBaşvuranların ev sahipliği durumuna göre, ortalama borçlanma tutarını ve başvuran sayısını hesaplayın. Sonuçları azalan ortalama borçlanma tutarına göre görüntüleyin.\n\n\n\n[input] veri çerçevesi\n\n\n\n\nloans %>%\n  group_by(homeownership)\n\n# A tibble: 9,976 × 6\n# Groups:   homeownership [3]\n  loan_amount homeownership bankruptcy application_type annual_income\n        <int> <chr>         <chr>      <fct>                    <dbl>\n1       28000 Mortgage      No         individual               90000\n2        5000 Rent          Yes        individual               40000\n3        2000 Rent          No         individual               40000\n4       21600 Rent          No         individual               30000\n5       23000 Rent          No         joint                    35000\n6        5000 Own           No         individual               34000\n# … with 9,970 more rows, and 1 more variable: interest_rate <dbl>\n\n\n\n\n\nveri çerçevesi [output]"
   },
   {
     "objectID": "talks/whyR-turkey-2022.html#adım-adım-iii",
     "href": "talks/whyR-turkey-2022.html#adım-adım-iii",
     "title": "bir eğitimcinin perspektifinden tidyverse",
     "section": "adım adım III",
-    "text": "adım adım III\n\n\nBaşvuranların ev sahipliği durumuna göre, ortalama kredi tutarını ve başvuran sayısını hesaplayın. Sonuçları azalan ortalama kredi tutarına göre görüntüleyin.\n\n\nloans %>%\n  group_by(homeownership) %>% \n  summarize(\n    avg_loan_amount = mean(loan_amount)\n    )\n\n# A tibble: 3 × 2\n  homeownership avg_loan_amount\n  <chr>                   <dbl>\n1 Mortgage               18132.\n2 Own                    15665.\n3 Rent                   14396."
+    "text": "adım adım III\n\n\nBaşvuranların ev sahipliği durumuna göre, ortalama borçlanma tutarını ve başvuran sayısını hesaplayın. Sonuçları azalan ortalama borçlanma tutarına göre görüntüleyin.\n\n\nloans %>%\n  group_by(homeownership) %>% \n  summarize(\n    avg_loan_amount = mean(loan_amount)\n    )\n\n# A tibble: 3 × 2\n  homeownership avg_loan_amount\n  <chr>                   <dbl>\n1 Mortgage               18132.\n2 Own                    15665.\n3 Rent                   14396."
   },
   {
     "objectID": "talks/whyR-turkey-2022.html#adım-adım-iv",
     "href": "talks/whyR-turkey-2022.html#adım-adım-iv",
     "title": "bir eğitimcinin perspektifinden tidyverse",
     "section": "adım adım IV",
-    "text": "adım adım IV\n\n\nBaşvuranların ev sahipliği durumuna göre, ortalama kredi tutarını ve başvuran sayısını hesaplayın. Sonuçları azalan ortalama kredi tutarına göre görüntüleyin.\n\n\nloans %>%\n  group_by(homeownership) %>% \n  summarize(\n    avg_loan_amount = mean(loan_amount),\n    n_applicants = n()\n    )\n\n# A tibble: 3 × 3\n  homeownership avg_loan_amount n_applicants\n  <chr>                   <dbl>        <int>\n1 Mortgage               18132.         4778\n2 Own                    15665.         1350\n3 Rent                   14396.         3848"
+    "text": "adım adım IV\n\n\nBaşvuranların ev sahipliği durumuna göre, ortalama borçlanma tutarını ve başvuran sayısını hesaplayın. Sonuçları azalan ortalama borçlanma tutarına göre görüntüleyin.\n\n\nloans %>%\n  group_by(homeownership) %>% \n  summarize(\n    avg_loan_amount = mean(loan_amount),\n    n_applicants = n()\n    )\n\n# A tibble: 3 × 3\n  homeownership avg_loan_amount n_applicants\n  <chr>                   <dbl>        <int>\n1 Mortgage               18132.         4778\n2 Own                    15665.         1350\n3 Rent                   14396.         3848"
   },
   {
     "objectID": "talks/whyR-turkey-2022.html#adım-adım-v",
     "href": "talks/whyR-turkey-2022.html#adım-adım-v",
     "title": "bir eğitimcinin perspektifinden tidyverse",
     "section": "adım adım V",
-    "text": "adım adım V\n\n\nBaşvuranların ev sahipliği durumuna göre, ortalama kredi tutarını ve başvuran sayısını hesaplayın. Sonuçları azalan ortalama kredi tutarına göre görüntüleyin.\n\n\nloans %>%\n  group_by(homeownership) %>% \n  summarize(\n    avg_loan_amount = mean(loan_amount),\n    n_applicants = n()\n    ) %>%\n  arrange(desc(avg_loan_amount))\n\n# A tibble: 3 × 3\n  homeownership avg_loan_amount n_applicants\n  <chr>                   <dbl>        <int>\n1 Mortgage               18132.         4778\n2 Own                    15665.         1350\n3 Rent                   14396.         3848"
+    "text": "adım adım V\n\n\nBaşvuranların ev sahipliği durumuna göre, ortalama borçlanma tutarını ve başvuran sayısını hesaplayın. Sonuçları azalan ortalama borçlanma tutarına göre görüntüleyin.\n\n\nloans %>%\n  group_by(homeownership) %>% \n  summarize(\n    avg_loan_amount = mean(loan_amount),\n    n_applicants = n()\n    ) %>%\n  arrange(desc(avg_loan_amount))\n\n# A tibble: 3 × 3\n  homeownership avg_loan_amount n_applicants\n  <chr>                   <dbl>        <int>\n1 Mortgage               18132.         4778\n2 Own                    15665.         1350\n3 Rent                   14396.         3848"
   },
   {
     "objectID": "talks/whyR-turkey-2022.html#hep-beraber",
@@ -151,42 +151,42 @@
     "href": "talks/whyR-turkey-2022.html#hedef-veri-görselleştirme",
     "title": "bir eğitimcinin perspektifinden tidyverse",
     "section": "hedef: veri görselleştirme",
-    "text": "hedef: veri görselleştirme\n\nKredi tutarı ile başvuru türü arasındaki ilişkiyi ev sahipliğine göre gösteren yan yana kutu grafikleri oluşturun."
+    "text": "hedef: veri görselleştirme\n\nBorçlanma tutarı ile başvuru türü arasındaki ilişkiyi ev sahipliğine göre gösteren yan yana kutu grafikleri oluşturun."
   },
   {
     "objectID": "talks/whyR-turkey-2022.html#adım-adım-i-1",
     "href": "talks/whyR-turkey-2022.html#adım-adım-i-1",
     "title": "bir eğitimcinin perspektifinden tidyverse",
     "section": "adım adım I",
-    "text": "adım adım I\n\n\nKredi tutarı ile başvuru türü arasındaki ilişkiyi ev sahipliğine göre gösteren yan yana kutu grafikleri oluşturun.\n\n\nggplot(loans)"
+    "text": "adım adım I\n\n\nBorçlanma tutarı ile başvuru türü arasındaki ilişkiyi ev sahipliğine göre gösteren yan yana kutu grafikleri oluşturun.\n\n\nggplot(loans)"
   },
   {
     "objectID": "talks/whyR-turkey-2022.html#adım-adım-ii-1",
     "href": "talks/whyR-turkey-2022.html#adım-adım-ii-1",
     "title": "bir eğitimcinin perspektifinden tidyverse",
     "section": "adım adım II",
-    "text": "adım adım II\n\n\nKredi tutarı ile başvuru türü arasındaki ilişkiyi ev sahipliğine göre gösteren yan yana kutu grafikleri oluşturun.\n\n\nggplot(loans, \n       aes(x = application_type))"
+    "text": "adım adım II\n\n\nBorçlanma tutarı ile başvuru türü arasındaki ilişkiyi ev sahipliğine göre gösteren yan yana kutu grafikleri oluşturun.\n\n\nggplot(loans, \n       aes(x = application_type))"
   },
   {
     "objectID": "talks/whyR-turkey-2022.html#adım-adım-iii-1",
     "href": "talks/whyR-turkey-2022.html#adım-adım-iii-1",
     "title": "bir eğitimcinin perspektifinden tidyverse",
     "section": "adım adım III",
-    "text": "adım adım III\n\n\nKredi tutarı ile başvuru türü arasındaki ilişkiyi ev sahipliğine göre gösteren yan yana kutu grafikleri oluşturun.\n\n\nggplot(loans, \n       aes(x = application_type,\n           y = loan_amount))"
+    "text": "adım adım III\n\n\nBorçlanma tutarı ile başvuru türü arasındaki ilişkiyi ev sahipliğine göre gösteren yan yana kutu grafikleri oluşturun.\n\n\nggplot(loans, \n       aes(x = application_type,\n           y = loan_amount))"
   },
   {
     "objectID": "talks/whyR-turkey-2022.html#adım-adım-iv-1",
     "href": "talks/whyR-turkey-2022.html#adım-adım-iv-1",
     "title": "bir eğitimcinin perspektifinden tidyverse",
     "section": "adım adım IV",
-    "text": "adım adım IV\n\n\nKredi tutarı ile başvuru türü arasındaki ilişkiyi ev sahipliğine göre gösteren yan yana kutu grafikleri oluşturun.\n\n\nggplot(loans, \n       aes(x = application_type,\n           y = loan_amount)) +\n  geom_boxplot()"
+    "text": "adım adım IV\n\n\nBorçlanma tutarı ile başvuru türü arasındaki ilişkiyi ev sahipliğine göre gösteren yan yana kutu grafikleri oluşturun.\n\n\nggplot(loans, \n       aes(x = application_type,\n           y = loan_amount)) +\n  geom_boxplot()"
   },
   {
     "objectID": "talks/whyR-turkey-2022.html#adım-adım-iv-2",
     "href": "talks/whyR-turkey-2022.html#adım-adım-iv-2",
     "title": "bir eğitimcinin perspektifinden tidyverse",
     "section": "adım adım IV",
-    "text": "adım adım IV\n\n\nKredi tutarı ile başvuru türü arasındaki ilişkiyi ev sahipliğine göre gösteren yan yana kutu grafikleri oluşturun.\n\n\nggplot(loans, \n       aes(x = application_type,\n           y = loan_amount)) +\n  geom_boxplot() +\n  facet_wrap(~ homeownership)"
+    "text": "adım adım IV\n\n\nBorçlanma tutarı ile başvuru türü arasındaki ilişkiyi ev sahipliğine göre gösteren yan yana kutu grafikleri oluşturun.\n\n\nggplot(loans, \n       aes(x = application_type,\n           y = loan_amount)) +\n  geom_boxplot() +\n  facet_wrap(~ homeownership)"
   },
   {
     "objectID": "talks/whyR-turkey-2022.html#ggplot-ile-görselleştirme",
