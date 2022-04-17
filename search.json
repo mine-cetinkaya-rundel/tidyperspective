@@ -137,7 +137,7 @@
     "href": "talks/whyR-turkey-2022.html#aggregate-ile-gruplandırılmış-özet-1",
     "title": "bir eğitimcinin perspektifinden tidyverse",
     "section": "aggregate() ile gruplandırılmış özet",
-    "text": "aggregate() ile gruplandırılmış özet\n\n\nres1 <- aggregate(loan_amount ~ homeownership, data = loans, FUN = length)\nnames(res1)[2] <- \"n_applicants\"\nres2 <- aggregate(loan_amount ~ homeownership, data = loans, FUN = mean)\nnames(res2)[2] <- \"avg_loan_amount\"\nres <- merge(res1, res2)\nres[order(res$avg_loan_amount, decreasing = TRUE), ]\n\n\n\n\n😀 Giren ve çıkan veri çerçevesi\n😕 Butun bunlari tanıtmak gerekiyor:\n\nformül sözdizimi\nfonksiyonları argüman olarak iletme\nveri cercevelerini birleştirme\nsatırlara erişmek için köşeli parantez gösterimi"
+    "text": "aggregate() ile gruplandırılmış özet\n\n\nres1 <- aggregate(loan_amount ~ homeownership, data = loans, FUN = length)\nnames(res1)[2] <- \"n_applicants\"\nres2 <- aggregate(loan_amount ~ homeownership, data = loans, FUN = mean)\nnames(res2)[2] <- \"avg_loan_amount\"\nres <- merge(res1, res2)\nres[order(res$avg_loan_amount, decreasing = TRUE), ]\n\n\n\n\n😀 giren ve çıkan veri çerçevesi\n😕 bütün bunlari tanıtmak gerekiyor:\n\nformül sözdizimi (formula syntax)\nfonksiyonları argüman olarak iletme\nveri cercevelerini birleştirme\nsatırlara erişmek için köşeli parantez gösterimi"
   },
   {
     "objectID": "talks/whyR-turkey-2022.html#alternatif-tapply",
