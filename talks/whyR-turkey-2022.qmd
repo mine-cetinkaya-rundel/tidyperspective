@@ -44,7 +44,7 @@ theme_set(theme_gray(base_size = 18))
 
 **varsayım 1:**
 
-Otantik araçları öğretmeliyiz
+otantik araçları öğretmeliyiz
 :::
 
 ::: {.column width="50%" style="text-align: center;"}
@@ -52,7 +52,7 @@ Otantik araçları öğretmeliyiz
 
 **varsayım 2:**
 
-Otantik araç olarak R öğretelim
+otantik araç olarak R öğretelim
 :::
 :::
 
@@ -60,7 +60,7 @@ Otantik araç olarak R öğretelim
 
 <br><br>
 
-> tidyverse, tüm seviyelerdeki lisans öğrencileri için veri bilimi döngüsü boyunca ihtiyaç duyulan bilişimsel becerilerini ve düşünmeyi kazanmaları için etkili ve verimli bir yol sağlar.
+> tidyverse tüm seviyelerdeki lisans öğrencileri için veri bilimi döngüsü boyunca ihtiyaç duyulan bilişimsel becerilerini ve düşünmeyi kazanmaları için etkili ve verimli bir yol sağlar.
 
 ::: aside
 Çetinkaya-Rundel, M., Hardin, J., Baumer, B. S., McNamara, A., Horton, N. J., & Rundel, C.
@@ -89,7 +89,7 @@ arXiv preprint arXiv:2108.03510.
 
 ## örneklerde kullanılacak veri
 
-**data:** Bir peer-to-peer lending platformu olan Lending Club'dan binlerce borçlanma ile ilgili veri, **openintro** paketinden, birkaç değişiklikle
+**data:** peer-to-peer lending platformu olan *Lending Club*'dan binlerce borçlanma ile ilgili veri, **openintro** paketinden, birkaç değişiklikle
 
 ```{r}
 library(tidyverse)
@@ -485,8 +485,8 @@ ggplot(loans,
 
 . . .
 
--   Her katman geçerli bir görselleştirme üretir
--   Üçüncü bir değişkenle facet oluşturma yalnızca bir yeni fonksiyon gerektirir
+-   her katman geçerli bir görselleştirme üretiyor
+-   üçüncü bir değişkenle facet oluşturma yalnızca bir yeni fonksiyon gerektiriyor
 
 ## alternatif: `boxplot()`
 
@@ -651,7 +651,9 @@ legend(
 
 ## data science in a box
 
-### datasciencebox.org
+::: {align="center"}
+[**datasciencebox.org**](https://datasciencebox.org)
+:::
 
 ![](images/dsbox.png){fig-alt="Data Science in a Box logo"}
 
@@ -687,4 +689,14 @@ arXiv preprint arXiv:2108.03510.
 
 # teşekkürler!
 
-[bit.ly/tidyperspective-whyR-tr](https://bit.ly/whyR-tr)
+::: {align="center"}
+[**bit.ly/tidyperspective-whyR-tr**](https://bit.ly/whyR-tr)
+:::
+
+<br><br><br>
+
+🌐 [mine-cr.com](https://mine-cr.com/)
+
+🐦 [\@minebocek](https://twitter.com/minebocek)
+
+💻 [mine-cetinkaya-rundel](http://github.com/mine-cetinkaya-rundel)
