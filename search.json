@@ -18,7 +18,7 @@
     "href": "index.html",
     "title": "tidyperspective",
     "section": "",
-    "text": "DAGStat 2022 - Hamburg, Germany [slides]"
+    "text": "DAGStat 2022 - Hamburg, Germany [slides]\nWhy R Turkey 2022 - Online [slides]"
   },
   {
     "objectID": "talks/whyR-turkey-2022.html#bu-projeye-katkıda-bulunanlar",
@@ -67,7 +67,7 @@
     "href": "talks/whyR-turkey-2022.html#hedefler",
     "title": "bir eğitimcinin perspektifinden tidyverse",
     "section": "hedefler",
-    "text": "hedefler\n\ngruplandırılmış özetleme: Başvuranların ev sahipliği durumuna göre, ortalama borçlanma tutarını ve başvuran sayısını hesaplayın. Sonuçları azalan ortalama borçlanma tutarına göre görüntüleyin.\nveri görselleştirme: Borçlanma tutarı ile başvuru türü arasındaki ilişkiyi ev sahipliğine göre gösteren yan yana kutu grafikleri oluşturun."
+    "text": "hedefler\n\ngruplandırılmış özetleme: Başvuranların ev sahipliği durumuna göre, ortalama borçlanma tutarını ve başvuran sayısını hesaplayın. Sonuçları azalan ortalama borçlanma tutarına göre görüntüleyin.\nveri görselleştirme:\n\nBorçlanma tutarı ile başvuru türü arasındaki ilişkiyi ev sahipliğine göre gösteren yan yana kutu grafikleri oluşturun.\nFaiz oranı ile yıllık gelir arasındaki ilişkiyi başvuranın iflasına bağlı olarak gözünüzde canlandırın."
   },
   {
     "objectID": "talks/whyR-turkey-2022.html#hedef-gruplandırılmış-özetleme",
@@ -210,11 +210,11 @@
     "text": "boxplot() ile görselleştirme\n\npar(mfrow = c(1, 3))\n\nboxplot(loan_amount ~ application_type, \n        data = loans1, main = levels[1])\nboxplot(loan_amount ~ application_type, \n        data = loans2, main = levels[2])\nboxplot(loan_amount ~ application_type, \n        data = loans3, main = levels[3])"
   },
   {
-    "objectID": "talks/whyR-turkey-2022.html#farklı-bir-ilişkiyi-görselleştirmek",
-    "href": "talks/whyR-turkey-2022.html#farklı-bir-ilişkiyi-görselleştirmek",
+    "objectID": "talks/whyR-turkey-2022.html#hedef-farklı-bir-ilişkiyi-görselleştirmek",
+    "href": "talks/whyR-turkey-2022.html#hedef-farklı-bir-ilişkiyi-görselleştirmek",
     "title": "bir eğitimcinin perspektifinden tidyverse",
-    "section": "farklı bir ilişkiyi görselleştirmek",
-    "text": "farklı bir ilişkiyi görselleştirmek\n\nFaiz oranı ile yıllık gelir arasındaki ilişkiyi başvuranın iflasına bağlı olarak gözünüzde canlandırın."
+    "section": "hedef: farklı bir ilişkiyi görselleştirmek",
+    "text": "hedef: farklı bir ilişkiyi görselleştirmek\n\nFaiz oranı ile yıllık gelir arasındaki ilişkiyi başvuranın iflasına bağlı olarak gözünüzde canlandırın."
   },
   {
     "objectID": "talks/whyR-turkey-2022.html#ggplot-ile-görselleştirme-1",
