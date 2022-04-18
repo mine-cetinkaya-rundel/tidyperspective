@@ -5,3 +5,4 @@ title: "tidyperspective"
 This repository contains slides, code, and supplementary materials for the "An educator's perspective of the tidyverse" talks.
 
 -   DAGStat 2022 - Hamburg, Germany [\[slides\]](talks/dagstat-2022.html)
+-   Why R Turkey 2022 - Online [\[slides\]](talks/whyR-turkey-2022.html)

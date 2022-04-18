@@ -718,7 +718,7 @@
     "href": "talks/whyR-turkey-2022.html#hedefler",
     "title": "bir eğitimcinin perspektifinden tidyverse",
     "section": "hedefler",
-    "text": "hedefler\n\n\ngruplandırılmış özetleme: Başvuranların ev sahipliği durumuna göre, ortalama borçlanma tutarını ve başvuran sayısını hesaplayın. Sonuçları azalan ortalama borçlanma tutarına göre görüntüleyin.\n\nveri görselleştirme: Borçlanma tutarı ile başvuru türü arasındaki ilişkiyi ev sahipliğine göre gösteren yan yana kutu grafikleri oluşturun."
+    "text": "hedefler\n\n\ngruplandırılmış özetleme: Başvuranların ev sahipliği durumuna göre, ortalama borçlanma tutarını ve başvuran sayısını hesaplayın. Sonuçları azalan ortalama borçlanma tutarına göre görüntüleyin.\n\nveri görselleştirme:\n\nBorçlanma tutarı ile başvuru türü arasındaki ilişkiyi ev sahipliğine göre gösteren yan yana kutu grafikleri oluşturun.\nFaiz oranı ile yıllık gelir arasındaki ilişkiyi başvuranın iflasına bağlı olarak gözünüzde canlandırın."
   },
   {
     "objectID": "talks/whyR-turkey-2022.html#alternatif-aggregate",
@@ -740,5 +740,12 @@
     "title": "bir eğitimcinin perspektifinden tidyverse",
     "section": "alternatif: boxplot()\n",
     "text": "alternatif: boxplot()\n\n\nlevels <- sort(unique(loans$homeownership))\nlevels\n\n[1] \"Mortgage\" \"Own\"      \"Rent\"    \n\nloans1 <- loans[loans$homeownership == levels[1],]\nloans2 <- loans[loans$homeownership == levels[2],]\nloans3 <- loans[loans$homeownership == levels[3],]"
+  },
+  {
+    "objectID": "talks/whyR-turkey-2022.html#hedef-farklı-bir-ilişkiyi-görselleştirmek",
+    "href": "talks/whyR-turkey-2022.html#hedef-farklı-bir-ilişkiyi-görselleştirmek",
+    "title": "bir eğitimcinin perspektifinden tidyverse",
+    "section": "hedef: farklı bir ilişkiyi görselleştirmek",
+    "text": "hedef: farklı bir ilişkiyi görselleştirmek\n\nFaiz oranı ile yıllık gelir arasındaki ilişkiyi başvuranın iflasına bağlı olarak gözünüzde canlandırın."
   }
 ]

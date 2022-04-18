@@ -118,7 +118,10 @@ glimpse(loans)
 ## hedefler
 
 1.  **gruplandırılmış özetleme:** Başvuranların ev sahipliği durumuna göre, ortalama borçlanma tutarını ve başvuran sayısını hesaplayın. Sonuçları azalan ortalama borçlanma tutarına göre görüntüleyin.
-2.  **veri görselleştirme:** Borçlanma tutarı ile başvuru türü arasındaki ilişkiyi ev sahipliğine göre gösteren yan yana kutu grafikleri oluşturun.
+2.  **veri görselleştirme:**
+    -   Borçlanma tutarı ile başvuru türü arasındaki ilişkiyi ev sahipliğine göre gösteren yan yana kutu grafikleri oluşturun.
+
+    -   Faiz oranı ile yıllık gelir arasındaki ilişkiyi başvuranın iflasına bağlı olarak gözünüzde canlandırın.
 
 ## hedef: gruplandırılmış özetleme
 
@@ -512,7 +515,7 @@ boxplot(loan_amount ~ application_type,
         data = loans3, main = levels[3])
 ```
 
-## farklı bir ilişkiyi görselleştirmek
+## hedef: farklı bir ilişkiyi görselleştirmek
 
 ::: goal
 Faiz oranı ile yıllık gelir arasındaki ilişkiyi başvuranın iflasına bağlı olarak gözünüzde canlandırın.
