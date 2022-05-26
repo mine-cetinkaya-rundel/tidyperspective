@@ -1,5 +1,5 @@
 ---
-title: "an educator's perpective of the tidyverse"
+title: "an educator's perspective of the tidyverse"
 author: "mine çetinkaya-rundel"
 date: "[bit.ly/tidyperspective-dagstat](https://bit.ly/tidyperspective-dagstat)"
 format:
