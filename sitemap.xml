@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://mine-cetinkaya-rundel.github.io/tidyperspective/paper.html</loc>
-    <lastmod>2022-04-18T00:02:23.804Z</lastmod>
+    <loc>https://mine-cetinkaya-rundel.github.io/tidyperspective/index.html</loc>
+    <lastmod>2022-05-26T02:31:23.402Z</lastmod>
   </url>
   <url>
     <loc>https://mine-cetinkaya-rundel.github.io/tidyperspective/dagstat2022.html</loc>
-    <lastmod>2022-04-18T00:02:26.056Z</lastmod>
+    <lastmod>2022-05-26T02:31:25.218Z</lastmod>
   </url>
   <url>
-    <loc>https://mine-cetinkaya-rundel.github.io/tidyperspective/index.html</loc>
-    <lastmod>2022-04-18T00:02:26.388Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mine-cetinkaya-rundel.github.io/tidyperspective/talks/whyR-turkey-2022.html</loc>
-    <lastmod>2022-04-18T00:02:38.937Z</lastmod>
+    <loc>https://mine-cetinkaya-rundel.github.io/tidyperspective/paper.html</loc>
+    <lastmod>2022-05-26T02:31:25.522Z</lastmod>
   </url>
   <url>
     <loc>https://mine-cetinkaya-rundel.github.io/tidyperspective/talks/dagstat-2022.html</loc>
-    <lastmod>2022-04-18T00:02:51.334Z</lastmod>
+    <lastmod>2022-05-26T02:31:36.762Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mine-cetinkaya-rundel.github.io/tidyperspective/talks/whyR-turkey-2022.html</loc>
+    <lastmod>2022-05-26T02:31:47.690Z</lastmod>
   </url>
 </urlset>
