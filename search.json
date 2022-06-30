@@ -4,14 +4,7 @@
     "href": "index.html",
     "title": "tidyperspective",
     "section": "",
-    "text": "DAGStat 2022 - Hamburg, Germany [slides]\nWhy R Turkey 2022 - Online [slides]"
-  },
-  {
-    "objectID": "dagstat2022.html",
-    "href": "dagstat2022.html",
-    "title": "About",
-    "section": "",
-    "text": "1 + 1\n\n[1] 2"
+    "text": "DAGStat 2022 - Hamburg, Germany [slides]\nWhy R Turkey 2022 - Online [slides]\nPapers We Love ❤️ Edu - Online [slides] [discussion]"
   },
   {
     "objectID": "paper.html",
@@ -19,6 +12,188 @@
     "title": "Paper",
     "section": "",
     "text": "Read the paper on arXiv, to be updated soon…"
+  },
+  {
+    "objectID": "talks/papers-we-love.html#collaborators",
+    "href": "talks/papers-we-love.html#collaborators",
+    "title": "an educator’s perspective of the tidyverse",
+    "section": "collaborators",
+    "text": "collaborators\n\nJohanna Hardin, Pomona College\nBenjamin S. Baumer, Smith College\nAmelia McNamara, University of St Thomas\nNicholas J. Horton, Amherst College\nColin W. Rundel, Duke University"
+  },
+  {
+    "objectID": "talks/papers-we-love.html#setting-the-scene",
+    "href": "talks/papers-we-love.html#setting-the-scene",
+    "title": "an educator’s perspective of the tidyverse",
+    "section": "setting the scene",
+    "text": "setting the scene\n\n\n\nAssumption 1:\nTeach authentic tools\n\n\nAssumption 2:\nTeach R as the authentic tool"
+  },
+  {
+    "objectID": "talks/papers-we-love.html#takeaway",
+    "href": "talks/papers-we-love.html#takeaway",
+    "title": "an educator’s perspective of the tidyverse",
+    "section": "takeaway",
+    "text": "takeaway\n\n\nThe tidyverse provides an effective and efficient pathway for undergraduate students at all levels and majors to gain computational skills and thinking needed throughout the data science cycle.\n\n\n\nÇetinkaya-Rundel, M., Hardin, J., Baumer, B. S., McNamara, A., Horton, N. J., & Rundel, C. (2022). An educator’s perspective of the tidyverse. Technology Innovations in Statistics Education, 14(1). doi.org/10.5070/T514154352."
+  },
+  {
+    "objectID": "talks/papers-we-love.html#tidyverse",
+    "href": "talks/papers-we-love.html#tidyverse",
+    "title": "an educator’s perspective of the tidyverse",
+    "section": "tidyverse",
+    "text": "tidyverse\n\n\n\nmeta R package that loads eight core packages when invoked and also bundles numerous other packages upon installation\ntidyverse packages share a design philosophy, common grammar, and data structures"
+  },
+  {
+    "objectID": "talks/papers-we-love.html#setup",
+    "href": "talks/papers-we-love.html#setup",
+    "title": "an educator’s perspective of the tidyverse",
+    "section": "setup",
+    "text": "setup\nData: Thousands of loans made through the Lending Club, a peer-to-peer lending platform available in the openintro package, with a few modifications.\n\nlibrary(tidyverse)\nlibrary(openintro)\n\nloans <- loans_full_schema %>%\n  mutate(\n    homeownership = str_to_title(homeownership), \n    bankruptcy = if_else(public_record_bankrupt >= 1, \"Yes\", \"No\")\n  ) %>%\n  filter(annual_income >= 10) %>%\n  select(\n    loan_amount, homeownership, bankruptcy,\n    application_type, annual_income, interest_rate\n  )"
+  },
+  {
+    "objectID": "talks/papers-we-love.html#start-with-a-data-frame",
+    "href": "talks/papers-we-love.html#start-with-a-data-frame",
+    "title": "an educator’s perspective of the tidyverse",
+    "section": "start with a data frame",
+    "text": "start with a data frame\n\nloans\n\n# A tibble: 9,976 × 6\n  loan_amount homeownership bankruptcy application_type annual_income\n        <int> <chr>         <chr>      <fct>                    <dbl>\n1       28000 Mortgage      No         individual               90000\n2        5000 Rent          Yes        individual               40000\n3        2000 Rent          No         individual               40000\n4       21600 Rent          No         individual               30000\n5       23000 Rent          No         joint                    35000\n6        5000 Own           No         individual               34000\n# … with 9,970 more rows, and 1 more variable: interest_rate <dbl>"
+  },
+  {
+    "objectID": "talks/papers-we-love.html#tidy-data",
+    "href": "talks/papers-we-love.html#tidy-data",
+    "title": "an educator’s perspective of the tidyverse",
+    "section": "tidy data",
+    "text": "tidy data\n\nEach variable forms a column\nEach observation forms a row\nEach type of observational unit forms a table\n\n\n\nWickham, H. . (2014). Tidy Data. Journal of Statistical Software, 59(10), 1–23. doi.org/10.18637/jss.v059.i10."
+  },
+  {
+    "objectID": "talks/papers-we-love.html#task-calculate-a-summary-statistic",
+    "href": "talks/papers-we-love.html#task-calculate-a-summary-statistic",
+    "title": "an educator’s perspective of the tidyverse",
+    "section": "task: calculate a summary statistic",
+    "text": "task: calculate a summary statistic\n\nCalculate the mean loan amount.\n\n\nloans\n\n# A tibble: 9,976 × 6\n  loan_amount homeownership bankruptcy application_type annual_income\n        <int> <chr>         <chr>      <fct>                    <dbl>\n1       28000 Mortgage      No         individual               90000\n2        5000 Rent          Yes        individual               40000\n3        2000 Rent          No         individual               40000\n4       21600 Rent          No         individual               30000\n5       23000 Rent          No         joint                    35000\n6        5000 Own           No         individual               34000\n# … with 9,970 more rows, and 1 more variable: interest_rate <dbl>\n\n\n\n\nmean(loan_amount)\n\n\n\n\n\nError in mean(loan_amount): object 'loan_amount' not found"
+  },
+  {
+    "objectID": "talks/papers-we-love.html#accessing-a-variable",
+    "href": "talks/papers-we-love.html#accessing-a-variable",
+    "title": "an educator’s perspective of the tidyverse",
+    "section": "accessing a variable",
+    "text": "accessing a variable\nApproach 1: With attach():\n\nattach(loans)\nmean(loan_amount)\n\n[1] 16357.53\n\n\n\n\nNot recommended. What if you had another data frame you’re working with concurrently called car_loans that also had a variable called loan_amount in it?"
+  },
+  {
+    "objectID": "talks/papers-we-love.html#accessing-a-variable-1",
+    "href": "talks/papers-we-love.html#accessing-a-variable-1",
+    "title": "an educator’s perspective of the tidyverse",
+    "section": "accessing a variable",
+    "text": "accessing a variable\nApproach 2: Using $:\n\nmean(loans$loan_amount)\n\n[1] 16357.53\n\n\n\n\nApproach 3: Using with():\n\nwith(loans, mean(loan_amount))\n\n[1] 16357.53"
+  },
+  {
+    "objectID": "talks/papers-we-love.html#accessing-a-variable-2",
+    "href": "talks/papers-we-love.html#accessing-a-variable-2",
+    "title": "an educator’s perspective of the tidyverse",
+    "section": "accessing a variable",
+    "text": "accessing a variable\nApproach 4: The tidyverse approach:\n\nloans %>%\n  summarise(mean_loan_amount = mean(loan_amount))\n\n# A tibble: 1 × 1\n  mean_loan_amount\n             <dbl>\n1           16358.\n\n\n\n\nMore verbose\nBut also more expressive and extensible"
+  },
+  {
+    "objectID": "talks/papers-we-love.html#the-tidyverse-approach",
+    "href": "talks/papers-we-love.html#the-tidyverse-approach",
+    "title": "an educator’s perspective of the tidyverse",
+    "section": "the tidyverse approach",
+    "text": "the tidyverse approach\n\n\ntidyverse functions take a data argument that allows them to localize computations inside the specified data frame\ndoes not muddy the concept of what is in the current environment: variables always accessed from within in a data frame without the use of an additional function (like with()) or quotation marks, never as a vector"
+  },
+  {
+    "objectID": "talks/papers-we-love.html#task-grouped-summary",
+    "href": "talks/papers-we-love.html#task-grouped-summary",
+    "title": "an educator’s perspective of the tidyverse",
+    "section": "task: grouped summary",
+    "text": "task: grouped summary\n\nBased on the applicants’ home ownership status, compute the average loan amount and the number of applicants. Display the results in descending order of average loan amount.\n\n\n\n\n\n\n\n \n  \n    Homeownership \n    Number of applicants \n    Average loan amount \n  \n \n\n  \n    Mortgage \n    $18,132 \n    4,778 \n  \n  \n    Own \n    $15,665 \n    1,350 \n  \n  \n    Rent \n    $14,396 \n    3,848"
+  },
+  {
+    "objectID": "talks/papers-we-love.html#break-it-down-i",
+    "href": "talks/papers-we-love.html#break-it-down-i",
+    "title": "an educator’s perspective of the tidyverse",
+    "section": "break it down I",
+    "text": "break it down I\n\n\nBased on the applicants’ home ownership status, compute the average loan amount and the number of applicants. Display the results in descending order of average loan amount.\n\n\nloans\n\n# A tibble: 9,976 × 6\n  loan_amount homeownership bankruptcy application_type annual_income\n        <int> <chr>         <chr>      <fct>                    <dbl>\n1       28000 Mortgage      No         individual               90000\n2        5000 Rent          Yes        individual               40000\n3        2000 Rent          No         individual               40000\n4       21600 Rent          No         individual               30000\n5       23000 Rent          No         joint                    35000\n6        5000 Own           No         individual               34000\n# … with 9,970 more rows, and 1 more variable: interest_rate <dbl>"
+  },
+  {
+    "objectID": "talks/papers-we-love.html#break-it-down-ii",
+    "href": "talks/papers-we-love.html#break-it-down-ii",
+    "title": "an educator’s perspective of the tidyverse",
+    "section": "break it down II",
+    "text": "break it down II\n\n\nBased on the applicants’ home ownership status, compute the average loan amount and the number of applicants. Display the results in descending order of average loan amount.\n\n\n\n[input] data frame\n\n\n\n\nloans %>%\n  group_by(homeownership)\n\n# A tibble: 9,976 × 6\n# Groups:   homeownership [3]\n  loan_amount homeownership bankruptcy application_type annual_income\n        <int> <chr>         <chr>      <fct>                    <dbl>\n1       28000 Mortgage      No         individual               90000\n2        5000 Rent          Yes        individual               40000\n3        2000 Rent          No         individual               40000\n4       21600 Rent          No         individual               30000\n5       23000 Rent          No         joint                    35000\n6        5000 Own           No         individual               34000\n# … with 9,970 more rows, and 1 more variable: interest_rate <dbl>\n\n\n\n\n\ndata frame [output]"
+  },
+  {
+    "objectID": "talks/papers-we-love.html#break-it-down-iii",
+    "href": "talks/papers-we-love.html#break-it-down-iii",
+    "title": "an educator’s perspective of the tidyverse",
+    "section": "break it down III",
+    "text": "break it down III\n\n\nBased on the applicants’ home ownership status, compute the average loan amount and the number of applicants. Display the results in descending order of average loan amount.\n\n\nloans %>%\n  group_by(homeownership) %>% \n  summarize(\n    avg_loan_amount = mean(loan_amount)\n    )\n\n# A tibble: 3 × 2\n  homeownership avg_loan_amount\n  <chr>                   <dbl>\n1 Mortgage               18132.\n2 Own                    15665.\n3 Rent                   14396."
+  },
+  {
+    "objectID": "talks/papers-we-love.html#break-it-down-iv",
+    "href": "talks/papers-we-love.html#break-it-down-iv",
+    "title": "an educator’s perspective of the tidyverse",
+    "section": "break it down IV",
+    "text": "break it down IV\n\n\nBased on the applicants’ home ownership status, compute the average loan amount and the number of applicants. Display the results in descending order of average loan amount.\n\n\nloans %>%\n  group_by(homeownership) %>% \n  summarize(\n    avg_loan_amount = mean(loan_amount),\n    n_applicants = n()\n    )\n\n# A tibble: 3 × 3\n  homeownership avg_loan_amount n_applicants\n  <chr>                   <dbl>        <int>\n1 Mortgage               18132.         4778\n2 Own                    15665.         1350\n3 Rent                   14396.         3848"
+  },
+  {
+    "objectID": "talks/papers-we-love.html#break-it-down-v",
+    "href": "talks/papers-we-love.html#break-it-down-v",
+    "title": "an educator’s perspective of the tidyverse",
+    "section": "break it down V",
+    "text": "break it down V\n\n\nBased on the applicants’ home ownership status, compute the average loan amount and the number of applicants. Display the results in descending order of average loan amount.\n\n\nloans %>%\n  group_by(homeownership) %>% \n  summarize(\n    avg_loan_amount = mean(loan_amount),\n    n_applicants = n()\n    ) %>%\n  arrange(desc(avg_loan_amount))\n\n# A tibble: 3 × 3\n  homeownership avg_loan_amount n_applicants\n  <chr>                   <dbl>        <int>\n1 Mortgage               18132.         4778\n2 Own                    15665.         1350\n3 Rent                   14396.         3848"
+  },
+  {
+    "objectID": "talks/papers-we-love.html#putting-it-back-together",
+    "href": "talks/papers-we-love.html#putting-it-back-together",
+    "title": "an educator’s perspective of the tidyverse",
+    "section": "putting it back together",
+    "text": "putting it back together\n\n[input] data frame\n\n\nloans %>%\n  group_by(homeownership) %>% \n  summarize(\n    avg_loan_amount = mean(loan_amount),\n    n_applicants = n()\n    ) %>%\n  arrange(desc(avg_loan_amount))\n\n# A tibble: 3 × 3\n  homeownership avg_loan_amount n_applicants\n  <chr>                   <dbl>        <int>\n1 Mortgage               18132.         4778\n2 Own                    15665.         1350\n3 Rent                   14396.         3848\n\n\n\n[output] data frame"
+  },
+  {
+    "objectID": "talks/papers-we-love.html#grouped-summary-with-aggregate",
+    "href": "talks/papers-we-love.html#grouped-summary-with-aggregate",
+    "title": "an educator’s perspective of the tidyverse",
+    "section": "grouped summary with aggregate()",
+    "text": "grouped summary with aggregate()\n\nres1 <- aggregate(loan_amount ~ homeownership, \n                  data = loans, FUN = length)\nres1\n\n  homeownership loan_amount\n1      Mortgage        4778\n2           Own        1350\n3          Rent        3848\n\nnames(res1)[2] <- \"n_applicants\"\nres1\n\n  homeownership n_applicants\n1      Mortgage         4778\n2           Own         1350\n3          Rent         3848"
+  },
+  {
+    "objectID": "talks/papers-we-love.html#grouped-summary-with-aggregate-1",
+    "href": "talks/papers-we-love.html#grouped-summary-with-aggregate-1",
+    "title": "an educator’s perspective of the tidyverse",
+    "section": "grouped summary with aggregate()",
+    "text": "grouped summary with aggregate()\n\nres2 <- aggregate(loan_amount ~ homeownership, \n                  data = loans, FUN = mean)\nnames(res2)[2] <- \"avg_loan_amount\"\n\nres2\n\n  homeownership avg_loan_amount\n1      Mortgage        18132.45\n2           Own        15665.44\n3          Rent        14396.44\n\n\n\n\nres <- merge(res1, res2)\nres[order(res$avg_loan_amount, decreasing = TRUE), ]\n\n  homeownership n_applicants avg_loan_amount\n1      Mortgage         4778        18132.45\n2           Own         1350        15665.44\n3          Rent         3848        14396.44"
+  },
+  {
+    "objectID": "talks/papers-we-love.html#grouped-summary-with-aggregate-2",
+    "href": "talks/papers-we-love.html#grouped-summary-with-aggregate-2",
+    "title": "an educator’s perspective of the tidyverse",
+    "section": "grouped summary with aggregate()",
+    "text": "grouped summary with aggregate()\n\n\nres1 <- aggregate(loan_amount ~ homeownership, data = loans, FUN = length)\nnames(res1)[2] <- \"n_applicants\"\nres2 <- aggregate(loan_amount ~ homeownership, data = loans, FUN = mean)\nnames(res2)[2] <- \"avg_loan_amount\"\nres <- merge(res1, res2)\nres[order(res$avg_loan_amount, decreasing = TRUE), ]\n\n\n\n\nGood: Inputs and outputs are data frames\nNot so good: Need to introduce\n\nformula syntax\npassing functions as arguments\nmerging datasets\nsquare bracket notation for accessing rows"
+  },
+  {
+    "objectID": "talks/papers-we-love.html#grouped-summary-with-tapply",
+    "href": "talks/papers-we-love.html#grouped-summary-with-tapply",
+    "title": "an educator’s perspective of the tidyverse",
+    "section": "grouped summary with tapply()",
+    "text": "grouped summary with tapply()\n\nsort(\n  tapply(loans$loan_amount, loans$homeownership, mean),\n  decreasing = TRUE\n  )\n\nMortgage      Own     Rent \n18132.45 15665.44 14396.44 \n\n\n\n\nNot so good:\n\npassing functions as arguments\ndistinguishing between the various apply() functions\nending up with a new data structure (array)\nreading nested functions"
+  },
+  {
+    "objectID": "talks/papers-we-love.html#and",
+    "href": "talks/papers-we-love.html#and",
+    "title": "an educator’s perspective of the tidyverse",
+    "section": "and…",
+    "text": "and…\nmany more comparative examples in the paper"
+  },
+  {
+    "objectID": "talks/papers-we-love.html#pedagogical-strengths-of-the-tidyverse",
+    "href": "talks/papers-we-love.html#pedagogical-strengths-of-the-tidyverse",
+    "title": "an educator’s perspective of the tidyverse",
+    "section": "pedagogical strengths of the tidyverse",
+    "text": "pedagogical strengths of the tidyverse"
+  },
+  {
+    "objectID": "talks/papers-we-love.html#coda",
+    "href": "talks/papers-we-love.html#coda",
+    "title": "an educator’s perspective of the tidyverse",
+    "section": "coda",
+    "text": "coda\n\n\n\nWe are all converts to the tidyverse and have made a conscious choice to use it in our research and our teaching. We each learned R without the tidyverse and have all spent quite a few years teaching without it at a variety of levels from undergraduate introductory statistics courses to graduate statistical computing courses. This paper is a synthesis of the reasons supporting our tidyverse choice, along with benefits and challenges associated with teaching statistics with the tidyverse.\n\n\n\n\n\n\n\n\n\n\n\nÇetinkaya-Rundel, M., Hardin, J., Baumer, B. S., McNamara, A., Horton, N. J., & Rundel, C. (2022). An educator’s perspective of the tidyverse. Technology Innovations in Statistics Education, 14(1). doi.org/10.5070/T514154352."
   },
   {
     "objectID": "talks/dagstat-2022.html#collaborators",
@@ -628,5 +803,12 @@
     "title": "bir eğitimcinin perspektifinden tidyverse",
     "section": "koda",
     "text": "koda\n\n\n\nHer birimiz R’i tidyverse oncesinde öğrendik ve senelerce tidyverse’siz R ogrettik. Daha sonra araştırmamızda ve öğretimimizde tidyverse’i kullanmaya karar verdik. Bu makale, tidyverse seçimimizi destekleyen nedenlerin yanı sıra, tidyverse ile istatistik öğretiminin faydalarının ve zorluklarının bir sentezidir.\n\n\n\n\n\n\n\nÇetinkaya-Rundel, M., Hardin, J., Baumer, B. S., McNamara, A., Horton, N. J., & Rundel, C. (2021). An educator’s perspective of the tidyverse. arXiv preprint arXiv:2108.03510. arxiv.org/abs/2108.03510"
+  },
+  {
+    "objectID": "dagstat2022.html",
+    "href": "dagstat2022.html",
+    "title": "About",
+    "section": "",
+    "text": "1 + 1\n\n[1] 2"
   }
 ]
