@@ -7,7 +7,7 @@ format:
     theme: slides.scss
     transition: fade
     background-transition: fade
-    highlight-style: a11y
+    highlight-style: a11y-dark
 code-link: true
 execute:
   echo: true
