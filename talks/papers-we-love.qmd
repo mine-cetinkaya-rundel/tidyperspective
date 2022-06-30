@@ -1,0 +1,490 @@
+---
+title: "an educator's perspective of the tidyverse"
+author: "mine çetinkaya-rundel"
+date: "[bit.ly/tidyperspective-dagstat](https://bit.ly/tidyperspective-dagstat)"
+format:
+  revealjs:
+    theme: slides.scss
+    transition: fade
+    background-transition: fade
+    highlight-style: a11y
+code-link: true
+execute:
+  echo: true
+  freeze: auto
+---
+
+# introduction
+
+```{r}
+#| echo: false
+library(tidyverse)
+library(scales)
+library(knitr)
+library(kableExtra)
+library(colorblindr)
+
+options(dplyr.print_min = 6, dplyr.print_max = 6)
+theme_set(theme_gray(base_size = 18))
+```
+
+## collaborators
+
+-   Johanna Hardin, Pomona College
+-   Benjamin S. Baumer, Smith College
+-   Amelia McNamara, University of St Thomas
+-   Nicholas J. Horton, Amherst College
+-   Colin W. Rundel, Duke University
+
+## setting the scene
+
+::: columns
+::: {.column width="50%" style="text-align: center;"}
+![](images/icons8-code-64.png)
+
+**Assumption 1:**
+
+Teach authentic tools
+:::
+
+::: {.column width="50%" style="text-align: center;"}
+![](images/icons8-code-R-64.png)
+
+**Assumption 2:**
+
+Teach R as the authentic tool
+:::
+:::
+
+## takeaway
+
+<br><br>
+
+> The tidyverse provides an effective and efficient pathway for undergraduate students at all levels and majors to gain computational skills and thinking needed throughout the data science cycle.
+
+::: aside
+Çetinkaya-Rundel, M., Hardin, J., Baumer, B. S., McNamara, A., Horton, N. J., & Rundel, C.
+(2021).
+An educator's perspective of the tidyverse.
+arXiv preprint arXiv:2108.03510.
+[arxiv.org/abs/2108.03510](https://arxiv.org/abs/2108.03510)
+:::
+
+# principles of the tidyverse
+
+## tidyverse
+
+::: columns
+::: {.column width="80%"}
+-   meta R package that loads eight core packages when invoked and also bundles numerous other packages upon installation
+-   tidyverse packages share a design philosophy, common grammar, and data structures
+:::
+
+::: {.column width="20%"}
+![](images/tidyverse.png){fig-align="center"}
+:::
+:::
+
+![](images/data-science.png){fig-align="center"}
+
+## setup
+
+**Data:** Thousands of loans made through the Lending Club, a peer-to-peer lending platform available in the **openintro** package, with a few modifications.
+
+```{r}
+library(tidyverse)
+library(openintro)
+
+loans <- loans_full_schema %>%
+  mutate(
+    homeownership = str_to_title(homeownership), 
+    bankruptcy = if_else(public_record_bankrupt >= 1, "Yes", "No")
+  ) %>%
+  filter(annual_income >= 10) %>%
+  select(
+    loan_amount, homeownership, bankruptcy,
+    application_type, annual_income, interest_rate
+  )
+```
+
+## start with a data frame
+
+```{r}
+loans
+```
+
+## tidy data
+
+1.  Each variable forms a column
+2.  Each observation forms a row
+3.  Each type of observational unit forms a table
+
+::: aside
+Wickham, H.
+. (2014).
+Tidy Data.
+*Journal of Statistical Software*, *59*(10), 1--23.
+[doi.org/10.18637/jss.v059.i10](https://doi.org/10.18637/jss.v059.i10).
+:::
+
+## task: calculate a summary statistic
+
+::: goal
+Calculate the mean loan amount.
+:::
+
+```{r}
+loans
+```
+
+. . .
+
+```{r}
+#| eval: false
+
+mean(loan_amount)
+```
+
+. . .
+
+```{r}
+#| error: true
+#| echo: false
+
+mean(loan_amount)
+```
+
+## accessing a variable
+
+**Approach 1:** With `attach()`:
+
+```{r}
+attach(loans)
+mean(loan_amount)
+```
+
+. . .
+
+<br>
+
+*Not recommended.* What if you had another data frame you're working with concurrently called `car_loans` that also had a variable called `loan_amount` in it?
+
+```{r}
+#| echo: false
+detach(loans)
+```
+
+## accessing a variable
+
+**Approach 2:** Using `$`:
+
+```{r}
+mean(loans$loan_amount)
+```
+
+. . .
+
+<br>
+
+**Approach 3:** Using `with()`:
+
+```{r}
+with(loans, mean(loan_amount))
+```
+
+## accessing a variable
+
+**Approach 4:** The tidyverse approach:
+
+```{r}
+loans %>%
+  summarise(mean_loan_amount = mean(loan_amount))
+```
+
+. . .
+
+-   More verbose
+-   But also more expressive and extensible
+
+## the tidyverse approach
+
+::: incremental
+-   tidyverse functions take a `data` argument that allows them to localize computations inside the specified data frame
+
+-   does not muddy the concept of what is in the current environment: variables always accessed from within in a data frame without the use of an additional function (like `with()`) or quotation marks, never as a vector
+:::
+
+# teaching with the tidyverse
+
+## task: grouped summary
+
+::: goal
+Based on the applicants' home ownership status, compute the average loan amount and the number of applicants.
+Display the results in descending order of average loan amount.
+:::
+
+<br>
+
+::: small
+```{r}
+#| echo: false
+
+loans %>%
+  group_by(homeownership) %>% 
+  summarize(
+    avg_loan_amount = mean(loan_amount),
+    n_applicants = n()
+    ) %>%
+  arrange(desc(avg_loan_amount)) %>%
+  mutate(
+    n_applicants = number(n_applicants, big.mark = ","),
+    avg_loan_amount = dollar(avg_loan_amount, accuracy = 1)
+    ) %>%
+  kable(
+    col.names = c("Homeownership", "Number of applicants", "Average loan amount"),
+    align = "lrr"
+    )
+```
+:::
+
+## break it down I
+
+::: columns
+::: {.column width="40%"}
+Based on the applicants' home ownership status, compute the average loan amount and the number of applicants.
+Display the results in descending order of average loan amount.
+:::
+
+::: {.column width="60%"}
+```{r}
+loans
+```
+:::
+:::
+
+## break it down II
+
+::: columns
+::: {.column width="40%"}
+[Based on the applicants' home ownership status]{style="font-weight:bold;background-color:#ccddeb;"}, compute the average loan amount and the number of applicants.
+Display the results in descending order of average loan amount.
+:::
+
+::: {.column width="60%"}
+::: {.fragment fragment-index="2"}
+::: in-out
+**\[input\]** data frame
+:::
+:::
+
+::: {.fragment fragment-index="3"}
+```{r}
+#| code-line-numbers: "2"
+
+loans %>%
+  group_by(homeownership)
+```
+:::
+
+::: {.fragment fragment-index="4"}
+::: {.in-out style="text-align: right;"}
+data frame **\[output\]**
+:::
+:::
+:::
+:::
+
+## break it down III
+
+::: columns
+::: {.column width="40%"}
+Based on the applicants' home ownership status, [compute the average loan amount]{style="font-weight:bold;background-color:#ccddeb;"} and the number of applicants.
+Display the results in descending order of average loan amount.
+:::
+
+::: {.column width="60%"}
+```{r}
+#| code-line-numbers: "3-5"
+
+loans %>%
+  group_by(homeownership) %>% 
+  summarize(
+    avg_loan_amount = mean(loan_amount)
+    )
+```
+:::
+:::
+
+## break it down IV
+
+::: columns
+::: {.column width="40%"}
+Based on the applicants' home ownership status, compute the average loan amount and [the number of applicants]{style="font-weight:bold;background-color:#ccddeb;"}.
+Display the results in descending order of average loan amount.
+:::
+
+::: {.column width="60%"}
+```{r}
+#| code-line-numbers: "5"
+
+loans %>%
+  group_by(homeownership) %>% 
+  summarize(
+    avg_loan_amount = mean(loan_amount),
+    n_applicants = n()
+    )
+```
+:::
+:::
+
+## break it down V
+
+::: columns
+::: {.column width="40%"}
+Based on the applicants' home ownership status, compute the average loan amount and the number of applicants.
+[Display the results in descending order of average loan amount.]{style="font-weight:bold;background-color:#ccddeb;"}
+:::
+
+::: {.column width="60%"}
+```{r}
+#| code-line-numbers: "7"
+
+loans %>%
+  group_by(homeownership) %>% 
+  summarize(
+    avg_loan_amount = mean(loan_amount),
+    n_applicants = n()
+    ) %>%
+  arrange(desc(avg_loan_amount))
+```
+:::
+:::
+
+## putting it back together
+
+::: in-out
+**\[input\]** data frame
+:::
+
+```{r}
+loans %>%
+  group_by(homeownership) %>% 
+  summarize(
+    avg_loan_amount = mean(loan_amount),
+    n_applicants = n()
+    ) %>%
+  arrange(desc(avg_loan_amount))
+```
+
+::: in-out
+**\[output\]** data frame
+:::
+
+## grouped summary with `aggregate()`
+
+```{r}
+res1 <- aggregate(loan_amount ~ homeownership, 
+                  data = loans, FUN = length)
+res1
+
+names(res1)[2] <- "n_applicants"
+res1
+```
+
+## grouped summary with `aggregate()`
+
+```{r}
+res2 <- aggregate(loan_amount ~ homeownership, 
+                  data = loans, FUN = mean)
+names(res2)[2] <- "avg_loan_amount"
+
+res2
+```
+
+. . .
+
+```{r}
+res <- merge(res1, res2)
+res[order(res$avg_loan_amount, decreasing = TRUE), ]
+```
+
+## grouped summary with `aggregate()`
+
+::: small
+```{r}
+#| eval: false
+
+res1 <- aggregate(loan_amount ~ homeownership, data = loans, FUN = length)
+names(res1)[2] <- "n_applicants"
+res2 <- aggregate(loan_amount ~ homeownership, data = loans, FUN = mean)
+names(res2)[2] <- "avg_loan_amount"
+res <- merge(res1, res2)
+res[order(res$avg_loan_amount, decreasing = TRUE), ]
+```
+:::
+
+. . .
+
+-   **Good:** Inputs and outputs are data frames
+-   **Not so good:** Need to introduce
+    -   formula syntax
+
+    -   passing functions as arguments
+
+    -   merging datasets
+
+    -   square bracket notation for accessing rows
+
+## grouped summary with `tapply()`
+
+```{r}
+sort(
+  tapply(loans$loan_amount, loans$homeownership, mean),
+  decreasing = TRUE
+  )
+```
+
+. . .
+
+<br>
+
+**Not so good:**
+
+-   passing functions as arguments
+-   distinguishing between the various `apply()` functions
+-   ending up with a new data structure (`array`)
+-   reading nested functions
+
+## and...
+
+many more comparative examples in the paper
+
+## pedagogical strengths of the tidyverse
+
+![](images/table1.png){fig-alt="Table 1 from paper: Consistency: Syntax, function interfaces, argument names and orders follow patterns; Mixability: Ability to use base and other functions within tidyverse syntax; Scalability: Unified approach to data wrangling and visualization works for datasets of a wide range of types and sizes; User-centered design: Function interfaces designed with users in mind; Readability: Interfaces that are designed to produce readable code; Community: Large, active, welcoming community of users and resources; Transferability: Data manipulation verbs inherit from SQL’s query syntax." fig-align="center"}
+
+## coda {.smaller}
+
+::: columns
+::: {.column width="60%"}
+> We are all converts to the tidyverse and have made a conscious choice to use it in our research and our teaching.
+> We each learned R without the tidyverse and have all spent quite a few years teaching without it at a variety of levels from undergraduate introductory statistics courses to graduate statistical computing courses.
+> This paper is a synthesis of the reasons supporting our tidyverse choice, along with benefits and challenges associated with teaching statistics with the tidyverse.
+:::
+
+::: {.column width="40%"}
+[![](images/paper-tise.png){fig-alt="Screenshot of the paper titled \"An educator's perspective of the tidyverse\" from the journal (TISE) website. Shows the title of the paper, the names and affiliations of authors, and part of the abstract."}](https://doi.org/10.5070/T514154352)
+:::
+:::
+
+::: aside
+Çetinkaya-Rundel, M., Hardin, J., Baumer, B. S., McNamara, A., Horton, N. J., & Rundel, C.
+(2022).
+An educator's perspective of the tidyverse.
+Technology Innovations in Statistics Education, 14(1).
+[doi.org/10.5070/T514154352](https://doi.org/10.5070/T514154352).
+:::
+
+# thank you!
+
+[bit.ly/tidyperspective-dagstat](https://bit.ly/tidyperspective-dagstat)
