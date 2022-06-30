@@ -1,7 +1,7 @@
 ---
 title: "an educator's perspective of the tidyverse"
 author: "mine çetinkaya-rundel"
-date: "[bit.ly/tidyperspective-dagstat](https://bit.ly/tidyperspective-dagstat)"
+date: "[bit.ly/tidyperspective-pwl](https://bit.ly/tidyperspective-pwl)"
 format:
   revealjs:
     theme: slides.scss
@@ -40,7 +40,7 @@ theme_set(theme_gray(base_size = 18))
 
 ::: columns
 ::: {.column width="50%" style="text-align: center;"}
-![](images/icons8-code-64.png)
+![](images/icons8-code-64.png){fig-alt="Code icon"}
 
 **Assumption 1:**
 
@@ -48,7 +48,7 @@ Teach authentic tools
 :::
 
 ::: {.column width="50%" style="text-align: center;"}
-![](images/icons8-code-R-64.png)
+![](images/icons8-code-R-64.png){fig-alt="R logo"}
 
 **Assumption 2:**
 
@@ -64,10 +64,10 @@ Teach R as the authentic tool
 
 ::: aside
 Çetinkaya-Rundel, M., Hardin, J., Baumer, B. S., McNamara, A., Horton, N. J., & Rundel, C.
-(2021).
+(2022).
 An educator's perspective of the tidyverse.
-arXiv preprint arXiv:2108.03510.
-[arxiv.org/abs/2108.03510](https://arxiv.org/abs/2108.03510)
+Technology Innovations in Statistics Education, 14(1).
+[doi.org/10.5070/T514154352](https://doi.org/10.5070/T514154352).
 :::
 
 # principles of the tidyverse
@@ -81,11 +81,11 @@ arXiv preprint arXiv:2108.03510.
 :::
 
 ::: {.column width="20%"}
-![](images/tidyverse.png){fig-align="center"}
+![](images/tidyverse.png){fig-alt="Hex logo for the tidyverse package" fig-align="center"}
 :::
 :::
 
-![](images/data-science.png){fig-align="center"}
+![](images/data-science.png){fig-alt="The data science cycle with import (readr and tibble), tidy (tidyr and purr), transfor (dplyr, stringr, forcats, tidyr), visualize (ggplot2), model, communicate" fig-align="center"}
 
 ## setup
 
@@ -487,4 +487,4 @@ Technology Innovations in Statistics Education, 14(1).
 
 # thank you!
 
-[bit.ly/tidyperspective-dagstat](https://bit.ly/tidyperspective-dagstat)
+[bit.ly/tidyperspective-pwl](https://bit.ly/tidyperspective-pwl)
