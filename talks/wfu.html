@@ -1150,10 +1150,26 @@
 </section>
 <section id="consistency" class="slide level2">
 <h2>consistency</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
 <ul>
 <li><p>No matter which approach or tool you use, you should strive to be consistent in the classroom whenever possible</p></li>
 <li><p>tidyverse offers consistency, something we believe to be of the utmost importance, allowing students to move knowledge about function arguments to their long-term memory</p></li>
 </ul>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a>df <span class="sc">|&gt;</span></span>
+<span id="cb52-2"><a href="#cb52-2"></a>  <span class="fu">do_this</span>() <span class="sc">|&gt;</span></span>
+<span id="cb52-3"><a href="#cb52-3"></a>  <span class="fu">do_that</span>() <span class="sc">|&gt;</span></span>
+<span id="cb52-4"><a href="#cb52-4"></a>  <span class="fu">...</span>()</span>
+<span id="cb52-5"><a href="#cb52-5"></a></span>
+<span id="cb52-6"><a href="#cb52-6"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(...)) <span class="sc">+</span></span>
+<span id="cb52-7"><a href="#cb52-7"></a>  <span class="fu">layer_this</span>() <span class="sc">+</span></span>
+<span id="cb52-8"><a href="#cb52-8"></a>  <span class="fu">layer_that</span>() <span class="sc">+</span></span>
+<span id="cb52-9"><a href="#cb52-9"></a>  <span class="fu">...</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="teaching-consistently" class="slide level2">
 <h2>teaching consistently</h2>
@@ -1168,14 +1184,37 @@
 </div></aside></section>
 <section id="mixability" class="slide level2">
 <h2>mixability</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
 <ul>
 <li><p>Mix with base R code or code from other packages</p></li>
 <li><p>In fact, you can’t not mix with base R code!</p></li>
 </ul>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a>df <span class="sc">|&gt;</span></span>
+<span id="cb53-2"><a href="#cb53-2"></a>  <span class="fu">group_by</span>(var1) <span class="sc">|&gt;</span></span>
+<span id="cb53-3"><a href="#cb53-3"></a>  <span class="fu">summarize</span>(<span class="at">mean_var2 =</span> <span class="fu">mean</span>(var2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="scalability" class="slide level2">
 <h2>scalability</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
 <p>Adding a new variable to a visualization or a new summary statistic doesn’t require introducing a numerous functions, interfaces, and data structures</p>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a>df <span class="sc">|&gt;</span></span>
+<span id="cb54-2"><a href="#cb54-2"></a>  <span class="fu">group_by</span>(var1) <span class="sc">|&gt;</span></span>
+<span id="cb54-3"><a href="#cb54-3"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb54-4"><a href="#cb54-4"></a>    <span class="at">mean_var2 =</span> <span class="fu">mean</span>(var2),</span>
+<span id="cb54-5"><a href="#cb54-5"></a>    <span class="at">median_var2 =</span> <span class="fu">median</span>(var2)</span>
+<span id="cb54-6"><a href="#cb54-6"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="user-centered-design" class="slide level2">
 <h2>user-centered design</h2>
@@ -1186,30 +1225,64 @@
 </section>
 <section id="readability" class="slide level2">
 <h2>readability</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
 <p>Interfaces that are designed to produce readable code</p>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a>df <span class="sc">|&gt;</span></span>
+<span id="cb55-2"><a href="#cb55-2"></a>  <span class="fu">separate</span>(var1, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"var2"</span>, <span class="st">"var3"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb55-3"><a href="#cb55-3"></a>  <span class="fu">mutate</span>(<span class="at">var4 =</span> <span class="fu">str_detect</span>(var3, <span class="st">"pattern"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb55-4"><a href="#cb55-4"></a>  <span class="fu">group_by</span>(var4) <span class="sc">|&gt;</span></span>
+<span id="cb55-5"><a href="#cb55-5"></a>  <span class="fu">summarize</span>(<span class="at">sd_var5 =</span> <span class="fu">sd</span>(var5))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="community" class="slide level2">
 <h2>community</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
 <ul>
-<li><p>The encouraging and inclusive tidyverse community is one of the benefits of the paradigm</p></li>
-<li><p>Each package comes with a website, each of these websites are similarly laid out, and results of example code are displayed, and extensive vignettes describe how to use various functions from the package together</p></li>
+<li>The encouraging and inclusive tidyverse community is one of the benefits of the paradigm</li>
 </ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/code_hero.jpeg" width="600"></p>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>Each package comes with a website, each of these websites are similarly laid out, and results of example code are displayed, and extensive vignettes describe how to use various functions from the package together</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/pkg-websites.png" width="600"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="shared-syntax" class="slide level2">
 <h2>shared syntax</h2>
 <p>Get SQL for free with <strong>dplyr</strong> verbs!</p>
+<p><strong>dplyr:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a>flights <span class="sc">|&gt;</span></span>
+<span id="cb56-2"><a href="#cb56-2"></a>  <span class="fu">select</span>(distance, air_time) <span class="sc">|&gt;</span></span>
+<span id="cb56-3"><a href="#cb56-3"></a>  <span class="fu">mutate</span>(<span class="at">speed =</span> distance <span class="sc">/</span> (air_time <span class="sc">/</span> <span class="dv">60</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>SQL:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb57-1"><a href="#cb57-1"></a><span class="kw">SELECT</span> `distance`, `air_time`, `distance` <span class="op">/</span> (`air_time` <span class="op">/</span> <span class="fl">60.0</span>) <span class="kw">AS</span> `speed`</span>
+<span id="cb57-2"><a href="#cb57-2"></a><span class="kw">FROM</span> (<span class="kw">SELECT</span> `distance`, `air_time`</span>
+<span id="cb57-3"><a href="#cb57-3"></a><span class="kw">FROM</span> `nycflights13:<span class="ch">:flights</span>`)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section></section>
 <section>
 <section id="final-thoughts" class="title-slide slide level1 center">
 <h1>final thoughts</h1>
 
-</section>
-<section id="building-a-curriculum" class="slide level2">
-<h2>building a curriculum</h2>
-<ul>
-<li><p>Start with <code>library(tidyverse)</code></p></li>
-<li><p>Teach by learning goals, not packages</p></li>
-</ul>
 </section>
 <section id="keeping-up-with-the-tidyverse" class="slide level2">
 <h2>keeping up with the tidyverse</h2>
@@ -1219,21 +1292,69 @@
 <p><img data-src="images/lifecycle.png"></p></li>
 </ul>
 </section>
-<section id="coda" class="slide level2 smaller">
-<h2>coda</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<blockquote>
-<p>We are all converts to the tidyverse and have made a conscious choice to use it in our research and our teaching. We each learned R without the tidyverse and have all spent quite a few years teaching without it at a variety of levels from undergraduate introductory statistics courses to graduate statistical computing courses. This paper is a synthesis of the reasons supporting our tidyverse choice, along with benefits and challenges associated with teaching statistics with the tidyverse.</p>
-</blockquote>
-</div><div class="column" style="width:40%;">
-<p><img data-src="images/paper-tise.png" width="500"></p>
-</div>
+<section id="building-a-curriculum" class="slide level2">
+<h2>building a curriculum</h2>
+<ul>
+<li><p>Start with <code>library(tidyverse)</code></p></li>
+<li><p>Teach by learning goals, not packages</p></li>
+</ul>
+</section>
+<section id="the-curriculum-weve-built-duke-statsci" class="slide level2">
+<h2>the curriculum we’ve built @ duke statsci</h2>
+<div style="text-align: center; font-size: 50px;">
+<p>STA 199: Introduction to Data Science</p>
+<p><a href="https://sta199-f22-1.github.io/">sta199-f22-1.github.io</a></p>
 </div>
 
-<aside><div>
-<p>Çetinkaya-Rundel, M., Hardin, J., Baumer, B., McNamara, A., Horton, N., &amp; Rundel, C. (2022). An educator’s perspective of the tidyverse. Technology Innovations in Statistics Education, 14(1). <a href="http://dx.doi.org/10.5070/T514154352">dx.doi.org/10.5070/T514154352</a>.</p>
-</div></aside></section></section>
+<img data-src="images/sta-199-topics.png" width="600" class="r-stretch quarto-figure-center"></section>
+<section id="downstream-effects-duke-statsci" class="slide level2">
+<h2>downstream effects @ duke statsci</h2>
+<ul>
+<li>courses:
+<ul>
+<li><p>STA 198: Introduction to Global Health Data Science</p></li>
+<li><p>STA 210: Regression Analysis</p></li>
+<li><p>STA 323: Statistical Computing</p></li>
+<li><p>STA 440: Case Studies</p></li>
+</ul></li>
+<li>programs:
+<ul>
+<li><p>Inter-departmental major in Data Science (with CS)</p></li>
+<li><p>Data Science concentration for the StatSci major</p></li>
+</ul></li>
+<li>and more…</li>
+</ul>
+</section>
+<section id="the-tidyverse" class="slide level2">
+<h2>___ the tidyverse</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div style="text-align: center; font-size: 50px;">
+<div class="column" style="width:50%;">
+<p><strong>learn</strong> the tidyverse</p>
+<p><a href="https://tidyverse.org">tidyverse.org</a></p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/tidyverse.png" width="400"></p>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div style="text-align: center; font-size: 50px;">
+<div class="column" style="width:50%;">
+<p><strong>teach</strong> the tidyverse</p>
+</div>
+<p><a href="https://datasciencebox.org">datasciencebox.org</a></p>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/dsbox-rectangle.png" width="400"></p>
+</figure>
+</div>
+</div>
+</div>
+</section></section>
 <section id="thank-you" class="title-slide slide level1 center" data-background-image="images/tidyverse-celestial.png" aria-label="A galaxy of tidyverse-related hex stickers." data-background-opacity="0.5">
 <h1>thank you!</h1>
 <p><a href="https://bit.ly/tidyperspective-wfu">bit.ly/tidyperspective-wfu</a></p>
