@@ -277,7 +277,7 @@
     "href": "talks/wfu.html#consistency",
     "title": "An educator's perspective of the tidyverse",
     "section": "consistency",
-    "text": "consistency\n\nNo matter which approach or tool you use, you should strive to be consistent in the classroom whenever possible\ntidyverse offers consistency, something we believe to be of the utmost importance, allowing students to move knowledge about function arguments to their long-term memory"
+    "text": "consistency\n\n\n\nNo matter which approach or tool you use, you should strive to be consistent in the classroom whenever possible\ntidyverse offers consistency, something we believe to be of the utmost importance, allowing students to move knowledge about function arguments to their long-term memory\n\n\n\ndf |>\n  do_this() |>\n  do_that() |>\n  ...()\n\nggplot(df, aes(...)) +\n  layer_this() +\n  layer_that() +\n  ...()"
   },
   {
     "objectID": "talks/wfu.html#teaching-consistently",
@@ -291,14 +291,14 @@
     "href": "talks/wfu.html#mixability",
     "title": "An educator's perspective of the tidyverse",
     "section": "mixability",
-    "text": "mixability\n\nMix with base R code or code from other packages\nIn fact, you can’t not mix with base R code!"
+    "text": "mixability\n\n\n\nMix with base R code or code from other packages\nIn fact, you can’t not mix with base R code!\n\n\n\ndf |>\n  group_by(var1) |>\n  summarize(mean_var2 = mean(var2))"
   },
   {
     "objectID": "talks/wfu.html#scalability",
     "href": "talks/wfu.html#scalability",
     "title": "An educator's perspective of the tidyverse",
     "section": "scalability",
-    "text": "scalability\nAdding a new variable to a visualization or a new summary statistic doesn’t require introducing a numerous functions, interfaces, and data structures"
+    "text": "scalability\n\n\nAdding a new variable to a visualization or a new summary statistic doesn’t require introducing a numerous functions, interfaces, and data structures\n\n\ndf |>\n  group_by(var1) |>\n  summarize(\n    mean_var2 = mean(var2),\n    median_var2 = median(var2)\n  )"
   },
   {
     "objectID": "talks/wfu.html#user-centered-design",
@@ -312,21 +312,21 @@
     "href": "talks/wfu.html#readability",
     "title": "An educator's perspective of the tidyverse",
     "section": "readability",
-    "text": "readability\nInterfaces that are designed to produce readable code"
+    "text": "readability\n\n\nInterfaces that are designed to produce readable code\n\n\ndf |>\n  separate(var1, into = c(\"var2\", \"var3\")) |>\n  mutate(var4 = str_detect(var3, \"pattern\")) |>\n  group_by(var4) |>\n  summarize(sd_var5 = sd(var5))"
   },
   {
     "objectID": "talks/wfu.html#community",
     "href": "talks/wfu.html#community",
     "title": "An educator's perspective of the tidyverse",
     "section": "community",
-    "text": "community\n\nThe encouraging and inclusive tidyverse community is one of the benefits of the paradigm\nEach package comes with a website, each of these websites are similarly laid out, and results of example code are displayed, and extensive vignettes describe how to use various functions from the package together"
+    "text": "community\n\n\n\nThe encouraging and inclusive tidyverse community is one of the benefits of the paradigm\n\n\n\n\n\n\n\nEach package comes with a website, each of these websites are similarly laid out, and results of example code are displayed, and extensive vignettes describe how to use various functions from the package together"
   },
   {
     "objectID": "talks/wfu.html#shared-syntax",
     "href": "talks/wfu.html#shared-syntax",
     "title": "An educator's perspective of the tidyverse",
     "section": "shared syntax",
-    "text": "shared syntax\nGet SQL for free with dplyr verbs!"
+    "text": "shared syntax\nGet SQL for free with dplyr verbs!\ndplyr:\n\nflights |>\n  select(distance, air_time) |>\n  mutate(speed = distance / (air_time / 60))\n\nSQL:\n\nSELECT `distance`, `air_time`, `distance` / (`air_time` / 60.0) AS `speed`\nFROM (SELECT `distance`, `air_time`\nFROM `nycflights13::flights`)"
   },
   {
     "objectID": "talks/wfu.html#building-a-curriculum",
@@ -1146,5 +1146,47 @@
     "title": "tidyperspective",
     "section": "",
     "text": "DAGStat 2022 - Hamburg, Germany [slides]\nWhy R Turkey 2022 - Online [slides]\nPapers We Love ❤️ Edu - Online [slides] [discussion]\nWahe Forest University - Winston-Salem, NC [slides]"
+  },
+  {
+    "objectID": "talks/wfu.html#the-curriculum-weve-built-sta-199",
+    "href": "talks/wfu.html#the-curriculum-weve-built-sta-199",
+    "title": "An educator's perspective of the tidyverse",
+    "section": "the curriculum we’ve built: STA 199",
+    "text": "the curriculum we’ve built: STA 199\nsta199-f22-1.github.io"
+  },
+  {
+    "objectID": "talks/wfu.html#downstream-effects",
+    "href": "talks/wfu.html#downstream-effects",
+    "title": "An educator's perspective of the tidyverse",
+    "section": "downstream effects",
+    "text": "downstream effects\n\nSTA 198: Introduction to Global Health Data Science\nSTA 210: Regression Analysis\nSTA 323: Statistical Computing\nSTA 440: Case Studies\nand more…"
+  },
+  {
+    "objectID": "talks/wfu.html#the-curriculum-weve-built",
+    "href": "talks/wfu.html#the-curriculum-weve-built",
+    "title": "An educator's perspective of the tidyverse",
+    "section": "the curriculum we’ve built",
+    "text": "the curriculum we’ve built\n\nSTA 199: Introduction to Data Science\nsta199-f22-1.github.io"
+  },
+  {
+    "objectID": "talks/wfu.html#the-tidyverse",
+    "href": "talks/wfu.html#the-tidyverse",
+    "title": "An educator's perspective of the tidyverse",
+    "section": "___ the tidyverse",
+    "text": "___ the tidyverse\n\n\n\n\nlearn the tidyverse\ntidyverse.org\n\n\n\n\n\n\n\n\n\nteach the tidyverse\n\ndatasciencebox.org"
+  },
+  {
+    "objectID": "talks/wfu.html#the-curriculum-weve-built-duke-statsci",
+    "href": "talks/wfu.html#the-curriculum-weve-built-duke-statsci",
+    "title": "An educator's perspective of the tidyverse",
+    "section": "the curriculum we’ve built @ duke statsci",
+    "text": "the curriculum we’ve built @ duke statsci\n\nSTA 199: Introduction to Data Science\nsta199-f22-1.github.io"
+  },
+  {
+    "objectID": "talks/wfu.html#downstream-effects-duke-statsci",
+    "href": "talks/wfu.html#downstream-effects-duke-statsci",
+    "title": "An educator's perspective of the tidyverse",
+    "section": "downstream effects @ duke statsci",
+    "text": "downstream effects @ duke statsci\n\ncourses:\n\nSTA 198: Introduction to Global Health Data Science\nSTA 210: Regression Analysis\nSTA 323: Statistical Computing\nSTA 440: Case Studies\n\n\nprograms:\n\nInter-departmental major in Data Science (with CS)\nData Science concentration for the StatSci major\n\n\nand more…"
   }
 ]

@@ -742,9 +742,29 @@ Modeling and inference with **tidymodels**:
 
 ## consistency
 
+::: columns
+::: {.column width="50%"}
 -   No matter which approach or tool you use, you should strive to be consistent in the classroom whenever possible
 
 -   tidyverse offers consistency, something we believe to be of the utmost importance, allowing students to move knowledge about function arguments to their long-term memory
+:::
+
+::: {.column width="50%"}
+```{r}
+#| eval: false
+
+df |>
+  do_this() |>
+  do_that() |>
+  ...()
+
+ggplot(df, aes(...)) +
+  layer_this() +
+  layer_that() +
+  ...()
+```
+:::
+:::
 
 ## teaching consistently
 
@@ -764,13 +784,44 @@ ACM SIGCOMM Computer Communication Review, 10(4), 12-51.
 
 ## mixability
 
+::: columns
+::: {.column width="50%"}
 -   Mix with base R code or code from other packages
 
 -   In fact, you can't not mix with base R code!
+:::
+
+::: {.column width="50%"}
+```{r}
+#| eval: false
+
+df |>
+  group_by(var1) |>
+  summarize(mean_var2 = mean(var2))
+```
+:::
+:::
 
 ## scalability
 
+::: columns
+::: {.column width="50%"}
 Adding a new variable to a visualization or a new summary statistic doesn't require introducing a numerous functions, interfaces, and data structures
+:::
+
+::: {.column width="50%"}
+```{r}
+#| eval: false
+
+df |>
+  group_by(var1) |>
+  summarize(
+    mean_var2 = mean(var2),
+    median_var2 = median(var2)
+  )
+```
+:::
+:::
 
 ## user-centered design
 
@@ -780,25 +831,65 @@ Adding a new variable to a visualization or a new summary statistic doesn't requ
 
 ## readability
 
+::: columns
+::: {.column width="50%"}
 Interfaces that are designed to produce readable code
+:::
+
+::: {.column width="50%"}
+```{r}
+#| eval: false
+
+df |>
+  separate(var1, into = c("var2", "var3")) |>
+  mutate(var4 = str_detect(var3, "pattern")) |>
+  group_by(var4) |>
+  summarize(sd_var5 = sd(var5))
+```
+:::
+:::
 
 ## community
 
+::: columns
+::: {.column width="50%"}
 -   The encouraging and inclusive tidyverse community is one of the benefits of the paradigm
 
+![](images/code_hero.jpeg){fig-align="center" width="600"}
+:::
+
+::: {.column width="50%"}
 -   Each package comes with a website, each of these websites are similarly laid out, and results of example code are displayed, and extensive vignettes describe how to use various functions from the package together
+
+![](images/pkg-websites.png){fig-align="center" width="600"}
+:::
+:::
 
 ## shared syntax
 
 Get SQL for free with **dplyr** verbs!
 
+**dplyr:**
+
+```{r}
+#| eval: false
+
+flights |>
+  select(distance, air_time) |>
+  mutate(speed = distance / (air_time / 60))
+```
+
+**SQL:**
+
+```{sql}
+#| eval: false
+
+SELECT `distance`, `air_time`, `distance` / (`air_time` / 60.0) AS `speed`
+FROM (SELECT `distance`, `air_time`
+FROM `nycflights13::flights`)
+```
+
 # final thoughts
-
-## building a curriculum
-
--   Start with `library(tidyverse)`
-
--   Teach by learning goals, not packages
 
 ## keeping up with the tidyverse
 
@@ -808,28 +899,68 @@ Get SQL for free with **dplyr** verbs!
 
     ![](images/lifecycle.png)
 
-## coda {.smaller}
+## building a curriculum
+
+-   Start with `library(tidyverse)`
+
+-   Teach by learning goals, not packages
+
+## the curriculum we've built @ duke statsci
+
+::: {style="text-align: center; font-size: 50px;"}
+STA 199: Introduction to Data Science
+
+[sta199-f22-1.github.io](https://sta199-f22-1.github.io/)
+:::
+
+![](images/sta-199-topics.png){fig-align="center" width="600"}
+
+## downstream effects @ duke statsci
+
+-   courses:
+    -   STA 198: Introduction to Global Health Data Science
+
+    -   STA 210: Regression Analysis
+
+    -   STA 323: Statistical Computing
+
+    -   STA 440: Case Studies
+-   programs:
+    -   Inter-departmental major in Data Science (with CS)
+
+    -   Data Science concentration for the StatSci major
+-   and more...
+
+## \_\_\_ the tidyverse
 
 ::: columns
-::: {.column width="60%"}
-> We are all converts to the tidyverse and have made a conscious choice to use it in our research and our teaching.
-> We each learned R without the tidyverse and have all spent quite a few years teaching without it at a variety of levels from undergraduate introductory statistics courses to graduate statistical computing courses.
-> This paper is a synthesis of the reasons supporting our tidyverse choice, along with benefits and challenges associated with teaching statistics with the tidyverse.
+::: {.column width="50%"}
+
+::: {style="text-align: center; font-size: 50px;"}
+::: {.column width="50%"}
+**learn** the tidyverse
+
+[tidyverse.org](https://tidyverse.org)
+:::
 :::
 
-::: {.column width="40%"}
-![](images/paper-tise.png){width="500"}
+![](images/tidyverse.png){fig-align="center" width="400"}
+:::
+
+::: {.column width="50%"}
+
+::: {style="text-align: center; font-size: 50px;"}
+::: {.column width="50%"}
+**teach** the tidyverse
+:::
+
+[datasciencebox.org](https://datasciencebox.org)
+:::
+
+![](images/dsbox-rectangle.png){fig-align="center" width="400"}
 :::
 :::
 
-::: aside
-Çetinkaya-Rundel, M., Hardin, J., Baumer, B., McNamara, A., Horton, N., & Rundel, C.
-(2022).
-An educator's perspective of the tidyverse.
-Technology Innovations in Statistics Education, 14(1).
-[dx.doi.org/10.5070/T514154352](http://dx.doi.org/10.5070/T514154352).
-:::
-
-# thank you! {background-image="images/tidyverse-celestial.png" aria-label="A galaxy of tidyverse-related hex stickers." background-opacity=0.5}
+# thank you! {background-image="images/tidyverse-celestial.png" aria-label="A galaxy of tidyverse-related hex stickers." background-opacity="0.5"}
 
 [bit.ly/tidyperspective-wfu](https://bit.ly/tidyperspective-wfu)
