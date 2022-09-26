@@ -4,7 +4,7 @@ author: "mine çetinkaya-rundel"
 date: "[bit.ly/tidyperspective-wfu](https://bit.ly/tidyperspective-wfu)"
 format:
   revealjs:
-    theme: slides-wfu.scss
+    theme: slides.scss
     transition: fade
     background-transition: fade
     height: 900

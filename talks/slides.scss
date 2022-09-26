@@ -12,6 +12,41 @@ $presentation-h2-font-size: 1.4em;
 
 /*-- scss:rules --*/
 
+.reveal .custom-title {
+  position: absolute;
+  color: #00589b;
+  font-size: 3em;
+  text-align: right;
+  right: 20px;
+  top: -200px;
+}
+
+.reveal .custom-author {
+  position: absolute;
+  font-size: 1.4em;
+  text-align: right;
+  right: 20px;
+  top: 300px;
+}
+
+.reveal .custom-twitter a {
+  position: absolute;
+  color: #1DA1F2;
+  font-size: 1.3em;
+  text-align: right;
+  right: 20px;
+  top: 470px;
+}
+
+.reveal .custom-url a {
+  position: absolute;
+  color: #00589b;
+  font-size: 1.5em;
+  text-align: right;
+  right: 20px;
+  top: 570px;
+}
+
 details>summary {
   font-size: 0.75em;
 }
