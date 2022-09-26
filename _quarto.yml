@@ -10,8 +10,8 @@ website:
     right: "This page is built with ❤️ and [Quarto](https://quarto.org/)."
     left: "&copy; Copyright 2022, Mine Çetinkaya-Rundel"
 
-  style: "docked"
   sidebar:
+    style: "docked"
     tools:
       - icon: github
         href: https://github.com/mine-cetinkaya-rundel/tidyperspective
