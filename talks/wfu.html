@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.1.251">
 
   <meta name="author" content="mine çetinkaya-rundel">
-  <title>An educator’s perspective of the tidyverse - an educator’s perspective of the tidyverse</title>
+  <title>an educator’s perspective of the tidyverse</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -387,10 +387,13 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="center">
-  <h1 class="title">an educator’s perspective of the tidyverse</h1>
-  <p class="author">mine çetinkaya-rundel</p>
-  <p class="date"><a href="https://bit.ly/tidyperspective-dagstat">bit.ly/tidyperspective-dagstat</a></p>
+
+<section id="hello-quarto-title" class="title-slide slide level1 center" data-menu-title="an educator's perspective of the tidyverse" data-background-image="images/tidyverse-hexes.png" aria-label="Hex logo for nine core tidyverse packages: dplyr, ggplot2, forcasts, tibble, readr, stringr, tidyr, purrr, lubridate.">
+<h1></h1>
+<p><span class="custom-title">an educator’s<br>perspective of<br>the tidyverse</span></p>
+<p><span class="custom-author">mine çetinkaya-rundel<br>duke university + rstudio</span></p>
+<p><span class="custom-url"><a href="https://bit.ly/tidyperspective-wfu/">bit.ly/tidyperspective-wfu</a></span></p>
+<p><span class="custom-twitter"><a href="https://twitter.com/minebocek">@minebocek</a></span></p>
 </section>
 
 <section>
@@ -432,7 +435,7 @@
 </blockquote>
 
 <aside><div>
-<p>Çetinkaya-Rundel, M., Hardin, J., Baumer, B. S., McNamara, A., Horton, N. J., &amp; Rundel, C. (2021). An educator’s perspective of the tidyverse. arXiv preprint arXiv:2108.03510. <a href="https://arxiv.org/abs/2108.03510">arxiv.org/abs/2108.03510</a></p>
+<p>Çetinkaya-Rundel, M., Hardin, J., Baumer, B., McNamara, A., Horton, N., &amp; Rundel, C. (2022). An educator’s perspective of the tidyverse. Technology Innovations in Statistics Education, 14(1). <a href="http://dx.doi.org/10.5070/T514154352">dx.doi.org/10.5070/T514154352</a>.</p>
 </div></aside></section></section>
 <section>
 <section id="principles-of-the-tidyverse" class="title-slide slide level1 center">
@@ -457,7 +460,7 @@
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/data-science.png"></p>
+<p><img data-src="images/data-science.png" width="1000"></p>
 </figure>
 </div>
 </section>
@@ -468,12 +471,12 @@
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(openintro)</span>
 <span id="cb1-3"><a href="#cb1-3"></a></span>
-<span id="cb1-4"><a href="#cb1-4"></a>loans <span class="ot">&lt;-</span> loans_full_schema <span class="sc">%&gt;%</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>loans <span class="ot">&lt;-</span> loans_full_schema <span class="sc">|&gt;</span></span>
 <span id="cb1-5"><a href="#cb1-5"></a>  <span class="fu">mutate</span>(</span>
 <span id="cb1-6"><a href="#cb1-6"></a>    <span class="at">homeownership =</span> <span class="fu">str_to_title</span>(homeownership), </span>
 <span id="cb1-7"><a href="#cb1-7"></a>    <span class="at">bankruptcy =</span> <span class="fu">if_else</span>(public_record_bankrupt <span class="sc">&gt;=</span> <span class="dv">1</span>, <span class="st">"Yes"</span>, <span class="st">"No"</span>)</span>
-<span id="cb1-8"><a href="#cb1-8"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a>  <span class="fu">filter</span>(annual_income <span class="sc">&gt;=</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a>  <span class="fu">filter</span>(annual_income <span class="sc">&gt;=</span> <span class="dv">10</span>) <span class="sc">|&gt;</span></span>
 <span id="cb1-10"><a href="#cb1-10"></a>  <span class="fu">select</span>(</span>
 <span id="cb1-11"><a href="#cb1-11"></a>    loan_amount, homeownership, bankruptcy,</span>
 <span id="cb1-12"><a href="#cb1-12"></a>    application_type, annual_income, interest_rate</span>
@@ -486,15 +489,15 @@
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>loans</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9,976 × 6
-  loan_amount homeownership bankruptcy application_type annual_income
-        &lt;int&gt; &lt;chr&gt;         &lt;chr&gt;      &lt;fct&gt;                    &lt;dbl&gt;
-1       28000 Mortgage      No         individual               90000
-2        5000 Rent          Yes        individual               40000
-3        2000 Rent          No         individual               40000
-4       21600 Rent          No         individual               30000
-5       23000 Rent          No         joint                    35000
-6        5000 Own           No         individual               34000
-# … with 9,970 more rows, and 1 more variable: interest_rate &lt;dbl&gt;</code></pre>
+  loan_amount homeownership bankruptcy application_type annual_income interest…¹
+        &lt;int&gt; &lt;chr&gt;         &lt;chr&gt;      &lt;fct&gt;                    &lt;dbl&gt;      &lt;dbl&gt;
+1       28000 Mortgage      No         individual               90000      14.1 
+2        5000 Rent          Yes        individual               40000      12.6 
+3        2000 Rent          No         individual               40000      17.1 
+4       21600 Rent          No         individual               30000       6.72
+5       23000 Rent          No         joint                    35000      14.1 
+6        5000 Own           No         individual               34000       6.72
+# … with 9,970 more rows, and abbreviated variable name ¹​interest_rate</code></pre>
 </div>
 </div>
 </section>
@@ -518,15 +521,15 @@
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>loans</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9,976 × 6
-  loan_amount homeownership bankruptcy application_type annual_income
-        &lt;int&gt; &lt;chr&gt;         &lt;chr&gt;      &lt;fct&gt;                    &lt;dbl&gt;
-1       28000 Mortgage      No         individual               90000
-2        5000 Rent          Yes        individual               40000
-3        2000 Rent          No         individual               40000
-4       21600 Rent          No         individual               30000
-5       23000 Rent          No         joint                    35000
-6        5000 Own           No         individual               34000
-# … with 9,970 more rows, and 1 more variable: interest_rate &lt;dbl&gt;</code></pre>
+  loan_amount homeownership bankruptcy application_type annual_income interest…¹
+        &lt;int&gt; &lt;chr&gt;         &lt;chr&gt;      &lt;fct&gt;                    &lt;dbl&gt;      &lt;dbl&gt;
+1       28000 Mortgage      No         individual               90000      14.1 
+2        5000 Rent          Yes        individual               40000      12.6 
+3        2000 Rent          No         individual               40000      17.1 
+4       21600 Rent          No         individual               30000       6.72
+5       23000 Rent          No         joint                    35000      14.1 
+6        5000 Own           No         individual               34000       6.72
+# … with 9,970 more rows, and abbreviated variable name ¹​interest_rate</code></pre>
 </div>
 </div>
 <div class="fragment">
@@ -584,7 +587,7 @@
 <h2>accessing a variable</h2>
 <p><strong>Approach 4:</strong> The tidyverse approach:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>loans <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>loans <span class="sc">|&gt;</span></span>
 <span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">summarise</span>(<span class="at">mean_loan_amount =</span> <span class="fu">mean</span>(loan_amount))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
@@ -628,8 +631,8 @@
  <thead>
   <tr>
    <th style="text-align:left;"> Homeownership </th>
-   <th style="text-align:right;"> Number of applicants </th>
    <th style="text-align:right;"> Average loan amount </th>
+   <th style="text-align:right;"> Number of applicants </th>
   </tr>
  </thead>
 <tbody>
@@ -665,15 +668,15 @@
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>loans</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9,976 × 6
-  loan_amount homeownership bankruptcy application_type annual_income
-        &lt;int&gt; &lt;chr&gt;         &lt;chr&gt;      &lt;fct&gt;                    &lt;dbl&gt;
-1       28000 Mortgage      No         individual               90000
-2        5000 Rent          Yes        individual               40000
-3        2000 Rent          No         individual               40000
-4       21600 Rent          No         individual               30000
-5       23000 Rent          No         joint                    35000
-6        5000 Own           No         individual               34000
-# … with 9,970 more rows, and 1 more variable: interest_rate &lt;dbl&gt;</code></pre>
+  loan_amount homeownership bankruptcy application_type annual_income interest…¹
+        &lt;int&gt; &lt;chr&gt;         &lt;chr&gt;      &lt;fct&gt;                    &lt;dbl&gt;      &lt;dbl&gt;
+1       28000 Mortgage      No         individual               90000      14.1 
+2        5000 Rent          Yes        individual               40000      12.6 
+3        2000 Rent          No         individual               40000      17.1 
+4       21600 Rent          No         individual               30000       6.72
+5       23000 Rent          No         joint                    35000      14.1 
+6        5000 Own           No         individual               34000       6.72
+# … with 9,970 more rows, and abbreviated variable name ¹​interest_rate</code></pre>
 </div>
 </div>
 </div>
@@ -682,9 +685,9 @@
 <section id="break-it-down-ii" class="slide level2">
 <h2>break it down II</h2>
 <div class="columns">
-<div class="column" style="width:40%;">
+<div class="column" style="width:20%;">
 <p><span style="font-weight:bold;background-color:#ccddeb;">Based on the applicants’ home ownership status</span>, compute the average loan amount and the number of applicants. Display the results in descending order of average loan amount.</p>
-</div><div class="column" style="width:60%;">
+</div><div class="column" style="width:80%;">
 <div class="fragment" data-fragment-index="2">
 <div class="in-out">
 <p><strong>[input]</strong> data frame</p>
@@ -692,20 +695,20 @@
 </div>
 <div class="fragment" data-fragment-index="3">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>loans <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb18" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>loans <span class="sc">|&gt;</span></span>
 <span id="cb18-2"><a href="#cb18-2"></a>  <span class="fu">group_by</span>(homeownership)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9,976 × 6
 # Groups:   homeownership [3]
-  loan_amount homeownership bankruptcy application_type annual_income
-        &lt;int&gt; &lt;chr&gt;         &lt;chr&gt;      &lt;fct&gt;                    &lt;dbl&gt;
-1       28000 Mortgage      No         individual               90000
-2        5000 Rent          Yes        individual               40000
-3        2000 Rent          No         individual               40000
-4       21600 Rent          No         individual               30000
-5       23000 Rent          No         joint                    35000
-6        5000 Own           No         individual               34000
-# … with 9,970 more rows, and 1 more variable: interest_rate &lt;dbl&gt;</code></pre>
+  loan_amount homeownership bankruptcy application_type annual_income interest…¹
+        &lt;int&gt; &lt;chr&gt;         &lt;chr&gt;      &lt;fct&gt;                    &lt;dbl&gt;      &lt;dbl&gt;
+1       28000 Mortgage      No         individual               90000      14.1 
+2        5000 Rent          Yes        individual               40000      12.6 
+3        2000 Rent          No         individual               40000      17.1 
+4       21600 Rent          No         individual               30000       6.72
+5       23000 Rent          No         joint                    35000      14.1 
+6        5000 Own           No         individual               34000       6.72
+# … with 9,970 more rows, and abbreviated variable name ¹​interest_rate</code></pre>
 </div>
 </div>
 </div>
@@ -724,8 +727,8 @@
 <p>Based on the applicants’ home ownership status, <span style="font-weight:bold;background-color:#ccddeb;">compute the average loan amount</span> and the number of applicants. Display the results in descending order of average loan amount.</p>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20" data-code-line-numbers="3-5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>loans <span class="sc">%&gt;%</span></span>
-<span id="cb20-2"><a href="#cb20-2"></a>  <span class="fu">group_by</span>(homeownership) <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb20" data-code-line-numbers="3-5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>loans <span class="sc">|&gt;</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a>  <span class="fu">group_by</span>(homeownership) <span class="sc">|&gt;</span> </span>
 <span id="cb20-3"><a href="#cb20-3"></a>  <span class="fu">summarize</span>(</span>
 <span id="cb20-4"><a href="#cb20-4"></a>    <span class="at">avg_loan_amount =</span> <span class="fu">mean</span>(loan_amount)</span>
 <span id="cb20-5"><a href="#cb20-5"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -748,8 +751,8 @@
 <p>Based on the applicants’ home ownership status, compute the average loan amount and <span style="font-weight:bold;background-color:#ccddeb;">the number of applicants</span>. Display the results in descending order of average loan amount.</p>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>loans <span class="sc">%&gt;%</span></span>
-<span id="cb22-2"><a href="#cb22-2"></a>  <span class="fu">group_by</span>(homeownership) <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb22" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>loans <span class="sc">|&gt;</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a>  <span class="fu">group_by</span>(homeownership) <span class="sc">|&gt;</span> </span>
 <span id="cb22-3"><a href="#cb22-3"></a>  <span class="fu">summarize</span>(</span>
 <span id="cb22-4"><a href="#cb22-4"></a>    <span class="at">avg_loan_amount =</span> <span class="fu">mean</span>(loan_amount),</span>
 <span id="cb22-5"><a href="#cb22-5"></a>    <span class="at">n_applicants =</span> <span class="fu">n</span>()</span>
@@ -773,12 +776,12 @@
 <p>Based on the applicants’ home ownership status, compute the average loan amount and the number of applicants. <span style="font-weight:bold;background-color:#ccddeb;">Display the results in descending order of average loan amount.</span></p>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24" data-code-line-numbers="7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>loans <span class="sc">%&gt;%</span></span>
-<span id="cb24-2"><a href="#cb24-2"></a>  <span class="fu">group_by</span>(homeownership) <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb24" data-code-line-numbers="7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>loans <span class="sc">|&gt;</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a>  <span class="fu">group_by</span>(homeownership) <span class="sc">|&gt;</span> </span>
 <span id="cb24-3"><a href="#cb24-3"></a>  <span class="fu">summarize</span>(</span>
 <span id="cb24-4"><a href="#cb24-4"></a>    <span class="at">avg_loan_amount =</span> <span class="fu">mean</span>(loan_amount),</span>
 <span id="cb24-5"><a href="#cb24-5"></a>    <span class="at">n_applicants =</span> <span class="fu">n</span>()</span>
-<span id="cb24-6"><a href="#cb24-6"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb24-6"><a href="#cb24-6"></a>    ) <span class="sc">|&gt;</span></span>
 <span id="cb24-7"><a href="#cb24-7"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(avg_loan_amount))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 3
@@ -798,12 +801,12 @@
 <p><strong>[input]</strong> data frame</p>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>loans <span class="sc">%&gt;%</span></span>
-<span id="cb26-2"><a href="#cb26-2"></a>  <span class="fu">group_by</span>(homeownership) <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>loans <span class="sc">|&gt;</span></span>
+<span id="cb26-2"><a href="#cb26-2"></a>  <span class="fu">group_by</span>(homeownership) <span class="sc">|&gt;</span> </span>
 <span id="cb26-3"><a href="#cb26-3"></a>  <span class="fu">summarize</span>(</span>
 <span id="cb26-4"><a href="#cb26-4"></a>    <span class="at">avg_loan_amount =</span> <span class="fu">mean</span>(loan_amount),</span>
 <span id="cb26-5"><a href="#cb26-5"></a>    <span class="at">n_applicants =</span> <span class="fu">n</span>()</span>
-<span id="cb26-6"><a href="#cb26-6"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb26-6"><a href="#cb26-6"></a>    ) <span class="sc">|&gt;</span></span>
 <span id="cb26-7"><a href="#cb26-7"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(avg_loan_amount))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 3
@@ -870,14 +873,17 @@
 </section>
 <section id="grouped-summary-with-aggregate-2" class="slide level2">
 <h2>grouped summary with <code>aggregate()</code></h2>
-<div class="small">
+<div class="medium">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>res1 <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(loan_amount <span class="sc">~</span> homeownership, <span class="at">data =</span> loans, <span class="at">FUN =</span> length)</span>
 <span id="cb36-2"><a href="#cb36-2"></a><span class="fu">names</span>(res1)[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">"n_applicants"</span></span>
-<span id="cb36-3"><a href="#cb36-3"></a>res2 <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(loan_amount <span class="sc">~</span> homeownership, <span class="at">data =</span> loans, <span class="at">FUN =</span> mean)</span>
-<span id="cb36-4"><a href="#cb36-4"></a><span class="fu">names</span>(res2)[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">"avg_loan_amount"</span></span>
-<span id="cb36-5"><a href="#cb36-5"></a>res <span class="ot">&lt;-</span> <span class="fu">merge</span>(res1, res2)</span>
-<span id="cb36-6"><a href="#cb36-6"></a>res[<span class="fu">order</span>(res<span class="sc">$</span>avg_loan_amount, <span class="at">decreasing =</span> <span class="cn">TRUE</span>), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb36-3"><a href="#cb36-3"></a></span>
+<span id="cb36-4"><a href="#cb36-4"></a>res2 <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(loan_amount <span class="sc">~</span> homeownership, <span class="at">data =</span> loans, <span class="at">FUN =</span> mean)</span>
+<span id="cb36-5"><a href="#cb36-5"></a><span class="fu">names</span>(res2)[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">"avg_loan_amount"</span></span>
+<span id="cb36-6"><a href="#cb36-6"></a></span>
+<span id="cb36-7"><a href="#cb36-7"></a>res <span class="ot">&lt;-</span> <span class="fu">merge</span>(res1, res2)</span>
+<span id="cb36-8"><a href="#cb36-8"></a></span>
+<span id="cb36-9"><a href="#cb36-9"></a>res[<span class="fu">order</span>(res<span class="sc">$</span>avg_loan_amount, <span class="at">decreasing =</span> <span class="cn">TRUE</span>), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment">
@@ -922,7 +928,7 @@
 <p>Create side-by-side box plots that shows the relationship between loan amount and application type, faceted by homeownership.</p>
 </div>
 
-<img data-src="dagstat-2022_files/figure-revealjs/unnamed-chunk-24-1.png" width="1152" class="r-stretch quarto-figure-center"></section>
+<img data-src="wfu_files/figure-revealjs/unnamed-chunk-24-1.png" width="1152" class="r-stretch quarto-figure-center"></section>
 <section id="break-it-down-i-1" class="slide level2">
 <h2>break it down I</h2>
 <div class="columns">
@@ -932,7 +938,7 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb39" data-code-line-numbers="1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="fu">ggplot</span>(loans)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img data-src="dagstat-2022_files/figure-revealjs/unnamed-chunk-25-1.png" width="960"></p>
+<p><img data-src="wfu_files/figure-revealjs/unnamed-chunk-25-1.png" width="960"></p>
 </div>
 </div>
 </div>
@@ -948,7 +954,7 @@
 <div class="sourceCode cell-code" id="cb40" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="fu">ggplot</span>(loans, </span>
 <span id="cb40-2"><a href="#cb40-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> application_type))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img data-src="dagstat-2022_files/figure-revealjs/unnamed-chunk-26-1.png" width="960"></p>
+<p><img data-src="wfu_files/figure-revealjs/unnamed-chunk-26-1.png" width="960"></p>
 </div>
 </div>
 </div>
@@ -965,7 +971,7 @@
 <span id="cb41-2"><a href="#cb41-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> application_type,</span>
 <span id="cb41-3"><a href="#cb41-3"></a>           <span class="at">y =</span> loan_amount))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img data-src="dagstat-2022_files/figure-revealjs/unnamed-chunk-27-1.png" width="960"></p>
+<p><img data-src="wfu_files/figure-revealjs/unnamed-chunk-27-1.png" width="960"></p>
 </div>
 </div>
 </div>
@@ -983,7 +989,7 @@
 <span id="cb42-3"><a href="#cb42-3"></a>           <span class="at">y =</span> loan_amount)) <span class="sc">+</span></span>
 <span id="cb42-4"><a href="#cb42-4"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img data-src="dagstat-2022_files/figure-revealjs/unnamed-chunk-28-1.png" width="960"></p>
+<p><img data-src="wfu_files/figure-revealjs/unnamed-chunk-28-1.png" width="960"></p>
 </div>
 </div>
 </div>
@@ -1002,7 +1008,7 @@
 <span id="cb43-4"><a href="#cb43-4"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
 <span id="cb43-5"><a href="#cb43-5"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> homeownership)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img data-src="dagstat-2022_files/figure-revealjs/unnamed-chunk-29-1.png" width="960"></p>
+<p><img data-src="wfu_files/figure-revealjs/unnamed-chunk-29-1.png" width="960"></p>
 </div>
 </div>
 </div>
@@ -1049,14 +1055,14 @@
 <span id="cb48-8"><a href="#cb48-8"></a>        <span class="at">data =</span> loans3, <span class="at">main =</span> levels[<span class="dv">3</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="dagstat-2022_files/figure-revealjs/unnamed-chunk-32-1.png" width="960" class="r-stretch"></section>
+<img data-src="wfu_files/figure-revealjs/unnamed-chunk-32-1.png" width="960" class="r-stretch"></section>
 <section id="visualizing-a-different-relationship" class="slide level2">
 <h2>visualizing a different relationship</h2>
 <div class="goal">
 <p>Visualize the relationship between interest rate and annual income, conditioned on whether the applicant had a bankruptcy.</p>
 </div>
 
-<img data-src="dagstat-2022_files/figure-revealjs/unnamed-chunk-33-1.png" width="1152" class="r-stretch quarto-figure-center"></section>
+<img data-src="wfu_files/figure-revealjs/unnamed-chunk-33-1.png" width="1152" class="r-stretch quarto-figure-center"></section>
 <section id="plotting-with-ggplot-1" class="slide level2">
 <h2>plotting with <code>ggplot()</code></h2>
 <div class="cell" data-layout-align="center">
@@ -1068,7 +1074,7 @@
 <span id="cb49-6"><a href="#cb49-6"></a>  <span class="fu">scale_x_log10</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="dagstat-2022_files/figure-revealjs/unnamed-chunk-34-1.png" width="1152" class="r-stretch quarto-figure-center"></section>
+<img data-src="wfu_files/figure-revealjs/unnamed-chunk-34-1.png" width="1152" class="r-stretch quarto-figure-center"></section>
 <section id="further-customizing-ggplot" class="slide level2">
 <h2>further customizing <code>ggplot()</code></h2>
 <div class="cell" data-layout-align="center">
@@ -1079,18 +1085,18 @@
 <span id="cb50-5"><a href="#cb50-5"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> </span>
 <span id="cb50-6"><a href="#cb50-6"></a>  <span class="fu">scale_x_log10</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_dollar</span>()) <span class="sc">+</span></span>
 <span id="cb50-7"><a href="#cb50-7"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_percent</span>(<span class="at">scale =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb50-8"><a href="#cb50-8"></a>  <span class="fu">scale_color_OkabeIto</span>() <span class="sc">+</span></span>
+<span id="cb50-8"><a href="#cb50-8"></a>  <span class="fu">scale_color_colorblind</span>() <span class="sc">+</span></span>
 <span id="cb50-9"><a href="#cb50-9"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Annual Income"</span>, <span class="at">y =</span> <span class="st">"Interest Rate"</span>, </span>
 <span id="cb50-10"><a href="#cb50-10"></a>       <span class="at">color =</span> <span class="st">"Previous</span><span class="sc">\n</span><span class="st">Bankruptcy"</span>) <span class="sc">+</span></span>
 <span id="cb50-11"><a href="#cb50-11"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">18</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="dagstat-2022_files/figure-revealjs/unnamed-chunk-35-1.png" width="1152" class="r-stretch quarto-figure-center"></section>
+<img data-src="wfu_files/figure-revealjs/unnamed-chunk-35-1.png" width="1152" class="r-stretch quarto-figure-center"></section>
 <section id="plotting-with-plot" class="slide level2">
 <h2>plotting with <code>plot()</code></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="co"># From the OkabeIto palette</span></span>
-<span id="cb51-2"><a href="#cb51-2"></a>cols <span class="ot">=</span> <span class="fu">c</span>(<span class="at">No =</span> <span class="st">"#e6a003"</span>, <span class="at">Yes =</span> <span class="st">"#57b4e9"</span>)</span>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="co"># From the colorblind palette</span></span>
+<span id="cb51-2"><a href="#cb51-2"></a>cols <span class="ot">=</span> <span class="fu">c</span>(<span class="at">No =</span> <span class="st">"#000000"</span>, <span class="at">Yes =</span> <span class="st">"#E69F00"</span>)</span>
 <span id="cb51-3"><a href="#cb51-3"></a></span>
 <span id="cb51-4"><a href="#cb51-4"></a><span class="fu">plot</span>(</span>
 <span id="cb51-5"><a href="#cb51-5"></a>  loans<span class="sc">$</span>annual_income,</span>
@@ -1127,7 +1133,7 @@
 <section id="plotting-with-plot-1" class="slide level2">
 <h2>plotting with <code>plot()</code></h2>
 
-<img data-src="dagstat-2022_files/figure-revealjs/unnamed-chunk-37-1.png" width="960" class="r-stretch"></section>
+<img data-src="wfu_files/figure-revealjs/unnamed-chunk-37-1.png" width="960" class="r-stretch"></section>
 <section id="beyond-wrangling-summaries-visualizations" class="slide level2">
 <h2>beyond wrangling, summaries, visualizations</h2>
 <p>Modeling and inference with <strong>tidymodels</strong>:</p>
@@ -1221,16 +1227,16 @@
 <p>We are all converts to the tidyverse and have made a conscious choice to use it in our research and our teaching. We each learned R without the tidyverse and have all spent quite a few years teaching without it at a variety of levels from undergraduate introductory statistics courses to graduate statistical computing courses. This paper is a synthesis of the reasons supporting our tidyverse choice, along with benefits and challenges associated with teaching statistics with the tidyverse.</p>
 </blockquote>
 </div><div class="column" style="width:40%;">
-<p><img data-src="images/paper.png"></p>
+<p><img data-src="images/paper-tise.png" width="500"></p>
 </div>
 </div>
 
 <aside><div>
-<p>Çetinkaya-Rundel, M., Hardin, J., Baumer, B. S., McNamara, A., Horton, N. J., &amp; Rundel, C. (2021). An educator’s perspective of the tidyverse. arXiv preprint arXiv:2108.03510. <a href="https://arxiv.org/abs/2108.03510">arxiv.org/abs/2108.03510</a></p>
+<p>Çetinkaya-Rundel, M., Hardin, J., Baumer, B., McNamara, A., Horton, N., &amp; Rundel, C. (2022). An educator’s perspective of the tidyverse. Technology Innovations in Statistics Education, 14(1). <a href="http://dx.doi.org/10.5070/T514154352">dx.doi.org/10.5070/T514154352</a>.</p>
 </div></aside></section></section>
-<section id="thank-you" class="title-slide slide level1 center">
+<section id="thank-you" class="title-slide slide level1 center" data-background-image="images/tidyverse-celestial.png" aria-label="A galaxy of tidyverse-related hex stickers." data-background-opacity="0.5">
 <h1>thank you!</h1>
-<p><a href="https://bit.ly/tidyperspective-dagstat">bit.ly/tidyperspective-dagstat</a></p>
+<p><a href="https://bit.ly/tidyperspective-wfu">bit.ly/tidyperspective-wfu</a></p>
 
 <div class="footer footer-default">
 
@@ -1413,9 +1419,9 @@
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
-        width: 1050,
+        width: 1600,
 
-        height: 700,
+        height: 900,
 
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
