@@ -905,7 +905,7 @@ FROM `nycflights13::flights`)
 
 -   Teach by learning goals, not packages
 
-## the curriculum we've built @ duke statsci
+## the curriculum we've built \@ duke statsci
 
 ::: {style="text-align: center; font-size: 50px;"}
 STA 199: Introduction to Data Science
@@ -915,7 +915,7 @@ STA 199: Introduction to Data Science
 
 ![](images/sta-199-topics.png){fig-align="center" width="600"}
 
-## downstream effects @ duke statsci
+## downstream effects \@ duke statsci
 
 -   courses:
     -   STA 198: Introduction to Global Health Data Science
@@ -935,7 +935,6 @@ STA 199: Introduction to Data Science
 
 ::: columns
 ::: {.column width="50%"}
-
 ::: {style="text-align: center; font-size: 50px;"}
 ::: {.column width="50%"}
 **learn** the tidyverse
@@ -948,7 +947,6 @@ STA 199: Introduction to Data Science
 :::
 
 ::: {.column width="50%"}
-
 ::: {style="text-align: center; font-size: 50px;"}
 ::: {.column width="50%"}
 **teach** the tidyverse
