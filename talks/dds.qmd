@@ -12,6 +12,7 @@ format:
     fontcolor: "#262d36"
     highlight-style: ayu-mirage
     multiplex: true
+    embed-resources: true
 code-link: true
 execute:
   echo: true
