@@ -17,7 +17,7 @@ execute:
   freeze: auto
 ---
 
-#  {#hello-quarto-title data-menu-title="an educator's perspective of the tidyverse" background-image="images/tidyverse-hexes.png" aria-label="Hex logo for nine core tidyverse packages: dplyr, ggplot2, forcasts, tibble, readr, stringr, tidyr, purrr, lubridate."}
+#  {#title-slide data-menu-title="an educator's perspective of the tidyverse" background-image="images/tidyverse-hexes.png" aria-label="Hex logo for nine core tidyverse packages: dplyr, ggplot2, forcasts, tibble, readr, stringr, tidyr, purrr, lubridate."}
 
 [an educator's<br>perspective of<br>the tidyverse]{.custom-title}
 
