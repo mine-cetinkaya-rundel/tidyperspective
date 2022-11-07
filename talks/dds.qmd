@@ -11,6 +11,7 @@ format:
     width: 1600
     fontcolor: "#262d36"
     highlight-style: ayu-mirage
+    multiplex: true
 code-link: true
 execute:
   echo: true
