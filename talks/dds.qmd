@@ -4,7 +4,7 @@ author: "mine çetinkaya-rundel"
 date: "[bit.ly/tidyperspective-dds](https://bit.ly/tidyperspective-dds)"
 format:
   revealjs:
-    theme: slides-dds.scss
+    theme: theme-dds.scss
     transition: fade
     background-transition: fade
     height: 900
@@ -35,14 +35,12 @@ execute:
 
 ```{r}
 #| echo: false
-library(tidyverse)
 library(scales)
 library(knitr)
 library(kableExtra)
-library(ggthemes)
 
 options(dplyr.print_min = 6, dplyr.print_max = 6)
-theme_set(theme_gray(base_size = 18))
+ggplot2::theme_set(ggplot2::theme_gray(base_size = 18))
 ```
 
 ## setting the scene
@@ -83,7 +81,7 @@ Let them eat cake (first)!
 <br>
 
 ::: {.fragment fragment-index="5"}
-![](images/icons8-code-64.png)
+![](images-dds/icons8-code-64.png)
 
 **Assumption 1:**
 
@@ -93,7 +91,7 @@ Teach authentic tools
 <br>
 
 ::: {.fragment fragment-index="6"}
-![](images/icons8-code-R-64.png)
+![](images-dds/icons8-code-R-64.png)
 
 **Assumption 2:**
 
@@ -123,7 +121,7 @@ Technology Innovations in Statistics Education, 14(1).
 
 ::: fragment
 ::: {style="text-align: center; font-size: 50px;"}
-STA 199: Introduction to Data Science
+Introduction to Data Science
 
 [sta199-f22-1.github.io](https://sta199-f22-1.github.io/)
 :::
@@ -137,8 +135,23 @@ STA 199: Introduction to Data Science
 
 ::: columns
 ::: {.column width="80%"}
--   meta R package that loads eight core packages when invoked and also bundles numerous other packages upon installation
--   tidyverse packages share a design philosophy, common grammar, and data structures
+
+meta R package that loads eight core packages when invoked and also bundles numerous other packages that share a design philosophy, common grammar, and data structures
+
+::: {.fragment fragment-index="1"}
+```{r}
+#| warning: false
+
+library(tidyverse)
+```
+```
+── Attaching packages ────────────────────-─ tidyverse 1.3.2 ──
+✔ ggplot2 3.4.0      ✔ purrr   0.3.5 
+✔ tibble  3.1.8      ✔ dplyr   1.0.10
+✔ tidyr   1.2.1      ✔ stringr 1.4.1 
+✔ readr   2.1.3      ✔ forcats 0.5.2
+```
+:::
 :::
 
 ::: {.column width="20%"}
@@ -146,147 +159,41 @@ STA 199: Introduction to Data Science
 :::
 :::
 
-![](images/data-science.png){fig-align="center" width="1000"}
+::: {.fragment fragment-index="2"}
+![](images/data-science.png){fig-align="center" width="700"}
+:::
 
-## setup
+::: aside
+Wickham et al., (2019). Welcome to the Tidyverse. Journal of Open Source Software, 4(43), 1686, [doi.org/10.21105/joss.01686](https://doi.org/10.21105/joss.01686).
+:::
 
-**Data:** Thousands of loans made through the Lending Club, a peer-to-peer lending platform available in the **openintro** package, with a few modifications.
+## examples: two "simple" tasks
 
 ```{r}
-library(tidyverse)
+#| include: false
+
 library(openintro)
 
 loans <- loans_full_schema |>
   mutate(
     homeownership = str_to_title(homeownership), 
-    bankruptcy = if_else(public_record_bankrupt >= 1, "Yes", "No")
   ) |>
   filter(annual_income >= 10) |>
   select(
-    loan_amount, homeownership, bankruptcy,
-    application_type, annual_income, interest_rate
+    loan_amount, homeownership, application_type
   )
 ```
 
-## start with a data frame
-
-```{r}
-loans
-```
-
-## tidy data
-
-1.  Each variable forms a column
-2.  Each observation forms a row
-3.  Each type of observational unit forms a table
-
-::: aside
-Wickham, H.
-. (2014).
-Tidy Data.
-*Journal of Statistical Software*, *59*(10), 1--23.
-[doi.org/10.18637/jss.v059.i10](https://doi.org/10.18637/jss.v059.i10).
-:::
-
-## task: calculate a summary statistic
-
-::: goal
-Calculate the mean loan amount.
-:::
-
-```{r}
-loans
-```
-
-. . .
-
-```{r}
-#| eval: false
-
-mean(loan_amount)
-```
-
-. . .
-
-```{r}
-#| error: true
-#| echo: false
-
-mean(loan_amount)
-```
-
-## accessing a variable
-
-**Approach 1:** With `attach()`:
-
-```{r}
-attach(loans)
-mean(loan_amount)
-```
-
-. . .
-
-<br>
-
-*Not recommended.* What if you had another data frame you're working with concurrently called `car_loans` that also had a variable called `loan_amount` in it?
-
-```{r}
-#| echo: false
-detach(loans)
-```
-
-## accessing a variable
-
-**Approach 2:** Using `$`:
-
-```{r}
-mean(loans$loan_amount)
-```
-
-. . .
-
-<br>
-
-**Approach 3:** Using `with()`:
-
-```{r}
-with(loans, mean(loan_amount))
-```
-
-## accessing a variable
-
-**Approach 4:** The tidyverse approach:
-
-```{r}
-loans |>
-  summarise(mean_loan_amount = mean(loan_amount))
-```
-
-. . .
-
--   More verbose
--   But also more expressive and extensible
-
-## the tidyverse approach
-
-::: incremental
--   tidyverse functions take a `data` argument that allows them to localize computations inside the specified data frame
-
--   does not muddy the concept of what is in the current environment: variables always accessed from within in a data frame without the use of an additional function (like `with()`) or quotation marks, never as a vector
-:::
-
-# teaching with the tidyverse
-
-## task: grouped summary
+::: columns
+::: {.column width="48%"}
+::: {.fragment fragment-index="1"}
+### grouped summary statistics:
 
 ::: goal
 Based on the applicants' home ownership status, compute the average loan amount and the number of applicants.
 Display the results in descending order of average loan amount.
 :::
 
-<br>
-
-::: small
 ```{r}
 #| echo: false
 
@@ -307,8 +214,40 @@ loans |>
     )
 ```
 :::
+:::
 
-## break it down I
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+::: {.fragment fragment-index="2"}
+
+### multivariable data visualizations:
+
+::: goal
+Create side-by-side box plots that show the relationship between loan amount and application type based on homeownership.
+:::
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| fig-width: 12
+
+ggplot(loans, 
+         aes(x = application_type, y = loan_amount)) +
+  geom_boxplot() +
+  facet_wrap(~ homeownership) +
+  theme_minimal(base_size = 18) +
+  scale_y_continuous(labels = label_dollar()) +
+  labs(x = "Application type", y = "Loan amount")
+```
+:::
+:::
+:::
+
+# teaching with the tidyverse
+
+## task 1 - step 1
 
 ::: columns
 ::: {.column width="40%"}
@@ -323,39 +262,27 @@ loans
 :::
 :::
 
-## break it down II
+## task 1 - step 2
 
 ::: columns
-::: {.column width="20%"}
+::: {.column width="40%"}
 [Based on the applicants' home ownership status]{style="font-weight:bold;background-color:#ccddeb;"}, compute the average loan amount and the number of applicants.
 Display the results in descending order of average loan amount.
 :::
 
-::: {.column width="80%"}
-::: {.fragment fragment-index="2"}
-::: in-out
-**\[input\]** data frame
-:::
-:::
+::: {.column width="60%"}
 
-::: {.fragment fragment-index="3"}
 ```{r}
 #| code-line-numbers: "2"
 
 loans |>
   group_by(homeownership)
 ```
-:::
 
-::: {.fragment fragment-index="4"}
-::: {.in-out style="text-align: right;"}
-data frame **\[output\]**
-:::
-:::
 :::
 :::
 
-## break it down III
+## task 1 - step 3
 
 ::: columns
 ::: {.column width="40%"}
@@ -376,7 +303,7 @@ loans |>
 :::
 :::
 
-## break it down IV
+## task 1 - step 4
 
 ::: columns
 ::: {.column width="40%"}
@@ -398,7 +325,7 @@ loans |>
 :::
 :::
 
-## break it down V
+## task 1 - step 5
 
 ::: columns
 ::: {.column width="40%"}
@@ -421,7 +348,10 @@ loans |>
 :::
 :::
 
-## putting it back together
+## task 1 with the tidyverse
+
+::: columns
+::: {.column width="60%"}
 
 ::: in-out
 **\[input\]** data frame
@@ -440,106 +370,139 @@ loans |>
 ::: in-out
 **\[output\]** data frame
 :::
+:::
 
-## grouped summary with `aggregate()`
+::: {.column width="4%"}
+:::
 
-```{r}
-res1 <- aggregate(loan_amount ~ homeownership, 
-                  data = loans, FUN = length)
-res1
+::: {.column width="36%"}
+::: {.incremental}
+- always start with a data frame and end with a data frame
+- variables are always accessed from within data frames
+- more verbose (than some other approaches), but also more expressive and extensible
+:::
+:::
+:::
 
-names(res1)[2] <- "n_applicants"
-res1
-```
+## task 1 with `aggregate()`
 
-## grouped summary with `aggregate()`
-
-```{r}
-res2 <- aggregate(loan_amount ~ homeownership, 
-                  data = loans, FUN = mean)
-names(res2)[2] <- "avg_loan_amount"
-
-res2
-```
-
-. . .
+::: columns
+::: {.column width="60%"}
 
 ```{r}
-res <- merge(res1, res2)
-res[order(res$avg_loan_amount, decreasing = TRUE), ]
-```
+#| code-line-numbers: "|1-5|7-11|13|14-15"
+ns <- aggregate(
+  loan_amount ~ homeownership, 
+  data = loans, FUN = length
+  )
+names(ns)[2] <- "n_applicants"
 
-## grouped summary with `aggregate()`
+avgs <- aggregate(
+  loan_amount ~ homeownership, 
+  data = loans, FUN = mean
+  )
+names(avgs)[2] <- "avg_loan_amount"
 
-::: medium
-```{r}
-#| eval: false
-
-res1 <- aggregate(loan_amount ~ homeownership, data = loans, FUN = length)
-names(res1)[2] <- "n_applicants"
-
-res2 <- aggregate(loan_amount ~ homeownership, data = loans, FUN = mean)
-names(res2)[2] <- "avg_loan_amount"
-
-res <- merge(res1, res2)
-
-res[order(res$avg_loan_amount, decreasing = TRUE), ]
+result <- merge(ns, avgs)
+result[order(result$avg_loan_amount, 
+             decreasing = TRUE), ]
 ```
 :::
 
-. . .
+::: {.column width="40%"}
+:::
 
--   **Good:** Inputs and outputs are data frames
--   **Not so good:** Need to introduce
-    -   formula syntax
+:::
 
-    -   passing functions as arguments
+## task 1 with `aggregate()`
 
-    -   merging datasets
+::: columns
+::: {.column width="60%"}
 
-    -   square bracket notation for accessing rows
+```{r}
+ns <- aggregate(
+  loan_amount ~ homeownership, 
+  data = loans, FUN = length
+  )
+names(ns)[2] <- "n_applicants"
 
-## grouped summary with `tapply()`
+avgs <- aggregate(
+  loan_amount ~ homeownership, 
+  data = loans, FUN = mean
+  )
+names(avgs)[2] <- "avg_loan_amount"
+
+result <- merge(ns, avgs)
+result[order(result$avg_loan_amount, 
+             decreasing = TRUE), ]
+```
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="36%"}
+**challenges:** need to introduce
+
+::: {.incremental}
+-   formula syntax
+-   passing functions as arguments
+-   merging datasets
+-   square bracket notation for accessing rows
+:::
+:::
+:::
+
+## task 1 with `tapply()`
+
+::: columns
+::: {.column width="60%"}
 
 ```{r}
 sort(
-  tapply(loans$loan_amount, loans$homeownership, mean),
+  tapply(loans$loan_amount, 
+         loans$homeownership, 
+         mean),
   decreasing = TRUE
   )
 ```
+:::
 
-. . .
+::: {.column width="40%"}
+:::
+:::
 
-<br>
+## task 1 with `tapply()`
 
-**Not so good:**
+::: columns
+::: {.column width="60%"}
 
+```{r}
+sort(
+  tapply(loans$loan_amount, 
+         loans$homeownership, 
+         mean),
+  decreasing = TRUE
+  )
+```
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="36%"}
+**challenges:** need to introduce
+
+::: {.incremental}
 -   passing functions as arguments
 -   distinguishing between the various `apply()` functions
 -   ending up with a new data structure (`array`)
 -   reading nested functions
-
-## task: data visualization
-
-::: goal
-Create side-by-side box plots that shows the relationship between loan amount and application type, faceted by homeownership.
+:::
+:::
 :::
 
-```{r}
-#| echo: false
-#| fig-align: center
-#| fig-width: 12
-
-ggplot(loans, 
-         aes(x = application_type, y = loan_amount)) +
-  geom_boxplot() +
-  facet_wrap(~ homeownership) +
-  theme_minimal(base_size = 18) +
-  scale_y_continuous(labels = label_dollar()) +
-  labs(x = "Application type", y = "Loan amount")
-```
-
-## break it down I
+## task 2 - step 1
 
 ::: columns
 ::: {.column width="40%"}
@@ -555,7 +518,7 @@ ggplot(loans)
 :::
 :::
 
-## break it down II
+## task 2 - step 2
 
 ::: columns
 ::: {.column width="40%"}
@@ -572,7 +535,7 @@ ggplot(loans,
 :::
 :::
 
-## break it down III
+## task 2 - step 3
 
 ::: columns
 ::: {.column width="40%"}
@@ -590,7 +553,7 @@ ggplot(loans,
 :::
 :::
 
-## break it down IV
+## task 2 - step 4
 
 ::: columns
 ::: {.column width="40%"}
@@ -609,7 +572,7 @@ ggplot(loans,
 :::
 :::
 
-## break it down IV
+## task 2 - step 5
 
 ::: columns
 ::: {.column width="40%"}
@@ -629,23 +592,32 @@ ggplot(loans,
 :::
 :::
 
-## plotting with `ggplot()`
+## task 2 with the tidyverse
+
+::: columns
+::: {.column width="60%"}
 
 ```{r}
-#| eval: false
-
 ggplot(loans, 
        aes(x = application_type, y = loan_amount)) +
   geom_boxplot() +
   facet_wrap(~ homeownership)
 ```
 
-. . .
+:::
 
--   Each layer produces a valid plot
--   Faceting by a third variable takes only one new function
+::: {.column width="4%"}
+:::
 
-## plotting with `boxplot()`
+::: {.column width="36%"}
+::: {.incremental}
+- each layer produces a valid plot
+- faceting by a third variable takes only one new function
+:::
+:::
+:::
+
+## task 2 with `boxplot()`
 
 ```{r}
 levels <- sort(unique(loans$homeownership))
@@ -654,11 +626,7 @@ levels
 loans1 <- loans[loans$homeownership == levels[1],]
 loans2 <- loans[loans$homeownership == levels[2],]
 loans3 <- loans[loans$homeownership == levels[3],]
-```
 
-## plotting with `boxplot()`
-
-```{r}
 par(mfrow = c(1, 3))
 
 boxplot(loan_amount ~ application_type, 
