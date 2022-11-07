@@ -4,6 +4,5 @@
 .Ruserdata
 
 /.quarto/
-_site/
 *.key
 talks/images/images.key

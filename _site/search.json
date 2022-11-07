@@ -399,6 +399,181 @@
     "text": "examples: two “simple” tasks\n\n\n\n\ngrouped summary statistics:\n\nBased on the applicants’ home ownership status, compute the average loan amount and the number of applicants. Display the results in descending order of average loan amount.\n\n\n\n\n\n\n Homeownership \n    Average loan amount \n    Number of applicants \n  \n\n\n Mortgage \n    $18,132 \n    4,778 \n  \n\n Own \n    $15,665 \n    1,350 \n  \n\n Rent \n    $14,396 \n    3,848 \n  \n\n\n\n\n\n\n\n\n\n\nmultivariable data visualizations:\n\nCreate side-by-side box plots that show the relationship between loan amount and application type based on homeownership."
   },
   {
+    "objectID": "talks/dds.html#task-1---step-1",
+    "href": "talks/dds.html#task-1---step-1",
+    "title": "An educator's perspective of the tidyverse",
+    "section": "task 1 - step 1",
+    "text": "task 1 - step 1\n\n\nBased on the applicants’ home ownership status, compute the average loan amount and the number of applicants. Display the results in descending order of average loan amount.\n\n\nloans\n\n# A tibble: 9,976 × 3\n  loan_amount homeownership application_type\n        <int> <chr>         <fct>           \n1       28000 Mortgage      individual      \n2        5000 Rent          individual      \n3        2000 Rent          individual      \n4       21600 Rent          individual      \n5       23000 Rent          joint           \n6        5000 Own           individual      \n# … with 9,970 more rows"
+  },
+  {
+    "objectID": "talks/dds.html#task-1---step-2",
+    "href": "talks/dds.html#task-1---step-2",
+    "title": "An educator's perspective of the tidyverse",
+    "section": "task 1 - step 2",
+    "text": "task 1 - step 2\n\n\nBased on the applicants’ home ownership status, compute the average loan amount and the number of applicants. Display the results in descending order of average loan amount.\n\n\nloans |>\n  group_by(homeownership)\n\n# A tibble: 9,976 × 3\n# Groups:   homeownership [3]\n  loan_amount homeownership application_type\n        <int> <chr>         <fct>           \n1       28000 Mortgage      individual      \n2        5000 Rent          individual      \n3        2000 Rent          individual      \n4       21600 Rent          individual      \n5       23000 Rent          joint           \n6        5000 Own           individual      \n# … with 9,970 more rows"
+  },
+  {
+    "objectID": "talks/dds.html#task-1---step-3",
+    "href": "talks/dds.html#task-1---step-3",
+    "title": "An educator's perspective of the tidyverse",
+    "section": "task 1 - step 3",
+    "text": "task 1 - step 3\n\n\nBased on the applicants’ home ownership status, compute the average loan amount and the number of applicants. Display the results in descending order of average loan amount.\n\n\nloans |>\n  group_by(homeownership) |> \n  summarize(\n    avg_loan_amount = mean(loan_amount)\n    )\n\n# A tibble: 3 × 2\n  homeownership avg_loan_amount\n  <chr>                   <dbl>\n1 Mortgage               18132.\n2 Own                    15665.\n3 Rent                   14396."
+  },
+  {
+    "objectID": "talks/dds.html#task-1---step-4",
+    "href": "talks/dds.html#task-1---step-4",
+    "title": "An educator's perspective of the tidyverse",
+    "section": "task 1 - step 4",
+    "text": "task 1 - step 4\n\n\nBased on the applicants’ home ownership status, compute the average loan amount and the number of applicants. Display the results in descending order of average loan amount.\n\n\nloans |>\n  group_by(homeownership) |> \n  summarize(\n    avg_loan_amount = mean(loan_amount),\n    n_applicants = n()\n    )\n\n# A tibble: 3 × 3\n  homeownership avg_loan_amount n_applicants\n  <chr>                   <dbl>        <int>\n1 Mortgage               18132.         4778\n2 Own                    15665.         1350\n3 Rent                   14396.         3848"
+  },
+  {
+    "objectID": "talks/dds.html#task-1---step-5",
+    "href": "talks/dds.html#task-1---step-5",
+    "title": "An educator's perspective of the tidyverse",
+    "section": "task 1 - step 5",
+    "text": "task 1 - step 5\n\n\nBased on the applicants’ home ownership status, compute the average loan amount and the number of applicants. Display the results in descending order of average loan amount.\n\n\nloans |>\n  group_by(homeownership) |> \n  summarize(\n    avg_loan_amount = mean(loan_amount),\n    n_applicants = n()\n    ) |>\n  arrange(desc(avg_loan_amount))\n\n# A tibble: 3 × 3\n  homeownership avg_loan_amount n_applicants\n  <chr>                   <dbl>        <int>\n1 Mortgage               18132.         4778\n2 Own                    15665.         1350\n3 Rent                   14396.         3848"
+  },
+  {
+    "objectID": "talks/dds.html#task-1-with-the-tidyverse",
+    "href": "talks/dds.html#task-1-with-the-tidyverse",
+    "title": "An educator's perspective of the tidyverse",
+    "section": "task 1 with the tidyverse",
+    "text": "task 1 with the tidyverse\n\n\n\n[input] data frame\n\n\nloans |>\n  group_by(homeownership) |> \n  summarize(\n    avg_loan_amount = mean(loan_amount),\n    n_applicants = n()\n    ) |>\n  arrange(desc(avg_loan_amount))\n\n# A tibble: 3 × 3\n  homeownership avg_loan_amount n_applicants\n  <chr>                   <dbl>        <int>\n1 Mortgage               18132.         4778\n2 Own                    15665.         1350\n3 Rent                   14396.         3848\n\n\n\n[output] data frame\n\n\n\n\n\n\nalways start with a data frame and end with a data frame\nvariables are always accessed from within data frames\nmore verbose (than some other approaches), but also more expressive and extensible"
+  },
+  {
+    "objectID": "talks/dds.html#task-1-with-aggregate",
+    "href": "talks/dds.html#task-1-with-aggregate",
+    "title": "An educator's perspective of the tidyverse",
+    "section": "task 1 with aggregate()\n",
+    "text": "task 1 with aggregate()\n\n\n\n\nns <- aggregate(\n  loan_amount ~ homeownership, \n  data = loans, FUN = length\n  )\nnames(ns)[2] <- \"n_applicants\"\n\navgs <- aggregate(\n  loan_amount ~ homeownership, \n  data = loans, FUN = mean\n  )\nnames(avgs)[2] <- \"avg_loan_amount\"\n\nresult <- merge(ns, avgs)\nresult[order(result$avg_loan_amount, \n             decreasing = TRUE), ]\n\n  homeownership n_applicants avg_loan_amount\n1      Mortgage         4778        18132.45\n2           Own         1350        15665.44\n3          Rent         3848        14396.44"
+  },
+  {
+    "objectID": "talks/dds.html#task-1-with-aggregate-1",
+    "href": "talks/dds.html#task-1-with-aggregate-1",
+    "title": "An educator's perspective of the tidyverse",
+    "section": "task 1 with aggregate()\n",
+    "text": "task 1 with aggregate()\n\n\n\n\nns <- aggregate(\n  loan_amount ~ homeownership, \n  data = loans, FUN = length\n  )\nnames(ns)[2] <- \"n_applicants\"\n\navgs <- aggregate(\n  loan_amount ~ homeownership, \n  data = loans, FUN = mean\n  )\nnames(avgs)[2] <- \"avg_loan_amount\"\n\nresult <- merge(ns, avgs)\nresult[order(result$avg_loan_amount, \n             decreasing = TRUE), ]\n\n  homeownership n_applicants avg_loan_amount\n1      Mortgage         4778        18132.45\n2           Own         1350        15665.44\n3          Rent         3848        14396.44\n\n\n\n\n\nchallenges: need to introduce\n\n\nformula syntax\npassing functions as arguments\nmerging datasets\nsquare bracket notation for accessing rows"
+  },
+  {
+    "objectID": "talks/dds.html#task-1-with-tapply",
+    "href": "talks/dds.html#task-1-with-tapply",
+    "title": "An educator's perspective of the tidyverse",
+    "section": "task 1 with tapply()\n",
+    "text": "task 1 with tapply()\n\n\n\n\nsort(\n  tapply(loans$loan_amount, \n         loans$homeownership, \n         mean),\n  decreasing = TRUE\n  )\n\nMortgage      Own     Rent \n18132.45 15665.44 14396.44"
+  },
+  {
+    "objectID": "talks/dds.html#task-1-with-tapply-1",
+    "href": "talks/dds.html#task-1-with-tapply-1",
+    "title": "An educator's perspective of the tidyverse",
+    "section": "task 1 with tapply()\n",
+    "text": "task 1 with tapply()\n\n\n\n\nsort(\n  tapply(loans$loan_amount, \n         loans$homeownership, \n         mean),\n  decreasing = TRUE\n  )\n\nMortgage      Own     Rent \n18132.45 15665.44 14396.44 \n\n\n\n\n\nchallenges: need to introduce\n\n\npassing functions as arguments\ndistinguishing between the various apply() functions\nending up with a new data structure (array)\nreading nested functions"
+  },
+  {
+    "objectID": "talks/dds.html#task-2---step-1",
+    "href": "talks/dds.html#task-2---step-1",
+    "title": "An educator's perspective of the tidyverse",
+    "section": "task 2 - step 1",
+    "text": "task 2 - step 1\n\n\nCreate side-by-side box plots that shows the relationship between annual income and application type, faceted by homeownership.\n\n\nggplot(loans)"
+  },
+  {
+    "objectID": "talks/dds.html#task-2---step-2",
+    "href": "talks/dds.html#task-2---step-2",
+    "title": "An educator's perspective of the tidyverse",
+    "section": "task 2 - step 2",
+    "text": "task 2 - step 2\n\n\nCreate side-by-side box plots that shows the relationship between annual income and application type, faceted by homeownership.\n\n\nggplot(loans, \n       aes(x = application_type))"
+  },
+  {
+    "objectID": "talks/dds.html#task-2---step-3",
+    "href": "talks/dds.html#task-2---step-3",
+    "title": "An educator's perspective of the tidyverse",
+    "section": "task 2 - step 3",
+    "text": "task 2 - step 3\n\n\nCreate side-by-side box plots that shows the relationship between annual income and application type, faceted by homeownership.\n\n\nggplot(loans, \n       aes(x = application_type,\n           y = loan_amount))"
+  },
+  {
+    "objectID": "talks/dds.html#task-2---step-4",
+    "href": "talks/dds.html#task-2---step-4",
+    "title": "An educator's perspective of the tidyverse",
+    "section": "task 2 - step 4",
+    "text": "task 2 - step 4\n\n\nCreate side-by-side box plots that shows the relationship between annual income and application type, faceted by homeownership.\n\n\nggplot(loans, \n       aes(x = application_type,\n           y = loan_amount)) +\n  geom_boxplot()"
+  },
+  {
+    "objectID": "talks/dds.html#task-2---step-5",
+    "href": "talks/dds.html#task-2---step-5",
+    "title": "An educator's perspective of the tidyverse",
+    "section": "task 2 - step 5",
+    "text": "task 2 - step 5\n\n\nCreate side-by-side box plots that shows the relationship between annual income and application type, faceted by homeownership.\n\n\nggplot(loans, \n       aes(x = application_type,\n           y = loan_amount)) +\n  geom_boxplot() +\n  facet_wrap(~ homeownership)"
+  },
+  {
+    "objectID": "talks/dds.html#task-2-with-boxplot",
+    "href": "talks/dds.html#task-2-with-boxplot",
+    "title": "An educator's perspective of the tidyverse",
+    "section": "task 2 with boxplot()\n",
+    "text": "task 2 with boxplot()\n\n\nlevels <- sort(unique(loans$homeownership))\n\nloans1 <- loans[loans$homeownership == levels[1],]\nloans2 <- loans[loans$homeownership == levels[2],]\nloans3 <- loans[loans$homeownership == levels[3],]\n\npar(mfrow = c(1, 3))\n\nboxplot(loan_amount ~ application_type, \n        data = loans1, main = levels[1])\nboxplot(loan_amount ~ application_type, \n        data = loans2, main = levels[2])\nboxplot(loan_amount ~ application_type, \n        data = loans3, main = levels[3])"
+  },
+  {
+    "objectID": "talks/dds.html#task-2-with-boxplot-output",
+    "href": "talks/dds.html#task-2-with-boxplot-output",
+    "title": "An educator's perspective of the tidyverse",
+    "section": "task 2 with boxplot()\n",
+    "text": "task 2 with boxplot()"
+  },
+  {
+    "objectID": "talks/dds.html#we-could-keep-going-but",
+    "href": "talks/dds.html#we-could-keep-going-but",
+    "title": "An educator's perspective of the tidyverse",
+    "section": "we could keep going, but…",
+    "text": "we could keep going, but…"
+  },
+  {
+    "objectID": "talks/dds.html#tools-designed-for-specific-tasks-vs.-general-tools",
+    "href": "talks/dds.html#tools-designed-for-specific-tasks-vs.-general-tools",
+    "title": "An educator's perspective of the tidyverse",
+    "section": "tools designed for specific tasks vs. general tools",
+    "text": "tools designed for specific tasks vs. general tools"
+  },
+  {
+    "objectID": "talks/dds.html#pedagogical-strengths-of-the-tidyverse",
+    "href": "talks/dds.html#pedagogical-strengths-of-the-tidyverse",
+    "title": "An educator's perspective of the tidyverse",
+    "section": "pedagogical strengths of the tidyverse",
+    "text": "pedagogical strengths of the tidyverse\n\n\n\n\n\n\nConcept\nDescription\n\n\n\nConsistency\nSyntax, function interfaces, argument names, and orders follow patterns\n\n\nMixability\nAbility to use base R and other functions within the tidyverse\n\n\nScalability\nUnified approach to data wrangling and visualization works for datasets of a wide range of types and sizes\n\n\nUser-centered design\nFunction interfaces designed and improved with users in mind\n\n\nReadability\nInterfaces that are designed to produce readable code\n\n\nCommunity\nLarge, active, welcoming community of users and resources\n\n\nTransfarability\nData manipulation verbs inherit from SQL’s query syntax"
+  },
+  {
+    "objectID": "talks/dds.html#keeping-up-with-the-tidyverse",
+    "href": "talks/dds.html#keeping-up-with-the-tidyverse",
+    "title": "An educator's perspective of the tidyverse",
+    "section": "keeping up with the tidyverse",
+    "text": "keeping up with the tidyverse\n\nBlog posts highlight updates, along with the reasoning behind them and worked examples\n\nLifecycle stages and badges"
+  },
+  {
+    "objectID": "talks/dds.html#building-a-curriculum",
+    "href": "talks/dds.html#building-a-curriculum",
+    "title": "An educator's perspective of the tidyverse",
+    "section": "building a curriculum",
+    "text": "building a curriculum\n\nStart with library(tidyverse)\nTeach by learning goals, not packages"
+  },
+  {
+    "objectID": "talks/dds.html#the-curriculum-weve-built-duke-statsci",
+    "href": "talks/dds.html#the-curriculum-weve-built-duke-statsci",
+    "title": "An educator's perspective of the tidyverse",
+    "section": "the curriculum we’ve built @ duke statsci",
+    "text": "the curriculum we’ve built @ duke statsci\n\n\nSTA 199: Introduction to Data Science\n\ncourses:\n\nSTA 198: Introduction to Global Health Data Science\nSTA 210: Regression Analysis\nSTA 323: Statistical Computing\nSTA 440: Case Studies\n\n\n\nprograms:\n\nInter-departmental major in Data Science (with CS)\nData Science concentration for the StatSci major\n\n\nand more…"
+  },
+  {
+    "objectID": "talks/dds.html#learn-teach-the-tidyverse",
+    "href": "talks/dds.html#learn-teach-the-tidyverse",
+    "title": "An educator's perspective of the tidyverse",
+    "section": "learn / teach the tidyverse",
+    "text": "learn / teach the tidyverse\n\n\n\n\nlearn the tidyverse\ntidyverse.org\n\n\n\n\n\n\n\n\n\nteach the tidyverse\n\ndatasciencebox.org"
+  },
+  {
+    "objectID": "talks/dds.html#further-reading",
+    "href": "talks/dds.html#further-reading",
+    "title": "An educator's perspective of the tidyverse",
+    "section": "further reading",
+    "text": "further reading\n\n\n+ collaborators\n\nJohanna Hardin, Pomona College\nBenjamin S. Baumer, Smith College\nAmelia McNamara, University of St Thomas\nNicholas J. Horton, Amherst College\nColin W. Rundel, Duke University\n\n\n\n\n\n\n\n\n\n\nÇetinkaya-Rundel, M., Hardin, J., Baumer, B. S., McNamara, A., Horton, N. J., & Rundel, C. (2022). An educator’s perspective of the tidyverse. Technology Innovations in Statistics Education, 14(1). doi.org/10.5070/T514154352."
+  },
+  {
     "objectID": "talks/whyR-turkey-2022.html#bu-projeye-katkıda-bulunanlar",
     "href": "talks/whyR-turkey-2022.html#bu-projeye-katkıda-bulunanlar",
     "title": "bir eğitimcinin perspektifinden tidyverse",
@@ -1194,426 +1369,6 @@
     "href": "index.html",
     "title": "tidyperspective",
     "section": "",
-    "text": "This repository contains slides, code, and supplementary materials for the “An educator’s perspective of the tidyverse” talks.\n\nDAGStat 2022 - Hamburg, Germany [slides]\nWhy R Turkey 2022 - Online [slides]\nPapers We Love ❤️ Edu - Online [slides] [discussion]\nWahe Forest University - Winston-Salem, NC [slides]\nDanish Data Science Conference - Billund, Denmark [slides]"
-  },
-  {
-    "objectID": "talks/dds.html#start-with-a-data-frame",
-    "href": "talks/dds.html#start-with-a-data-frame",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "start with a data frame",
-    "text": "start with a data frame\n\nloans\n\n# A tibble: 9,976 × 6\n  loan_amount homeownership bankruptcy application_type annual_income interest…¹\n        <int> <chr>         <chr>      <fct>                    <dbl>      <dbl>\n1       28000 Mortgage      No         individual               90000      14.1 \n2        5000 Rent          Yes        individual               40000      12.6 \n3        2000 Rent          No         individual               40000      17.1 \n4       21600 Rent          No         individual               30000       6.72\n5       23000 Rent          No         joint                    35000      14.1 \n6        5000 Own           No         individual               34000       6.72\n# … with 9,970 more rows, and abbreviated variable name ¹​interest_rate"
-  },
-  {
-    "objectID": "talks/dds.html#tidy-data",
-    "href": "talks/dds.html#tidy-data",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "tidy data",
-    "text": "tidy data\n\nEach variable forms a column\nEach observation forms a row\nEach type of observational unit forms a table\n\n\n\nWickham, H. . (2014). Tidy Data. Journal of Statistical Software, 59(10), 1–23. doi.org/10.18637/jss.v059.i10."
-  },
-  {
-    "objectID": "talks/dds.html#task-calculate-a-summary-statistic",
-    "href": "talks/dds.html#task-calculate-a-summary-statistic",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "task: calculate a summary statistic",
-    "text": "task: calculate a summary statistic\n\nCalculate the mean loan amount.\n\n\nloans\n\n# A tibble: 9,976 × 6\n  loan_amount homeownership bankruptcy application_type annual_income interest…¹\n        <int> <chr>         <chr>      <fct>                    <dbl>      <dbl>\n1       28000 Mortgage      No         individual               90000      14.1 \n2        5000 Rent          Yes        individual               40000      12.6 \n3        2000 Rent          No         individual               40000      17.1 \n4       21600 Rent          No         individual               30000       6.72\n5       23000 Rent          No         joint                    35000      14.1 \n6        5000 Own           No         individual               34000       6.72\n# … with 9,970 more rows, and abbreviated variable name ¹​interest_rate\n\n\n\n\nmean(loan_amount)\n\n\n\n\n\nError in mean(loan_amount): object 'loan_amount' not found"
-  },
-  {
-    "objectID": "talks/dds.html#accessing-a-variable",
-    "href": "talks/dds.html#accessing-a-variable",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "accessing a variable",
-    "text": "accessing a variable\nApproach 1: With attach():\n\nattach(loans)\nmean(loan_amount)\n\n[1] 16357.53\n\n\n\n\nNot recommended. What if you had another data frame you’re working with concurrently called car_loans that also had a variable called loan_amount in it?"
-  },
-  {
-    "objectID": "talks/dds.html#accessing-a-variable-1",
-    "href": "talks/dds.html#accessing-a-variable-1",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "accessing a variable",
-    "text": "accessing a variable\nApproach 2: Using $:\n\nmean(loans$loan_amount)\n\n[1] 16357.53\n\n\n\n\nApproach 3: Using with():\n\nwith(loans, mean(loan_amount))\n\n[1] 16357.53"
-  },
-  {
-    "objectID": "talks/dds.html#accessing-a-variable-2",
-    "href": "talks/dds.html#accessing-a-variable-2",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "accessing a variable",
-    "text": "accessing a variable\nApproach 4: The tidyverse approach:\n\nloans |>\n  summarise(mean_loan_amount = mean(loan_amount))\n\n# A tibble: 1 × 1\n  mean_loan_amount\n             <dbl>\n1           16358.\n\n\n\n\nMore verbose\nBut also more expressive and extensible"
-  },
-  {
-    "objectID": "talks/dds.html#the-tidyverse-approach",
-    "href": "talks/dds.html#the-tidyverse-approach",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "the tidyverse approach",
-    "text": "the tidyverse approach\n\n\ntidyverse functions take a data argument that allows them to localize computations inside the specified data frame\ndoes not muddy the concept of what is in the current environment: variables always accessed from within in a data frame without the use of an additional function (like with()) or quotation marks, never as a vector"
-  },
-  {
-    "objectID": "talks/dds.html#task-grouped-summary",
-    "href": "talks/dds.html#task-grouped-summary",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "task: grouped summary",
-    "text": "task: grouped summary\n\n\n\n\n\n\n\n Homeownership \n    Average loan amount \n    Number of applicants \n  \n\n\n Mortgage \n    $18,132 \n    4,778 \n  \n\n Own \n    $15,665 \n    1,350 \n  \n\n Rent \n    $14,396 \n    3,848"
-  },
-  {
-    "objectID": "talks/dds.html#break-it-down-i",
-    "href": "talks/dds.html#break-it-down-i",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "break it down I",
-    "text": "break it down I\n\n\nCreate side-by-side box plots that shows the relationship between annual income and application type, faceted by homeownership.\n\n\nggplot(loans)"
-  },
-  {
-    "objectID": "talks/dds.html#break-it-down-ii",
-    "href": "talks/dds.html#break-it-down-ii",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "break it down II",
-    "text": "break it down II\n\n\nCreate side-by-side box plots that shows the relationship between annual income and application type, faceted by homeownership.\n\n\nggplot(loans, \n       aes(x = application_type))"
-  },
-  {
-    "objectID": "talks/dds.html#break-it-down-iii",
-    "href": "talks/dds.html#break-it-down-iii",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "break it down III",
-    "text": "break it down III\n\n\nCreate side-by-side box plots that shows the relationship between annual income and application type, faceted by homeownership.\n\n\nggplot(loans, \n       aes(x = application_type,\n           y = loan_amount))"
-  },
-  {
-    "objectID": "talks/dds.html#break-it-down-iv",
-    "href": "talks/dds.html#break-it-down-iv",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "break it down IV",
-    "text": "break it down IV\n\n\nCreate side-by-side box plots that shows the relationship between annual income and application type, faceted by homeownership.\n\n\nggplot(loans, \n       aes(x = application_type,\n           y = loan_amount)) +\n  geom_boxplot()"
-  },
-  {
-    "objectID": "talks/dds.html#break-it-down-v",
-    "href": "talks/dds.html#break-it-down-v",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "break it down V",
-    "text": "break it down V\n\n\nBased on the applicants’ home ownership status, compute the average loan amount and the number of applicants. Display the results in descending order of average loan amount.\n\n\nloans |>\n  group_by(homeownership) |> \n  summarize(\n    avg_loan_amount = mean(loan_amount),\n    n_applicants = n()\n    ) |>\n  arrange(desc(avg_loan_amount))\n\n# A tibble: 3 × 3\n  homeownership avg_loan_amount n_applicants\n  <chr>                   <dbl>        <int>\n1 Mortgage               18132.         4778\n2 Own                    15665.         1350\n3 Rent                   14396.         3848"
-  },
-  {
-    "objectID": "talks/dds.html#putting-it-back-together",
-    "href": "talks/dds.html#putting-it-back-together",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "putting it back together",
-    "text": "putting it back together\n\nggplot(loans, \n       aes(x = application_type, y = loan_amount)) +\n  geom_boxplot() +\n  facet_wrap(~ homeownership)\n\n\n\nEach layer produces a valid plot\nFaceting by a third variable takes only one new function"
-  },
-  {
-    "objectID": "talks/dds.html#grouped-summary-with-aggregate",
-    "href": "talks/dds.html#grouped-summary-with-aggregate",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "grouped summary with aggregate()\n",
-    "text": "grouped summary with aggregate()\n\n\n\n\nns <- aggregate(\n  loan_amount ~ homeownership, \n  data = loans, FUN = length\n  )\nnames(ns)[2] <- \"n_applicants\"\n\navgs <- aggregate(\n  loan_amount ~ homeownership, \n  data = loans, FUN = mean\n  )\nnames(avgs)[2] <- \"avg_loan_amount\"\n\nresult <- merge(ns, avgs)\nresult[order(result$avg_loan_amount, \n             decreasing = TRUE), ]\n\n  homeownership n_applicants avg_loan_amount\n1      Mortgage         4778        18132.45\n2           Own         1350        15665.44\n3          Rent         3848        14396.44"
-  },
-  {
-    "objectID": "talks/dds.html#grouped-summary-with-aggregate-1",
-    "href": "talks/dds.html#grouped-summary-with-aggregate-1",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "grouped summary with aggregate()\n",
-    "text": "grouped summary with aggregate()\n\n\n\n\nns <- aggregate(\n  loan_amount ~ homeownership, \n  data = loans, FUN = length\n  )\nnames(ns)[2] <- \"n_applicants\"\n\navgs <- aggregate(\n  loan_amount ~ homeownership, \n  data = loans, FUN = mean\n  )\nnames(avgs)[2] <- \"avg_loan_amount\"\n\nresult <- merge(ns, avgs)\nresult[order(result$avg_loan_amount, \n             decreasing = TRUE), ]\n\n  homeownership n_applicants avg_loan_amount\n1      Mortgage         4778        18132.45\n2           Own         1350        15665.44\n3          Rent         3848        14396.44\n\n\n\n\n\nchallenges: need to introduce\n\n\nformula syntax\npassing functions as arguments\nmerging datasets\nsquare bracket notation for accessing rows"
-  },
-  {
-    "objectID": "talks/dds.html#grouped-summary-with-aggregate-2",
-    "href": "talks/dds.html#grouped-summary-with-aggregate-2",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "grouped summary with aggregate()\n",
-    "text": "grouped summary with aggregate()\n\n\n\nres1 <- aggregate(loan_amount ~ homeownership, data = loans, FUN = length)\nnames(res1)[2] <- \"n_applicants\"\n\nres2 <- aggregate(loan_amount ~ homeownership, data = loans, FUN = mean)\nnames(res2)[2] <- \"avg_loan_amount\"\n\nres <- merge(res1, res2)\n\nres[order(res$avg_loan_amount, decreasing = TRUE), ]\n\n\n\n\n\nGood: Inputs and outputs are data frames\n\nNot so good: Need to introduce\n\nformula syntax\npassing functions as arguments\nmerging datasets\nsquare bracket notation for accessing rows"
-  },
-  {
-    "objectID": "talks/dds.html#grouped-summary-with-tapply",
-    "href": "talks/dds.html#grouped-summary-with-tapply",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "grouped summary with tapply()\n",
-    "text": "grouped summary with tapply()\n\n\n\n\nsort(\n  tapply(loans$loan_amount, \n         loans$homeownership, \n         mean),\n  decreasing = TRUE\n  )\n\nMortgage      Own     Rent \n18132.45 15665.44 14396.44"
-  },
-  {
-    "objectID": "talks/dds.html#task-data-visualization",
-    "href": "talks/dds.html#task-data-visualization",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "task: data visualization",
-    "text": "task: data visualization"
-  },
-  {
-    "objectID": "talks/dds.html#break-it-down-i-1",
-    "href": "talks/dds.html#break-it-down-i-1",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "break it down I",
-    "text": "break it down I\n\n\nCreate side-by-side box plots that shows the relationship between annual income and application type, faceted by homeownership.\n\n\nggplot(loans)"
-  },
-  {
-    "objectID": "talks/dds.html#break-it-down-ii-1",
-    "href": "talks/dds.html#break-it-down-ii-1",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "break it down II",
-    "text": "break it down II\n\n\nCreate side-by-side box plots that shows the relationship between annual income and application type, faceted by homeownership.\n\n\nggplot(loans, \n       aes(x = application_type))"
-  },
-  {
-    "objectID": "talks/dds.html#break-it-down-iii-1",
-    "href": "talks/dds.html#break-it-down-iii-1",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "break it down III",
-    "text": "break it down III\n\n\nCreate side-by-side box plots that shows the relationship between annual income and application type, faceted by homeownership.\n\n\nggplot(loans, \n       aes(x = application_type,\n           y = loan_amount))"
-  },
-  {
-    "objectID": "talks/dds.html#break-it-down-iv-1",
-    "href": "talks/dds.html#break-it-down-iv-1",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "break it down IV",
-    "text": "break it down IV\n\n\nCreate side-by-side box plots that shows the relationship between annual income and application type, faceted by homeownership.\n\n\nggplot(loans, \n       aes(x = application_type,\n           y = loan_amount)) +\n  geom_boxplot() +\n  facet_wrap(~ homeownership)"
-  },
-  {
-    "objectID": "talks/dds.html#break-it-down-iv-2",
-    "href": "talks/dds.html#break-it-down-iv-2",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "break it down IV",
-    "text": "break it down IV\n\n\nCreate side-by-side box plots that shows the relationship between annual income and application type, faceted by homeownership.\n\n\nggplot(loans, \n       aes(x = application_type,\n           y = loan_amount)) +\n  geom_boxplot() +\n  facet_wrap(~ homeownership)"
-  },
-  {
-    "objectID": "talks/dds.html#plotting-with-ggplot",
-    "href": "talks/dds.html#plotting-with-ggplot",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "plotting with ggplot()\n",
-    "text": "plotting with ggplot()\n\n\nggplot(loans, \n       aes(x = application_type, y = loan_amount)) +\n  geom_boxplot() +\n  facet_wrap(~ homeownership)\n\n\n\nEach layer produces a valid plot\nFaceting by a third variable takes only one new function"
-  },
-  {
-    "objectID": "talks/dds.html#plotting-with-boxplot",
-    "href": "talks/dds.html#plotting-with-boxplot",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "plotting with boxplot()\n",
-    "text": "plotting with boxplot()\n\n\nlevels <- sort(unique(loans$homeownership))\nlevels\n\n[1] \"Mortgage\" \"Own\"      \"Rent\"    \n\nloans1 <- loans[loans$homeownership == levels[1],]\nloans2 <- loans[loans$homeownership == levels[2],]\nloans3 <- loans[loans$homeownership == levels[3],]"
-  },
-  {
-    "objectID": "talks/dds.html#plotting-with-boxplot-1",
-    "href": "talks/dds.html#plotting-with-boxplot-1",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "plotting with boxplot()\n",
-    "text": "plotting with boxplot()\n\n\npar(mfrow = c(1, 3))\n\nboxplot(loan_amount ~ application_type, \n        data = loans1, main = levels[1])\nboxplot(loan_amount ~ application_type, \n        data = loans2, main = levels[2])\nboxplot(loan_amount ~ application_type, \n        data = loans3, main = levels[3])"
-  },
-  {
-    "objectID": "talks/dds.html#we-could-keep-going-but",
-    "href": "talks/dds.html#we-could-keep-going-but",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "we could keep going, but…",
-    "text": "we could keep going, but…"
-  },
-  {
-    "objectID": "talks/dds.html#tools-designed-for-specific-tasks-vs.-general-tools",
-    "href": "talks/dds.html#tools-designed-for-specific-tasks-vs.-general-tools",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "tools designed for specific tasks vs. general tools",
-    "text": "tools designed for specific tasks vs. general tools"
-  },
-  {
-    "objectID": "talks/dds.html#pedagogical-strengths-of-the-tidyverse",
-    "href": "talks/dds.html#pedagogical-strengths-of-the-tidyverse",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "pedagogical strengths of the tidyverse",
-    "text": "pedagogical strengths of the tidyverse\n\n\n\n\n\n\nConcept\nDescription\n\n\n\nConsistency\nSyntax, function interfaces, argument names, and orders follow patterns\n\n\nMixability\nAbility to use base R and other functions within the tidyverse\n\n\nScalability\nUnified approach to data wrangling and visualization works for datasets of a wide range of types and sizes\n\n\nUser-centered design\nFunction interfaces designed and improved with users in mind\n\n\nReadability\nInterfaces that are designed to produce readable code\n\n\nCommunity\nLarge, active, welcoming community of users and resources\n\n\nTransfarability\nData manipulation verbs inherit from SQL’s query syntax"
-  },
-  {
-    "objectID": "talks/dds.html#keeping-up-with-the-tidyverse",
-    "href": "talks/dds.html#keeping-up-with-the-tidyverse",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "keeping up with the tidyverse",
-    "text": "keeping up with the tidyverse\n\nBlog posts highlight updates, along with the reasoning behind them and worked examples\n\nLifecycle stages and badges"
-  },
-  {
-    "objectID": "talks/dds.html#building-a-curriculum",
-    "href": "talks/dds.html#building-a-curriculum",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "building a curriculum",
-    "text": "building a curriculum\n\nStart with library(tidyverse)\nTeach by learning goals, not packages"
-  },
-  {
-    "objectID": "talks/dds.html#the-curriculum-weve-built-duke-statsci",
-    "href": "talks/dds.html#the-curriculum-weve-built-duke-statsci",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "the curriculum we’ve built @ duke statsci",
-    "text": "the curriculum we’ve built @ duke statsci\n\n\nSTA 199: Introduction to Data Science\n\ncourses:\n\nSTA 198: Introduction to Global Health Data Science\nSTA 210: Regression Analysis\nSTA 323: Statistical Computing\nSTA 440: Case Studies\n\n\n\nprograms:\n\nInter-departmental major in Data Science (with CS)\nData Science concentration for the StatSci major\n\n\nand more…"
-  },
-  {
-    "objectID": "talks/dds.html#downstream-effects-duke-statsci",
-    "href": "talks/dds.html#downstream-effects-duke-statsci",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "downstream effects @ duke statsci",
-    "text": "downstream effects @ duke statsci\n\ncourses:\n\nSTA 198: Introduction to Global Health Data Science\nSTA 210: Regression Analysis\nSTA 323: Statistical Computing\nSTA 440: Case Studies\n\n\nprograms:\n\nInter-departmental major in Data Science (with CS)\nData Science concentration for the StatSci major\n\n\nand more…"
-  },
-  {
-    "objectID": "talks/dds.html#the-tidyverse",
-    "href": "talks/dds.html#the-tidyverse",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "___ the tidyverse",
-    "text": "___ the tidyverse\n\n\n\n\nlearn the tidyverse\ntidyverse.org\n\n\n\n\n\n\n\n\n\nteach the tidyverse\n\ndatasciencebox.org"
-  },
-  {
-    "objectID": "talks/dds.html#acknowledgement",
-    "href": "talks/dds.html#acknowledgement",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "acknowledgement",
-    "text": "acknowledgement\n\nJohanna Hardin, Pomona College\nBenjamin S. Baumer, Smith College\nAmelia McNamara, University of St Thomas\nNicholas J. Horton, Amherst College\nColin W. Rundel, Duke University"
-  },
-  {
-    "objectID": "talks/dds.html#coda",
-    "href": "talks/dds.html#coda",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "coda",
-    "text": "coda\n\n\n\nWe are all converts to the tidyverse and have made a conscious choice to use it in our research and our teaching. We each learned R without the tidyverse and have all spent quite a few years teaching without it at a variety of levels from undergraduate introductory statistics courses to graduate statistical computing courses. This paper is a synthesis of the reasons supporting our tidyverse choice, along with benefits and challenges associated with teaching statistics with the tidyverse.\n\n\n\n\n\n\n\n\n\n\nÇetinkaya-Rundel, M., Hardin, J., Baumer, B. S., McNamara, A., Horton, N. J., & Rundel, C. (2022). An educator’s perspective of the tidyverse. Technology Innovations in Statistics Education, 14(1). doi.org/10.5070/T514154352."
-  },
-  {
-    "objectID": "talks/dds.html#task-1---step-1",
-    "href": "talks/dds.html#task-1---step-1",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "task 1 - step 1",
-    "text": "task 1 - step 1\n\n\nBased on the applicants’ home ownership status, compute the average loan amount and the number of applicants. Display the results in descending order of average loan amount.\n\n\nloans\n\n# A tibble: 9,976 × 3\n  loan_amount homeownership application_type\n        <int> <chr>         <fct>           \n1       28000 Mortgage      individual      \n2        5000 Rent          individual      \n3        2000 Rent          individual      \n4       21600 Rent          individual      \n5       23000 Rent          joint           \n6        5000 Own           individual      \n# … with 9,970 more rows"
-  },
-  {
-    "objectID": "talks/dds.html#task-1---step-2",
-    "href": "talks/dds.html#task-1---step-2",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "task 1 - step 2",
-    "text": "task 1 - step 2\n\n\nBased on the applicants’ home ownership status, compute the average loan amount and the number of applicants. Display the results in descending order of average loan amount.\n\n\nloans |>\n  group_by(homeownership)\n\n# A tibble: 9,976 × 3\n# Groups:   homeownership [3]\n  loan_amount homeownership application_type\n        <int> <chr>         <fct>           \n1       28000 Mortgage      individual      \n2        5000 Rent          individual      \n3        2000 Rent          individual      \n4       21600 Rent          individual      \n5       23000 Rent          joint           \n6        5000 Own           individual      \n# … with 9,970 more rows"
-  },
-  {
-    "objectID": "talks/dds.html#task-1---step-3",
-    "href": "talks/dds.html#task-1---step-3",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "task 1 - step 3",
-    "text": "task 1 - step 3\n\n\nBased on the applicants’ home ownership status, compute the average loan amount and the number of applicants. Display the results in descending order of average loan amount.\n\n\nloans |>\n  group_by(homeownership) |> \n  summarize(\n    avg_loan_amount = mean(loan_amount)\n    )\n\n# A tibble: 3 × 2\n  homeownership avg_loan_amount\n  <chr>                   <dbl>\n1 Mortgage               18132.\n2 Own                    15665.\n3 Rent                   14396."
-  },
-  {
-    "objectID": "talks/dds.html#task-1---step-4",
-    "href": "talks/dds.html#task-1---step-4",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "task 1 - step 4",
-    "text": "task 1 - step 4\n\n\nBased on the applicants’ home ownership status, compute the average loan amount and the number of applicants. Display the results in descending order of average loan amount.\n\n\nloans |>\n  group_by(homeownership) |> \n  summarize(\n    avg_loan_amount = mean(loan_amount),\n    n_applicants = n()\n    )\n\n# A tibble: 3 × 3\n  homeownership avg_loan_amount n_applicants\n  <chr>                   <dbl>        <int>\n1 Mortgage               18132.         4778\n2 Own                    15665.         1350\n3 Rent                   14396.         3848"
-  },
-  {
-    "objectID": "talks/dds.html#task-1---step-5",
-    "href": "talks/dds.html#task-1---step-5",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "task 1 - step 5",
-    "text": "task 1 - step 5\n\n\nBased on the applicants’ home ownership status, compute the average loan amount and the number of applicants. Display the results in descending order of average loan amount.\n\n\nloans |>\n  group_by(homeownership) |> \n  summarize(\n    avg_loan_amount = mean(loan_amount),\n    n_applicants = n()\n    ) |>\n  arrange(desc(avg_loan_amount))\n\n# A tibble: 3 × 3\n  homeownership avg_loan_amount n_applicants\n  <chr>                   <dbl>        <int>\n1 Mortgage               18132.         4778\n2 Own                    15665.         1350\n3 Rent                   14396.         3848"
-  },
-  {
-    "objectID": "talks/dds.html#section",
-    "href": "talks/dds.html#section",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "",
-    "text": "knitr::knit_exit()"
-  },
-  {
-    "objectID": "talks/dds.html#grouped-summary-with-tapply-1",
-    "href": "talks/dds.html#grouped-summary-with-tapply-1",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "grouped summary with tapply()\n",
-    "text": "grouped summary with tapply()\n\n\n\n\nsort(\n  tapply(loans$loan_amount, \n         loans$homeownership, \n         mean),\n  decreasing = TRUE\n  )\n\nMortgage      Own     Rent \n18132.45 15665.44 14396.44 \n\n\n\n\n\nchallenges: need to introduce\n\n\npassing functions as arguments\ndistinguishing between the various apply() functions\nending up with a new data structure (array)\nreading nested functions"
-  },
-  {
-    "objectID": "talks/dds.html#task-2---step-1",
-    "href": "talks/dds.html#task-2---step-1",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "task 2 - step 1",
-    "text": "task 2 - step 1\n\n\nCreate side-by-side box plots that shows the relationship between annual income and application type, faceted by homeownership.\n\n\nggplot(loans)"
-  },
-  {
-    "objectID": "talks/dds.html#task-2---step-2",
-    "href": "talks/dds.html#task-2---step-2",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "task 2 - step 2",
-    "text": "task 2 - step 2\n\n\nCreate side-by-side box plots that shows the relationship between annual income and application type, faceted by homeownership.\n\n\nggplot(loans, \n       aes(x = application_type))"
-  },
-  {
-    "objectID": "talks/dds.html#task-2---step-3",
-    "href": "talks/dds.html#task-2---step-3",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "task 2 - step 3",
-    "text": "task 2 - step 3\n\n\nCreate side-by-side box plots that shows the relationship between annual income and application type, faceted by homeownership.\n\n\nggplot(loans, \n       aes(x = application_type,\n           y = loan_amount))"
-  },
-  {
-    "objectID": "talks/dds.html#task-2---step-4",
-    "href": "talks/dds.html#task-2---step-4",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "task 2 - step 4",
-    "text": "task 2 - step 4\n\n\nCreate side-by-side box plots that shows the relationship between annual income and application type, faceted by homeownership.\n\n\nggplot(loans, \n       aes(x = application_type,\n           y = loan_amount)) +\n  geom_boxplot()"
-  },
-  {
-    "objectID": "talks/dds.html#task-2---step-5",
-    "href": "talks/dds.html#task-2---step-5",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "task 2 - step 5",
-    "text": "task 2 - step 5\n\n\nCreate side-by-side box plots that shows the relationship between annual income and application type, faceted by homeownership.\n\n\nggplot(loans, \n       aes(x = application_type,\n           y = loan_amount)) +\n  geom_boxplot() +\n  facet_wrap(~ homeownership)"
-  },
-  {
-    "objectID": "talks/dds.html#putting-it-back-together-1",
-    "href": "talks/dds.html#putting-it-back-together-1",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "putting it back together",
-    "text": "putting it back together\n\nggplot(loans, \n       aes(x = application_type, y = loan_amount)) +\n  geom_boxplot() +\n  facet_wrap(~ homeownership)\n\n\n\nEach layer produces a valid plot\nFaceting by a third variable takes only one new function"
-  },
-  {
-    "objectID": "talks/dds.html#task-1-with-the-tidyverse",
-    "href": "talks/dds.html#task-1-with-the-tidyverse",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "task 1 with the tidyverse",
-    "text": "task 1 with the tidyverse\n\n\n\n[input] data frame\n\n\nloans |>\n  group_by(homeownership) |> \n  summarize(\n    avg_loan_amount = mean(loan_amount),\n    n_applicants = n()\n    ) |>\n  arrange(desc(avg_loan_amount))\n\n# A tibble: 3 × 3\n  homeownership avg_loan_amount n_applicants\n  <chr>                   <dbl>        <int>\n1 Mortgage               18132.         4778\n2 Own                    15665.         1350\n3 Rent                   14396.         3848\n\n\n\n[output] data frame\n\n\n\n\n\n\nalways start with a data frame and end with a data frame\nvariables are always accessed from within data frames\nmore verbose (than some other approaches), but also more expressive and extensible"
-  },
-  {
-    "objectID": "talks/dds.html#task-1-with-aggregate",
-    "href": "talks/dds.html#task-1-with-aggregate",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "task 1 with aggregate()\n",
-    "text": "task 1 with aggregate()\n\n\n\n\nns <- aggregate(\n  loan_amount ~ homeownership, \n  data = loans, FUN = length\n  )\nnames(ns)[2] <- \"n_applicants\"\n\navgs <- aggregate(\n  loan_amount ~ homeownership, \n  data = loans, FUN = mean\n  )\nnames(avgs)[2] <- \"avg_loan_amount\"\n\nresult <- merge(ns, avgs)\nresult[order(result$avg_loan_amount, \n             decreasing = TRUE), ]\n\n  homeownership n_applicants avg_loan_amount\n1      Mortgage         4778        18132.45\n2           Own         1350        15665.44\n3          Rent         3848        14396.44"
-  },
-  {
-    "objectID": "talks/dds.html#task-1-with-aggregate-1",
-    "href": "talks/dds.html#task-1-with-aggregate-1",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "task 1 with aggregate()\n",
-    "text": "task 1 with aggregate()\n\n\n\n\nns <- aggregate(\n  loan_amount ~ homeownership, \n  data = loans, FUN = length\n  )\nnames(ns)[2] <- \"n_applicants\"\n\navgs <- aggregate(\n  loan_amount ~ homeownership, \n  data = loans, FUN = mean\n  )\nnames(avgs)[2] <- \"avg_loan_amount\"\n\nresult <- merge(ns, avgs)\nresult[order(result$avg_loan_amount, \n             decreasing = TRUE), ]\n\n  homeownership n_applicants avg_loan_amount\n1      Mortgage         4778        18132.45\n2           Own         1350        15665.44\n3          Rent         3848        14396.44\n\n\n\n\n\nchallenges: need to introduce\n\n\nformula syntax\npassing functions as arguments\nmerging datasets\nsquare bracket notation for accessing rows"
-  },
-  {
-    "objectID": "talks/dds.html#task-1-with-tapply",
-    "href": "talks/dds.html#task-1-with-tapply",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "task 1 with tapply()\n",
-    "text": "task 1 with tapply()\n\n\n\n\nsort(\n  tapply(loans$loan_amount, \n         loans$homeownership, \n         mean),\n  decreasing = TRUE\n  )\n\nMortgage      Own     Rent \n18132.45 15665.44 14396.44"
-  },
-  {
-    "objectID": "talks/dds.html#task-1-with-tapply-1",
-    "href": "talks/dds.html#task-1-with-tapply-1",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "task 1 with tapply()\n",
-    "text": "task 1 with tapply()\n\n\n\n\nsort(\n  tapply(loans$loan_amount, \n         loans$homeownership, \n         mean),\n  decreasing = TRUE\n  )\n\nMortgage      Own     Rent \n18132.45 15665.44 14396.44 \n\n\n\n\n\nchallenges: need to introduce\n\n\npassing functions as arguments\ndistinguishing between the various apply() functions\nending up with a new data structure (array)\nreading nested functions"
-  },
-  {
-    "objectID": "talks/dds.html#task-2-with-the-tidyverse",
-    "href": "talks/dds.html#task-2-with-the-tidyverse",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "task 2 with the tidyverse",
-    "text": "task 2 with the tidyverse\n\n\n\nggplot(\n  loans, \n  aes(x = application_type, \n      y = loan_amount)) +\n  geom_boxplot() +\n  facet_wrap(~ homeownership)\n\n\n\n\n\n\n\n\n\neach layer produces a valid plot\nfaceting by a third variable takes only one new function"
-  },
-  {
-    "objectID": "talks/dds.html#task-2-with-boxplot",
-    "href": "talks/dds.html#task-2-with-boxplot",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "task 2 with boxplot()\n",
-    "text": "task 2 with boxplot()\n\n\nlevels <- sort(unique(loans$homeownership))\n\nloans1 <- loans[loans$homeownership == levels[1],]\nloans2 <- loans[loans$homeownership == levels[2],]\nloans3 <- loans[loans$homeownership == levels[3],]\n\npar(mfrow = c(1, 3))\n\nboxplot(loan_amount ~ application_type, \n        data = loans1, main = levels[1])\nboxplot(loan_amount ~ application_type, \n        data = loans2, main = levels[2])\nboxplot(loan_amount ~ application_type, \n        data = loans3, main = levels[3])"
-  },
-  {
-    "objectID": "talks/dds.html#task-2-with-boxplot-output",
-    "href": "talks/dds.html#task-2-with-boxplot-output",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "task 2 with boxplot()\n",
-    "text": "task 2 with boxplot()"
-  },
-  {
-    "objectID": "talks/dds.html#further-reading",
-    "href": "talks/dds.html#further-reading",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "further reading",
-    "text": "further reading\n\n\n+ collaborators\n\nJohanna Hardin, Pomona College\nBenjamin S. Baumer, Smith College\nAmelia McNamara, University of St Thomas\nNicholas J. Horton, Amherst College\nColin W. Rundel, Duke University\n\n\n\n\n\n\n\n\n\n\nÇetinkaya-Rundel, M., Hardin, J., Baumer, B. S., McNamara, A., Horton, N. J., & Rundel, C. (2022). An educator’s perspective of the tidyverse. Technology Innovations in Statistics Education, 14(1). doi.org/10.5070/T514154352."
-  },
-  {
-    "objectID": "talks/dds.html#learn-teach-the-tidyverse",
-    "href": "talks/dds.html#learn-teach-the-tidyverse",
-    "title": "An educator's perspective of the tidyverse",
-    "section": "learn / teach the tidyverse",
-    "text": "learn / teach the tidyverse\n\n\n\n\nlearn the tidyverse\ntidyverse.org\n\n\n\n\n\n\n\n\n\nteach the tidyverse\n\ndatasciencebox.org"
+    "text": "This repository contains slides, code, and supplementary materials for the “An educator’s perspective of the tidyverse” talks.\n\nDAGStat 2022 - Hamburg, Germany [slides]\nWhy R Turkey 2022 - Online [slides]\nPapers We Love ❤️ Edu - Online [slides] [discussion]\nWake Forest University - Winston-Salem, NC [slides]\nDanish Data Science Conference - Billund, Denmark [slides]"
   }
 ]

@@ -7,5 +7,5 @@ This repository contains slides, code, and supplementary materials for the "An e
 -   DAGStat 2022 - Hamburg, Germany [\[slides\]](talks/dagstat-2022.html)
 -   Why R Turkey 2022 - Online [\[slides\]](talks/whyR-turkey-2022.html)
 -   Papers We Love ❤️ Edu - Online [\[slides\]](talks/papers-we-love.html) [\[discussion\]](https://github.com/papers-we-love/edu/discussions/6)
--   Wahe Forest University - Winston-Salem, NC [\[slides\]](talks/wfu.html)
+-   Wake Forest University - Winston-Salem, NC [\[slides\]](talks/wfu.html)
 -   Danish Data Science Conference - Billund, Denmark [\[slides\]](talks/dds.html)

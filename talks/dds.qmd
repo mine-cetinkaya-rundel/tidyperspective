@@ -17,7 +17,7 @@ execute:
   freeze: auto
 ---
 
-#  {#hello-quarto-title data-menu-title="Welcoming new learners to data science with the tidyverse" background-image="images-dds/cover.png" aria-label="Stack of legos, in rainbow colors, making up a staircase."}
+#  {#title-slide data-menu-title="Welcoming new learners to data science with the tidyverse" background-image="images-dds/cover.png" aria-label="Stack of legos, in rainbow colors, making up a staircase."}
 
 [welcoming learners]{.custom-title-1}
 
