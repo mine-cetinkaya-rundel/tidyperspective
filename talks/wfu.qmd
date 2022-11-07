@@ -1,10 +1,10 @@
 ---
 pagetitle: "an educator's perspective of the tidyverse"
 author: "mine çetinkaya-rundel"
-date: "[bit.ly/tidyperspective-wfu](https://bit.ly/tidyperspective-wfu)"
+subtitle: "[bit.ly/tidyperspective-wfu](https://bit.ly/tidyperspective-wfu)"
 format:
   revealjs:
-    theme: slides.scss
+    theme: theme-wfu.scss
     transition: fade
     background-transition: fade
     height: 900

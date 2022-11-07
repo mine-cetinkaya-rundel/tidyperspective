@@ -388,6 +388,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center"><h1 class="title">bir eğitimcinin perspektifinden tidyverse</h1>
+  <p class="subtitle"><a href="https://bit.ly/whyR-tr">bit.ly/tidyperspective-whyR-tr</a></p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -397,7 +398,6 @@ mine çetinkaya-rundel
 </div>
 </div>
 
-  <p class="date">Invalid Date</p>
 </section><section><section id="merhaba" class="title-slide slide level1 center"><h1>merhaba</h1>
 <div class="cell">
 
@@ -538,15 +538,15 @@ $ interest_rate    &lt;dbl&gt; 14.07, 12.61, 17.09, 6.72, 14.07, 6.72, 13.59, 11
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>loans</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9,976 × 6
-  loan_amount homeownership bankruptcy application_type annual_income
-        &lt;int&gt; &lt;chr&gt;         &lt;chr&gt;      &lt;fct&gt;                    &lt;dbl&gt;
-1       28000 Mortgage      No         individual               90000
-2        5000 Rent          Yes        individual               40000
-3        2000 Rent          No         individual               40000
-4       21600 Rent          No         individual               30000
-5       23000 Rent          No         joint                    35000
-6        5000 Own           No         individual               34000
-# … with 9,970 more rows, and 1 more variable: interest_rate &lt;dbl&gt;</code></pre>
+  loan_amount homeownership bankruptcy application_type annual_income interest…¹
+        &lt;int&gt; &lt;chr&gt;         &lt;chr&gt;      &lt;fct&gt;                    &lt;dbl&gt;      &lt;dbl&gt;
+1       28000 Mortgage      No         individual               90000      14.1 
+2        5000 Rent          Yes        individual               40000      12.6 
+3        2000 Rent          No         individual               40000      17.1 
+4       21600 Rent          No         individual               30000       6.72
+5       23000 Rent          No         joint                    35000      14.1 
+6        5000 Own           No         individual               34000       6.72
+# … with 9,970 more rows, and abbreviated variable name ¹​interest_rate</code></pre>
 </div>
 </div>
 </div>
@@ -568,15 +568,15 @@ $ interest_rate    &lt;dbl&gt; 14.07, 12.61, 17.09, 6.72, 14.07, 6.72, 13.59, 11
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9,976 × 6
 # Groups:   homeownership [3]
-  loan_amount homeownership bankruptcy application_type annual_income
-        &lt;int&gt; &lt;chr&gt;         &lt;chr&gt;      &lt;fct&gt;                    &lt;dbl&gt;
-1       28000 Mortgage      No         individual               90000
-2        5000 Rent          Yes        individual               40000
-3        2000 Rent          No         individual               40000
-4       21600 Rent          No         individual               30000
-5       23000 Rent          No         joint                    35000
-6        5000 Own           No         individual               34000
-# … with 9,970 more rows, and 1 more variable: interest_rate &lt;dbl&gt;</code></pre>
+  loan_amount homeownership bankruptcy application_type annual_income interest…¹
+        &lt;int&gt; &lt;chr&gt;         &lt;chr&gt;      &lt;fct&gt;                    &lt;dbl&gt;      &lt;dbl&gt;
+1       28000 Mortgage      No         individual               90000      14.1 
+2        5000 Rent          Yes        individual               40000      12.6 
+3        2000 Rent          No         individual               40000      17.1 
+4       21600 Rent          No         individual               30000       6.72
+5       23000 Rent          No         joint                    35000      14.1 
+6        5000 Own           No         individual               34000       6.72
+# … with 9,970 more rows, and abbreviated variable name ¹​interest_rate</code></pre>
 </div>
 </div>
 </div>
@@ -906,7 +906,7 @@ $ interest_rate    &lt;dbl&gt; 14.07, 12.61, 17.09, 6.72, 14.07, 6.72, 13.59, 11
 <span id="cb37-2"><a href="#cb37-2"></a>       <span class="fu">aes</span>(<span class="at">y =</span> interest_rate, <span class="at">x =</span> annual_income, </span>
 <span id="cb37-3"><a href="#cb37-3"></a>           <span class="at">color =</span> bankruptcy)) <span class="sc">+</span></span>
 <span id="cb37-4"><a href="#cb37-4"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.1</span>) <span class="sc">+</span> </span>
-<span id="cb37-5"><a href="#cb37-5"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> </span>
+<span id="cb37-5"><a href="#cb37-5"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">linewidth =</span> <span class="dv">2</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> </span>
 <span id="cb37-6"><a href="#cb37-6"></a>  <span class="fu">scale_x_log10</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
@@ -917,7 +917,7 @@ $ interest_rate    &lt;dbl&gt; 14.07, 12.61, 17.09, 6.72, 14.07, 6.72, 13.59, 11
 <span id="cb38-2"><a href="#cb38-2"></a>       <span class="fu">aes</span>(<span class="at">y =</span> interest_rate, <span class="at">x =</span> annual_income, </span>
 <span id="cb38-3"><a href="#cb38-3"></a>           <span class="at">color =</span> bankruptcy)) <span class="sc">+</span></span>
 <span id="cb38-4"><a href="#cb38-4"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.1</span>) <span class="sc">+</span> </span>
-<span id="cb38-5"><a href="#cb38-5"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> </span>
+<span id="cb38-5"><a href="#cb38-5"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">linewidth =</span> <span class="dv">2</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> </span>
 <span id="cb38-6"><a href="#cb38-6"></a>  <span class="fu">scale_x_log10</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_dollar</span>()) <span class="sc">+</span></span>
 <span id="cb38-7"><a href="#cb38-7"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_percent</span>(<span class="at">scale =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
 <span id="cb38-8"><a href="#cb38-8"></a>  <span class="fu">scale_color_OkabeIto</span>() <span class="sc">+</span></span>
@@ -1234,12 +1234,15 @@ $ interest_rate    &lt;dbl&gt; 14.07, 12.61, 17.09, 6.72, 14.07, 6.72, 13.59, 11
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
       // slide changes (different for each slide format).
       (function () {
-        function fireSlideChanged(previousSlide, currentSlide) {
-
-          // dispatch for htmlwidgets
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
           const event = window.document.createEvent("Event");
           event.initEvent("slideenter", true, true);
           window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
 
           // dispatch for shiny
           if (window.jQuery) {
@@ -1250,13 +1253,6 @@ $ interest_rate    &lt;dbl&gt; 14.07, 12.61, 17.09, 6.72, 14.07, 6.72, 13.59, 11
               window.jQuery(currentSlide).trigger("shown");
             }
           }
-        }
-
-        // hookup for reveal
-        if (window.Reveal) {
-          window.Reveal.addEventListener("slidechanged", function(event) {
-            fireSlideChanged(event.previousSlide, event.currentSlide);
-          });
         }
 
         // hookup for slidy

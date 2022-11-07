@@ -1,7 +1,7 @@
 ---
 pagetitle: "Welcoming new learners to data science with the tidyverse"
 author: "mine çetinkaya-rundel"
-date: "[bit.ly/tidyperspective-dds](https://bit.ly/tidyperspective-dds)"
+subtitle: "[bit.ly/tidyperspective-dds](https://bit.ly/tidyperspective-dds)"
 format:
   revealjs:
     theme: theme-dds.scss
@@ -128,7 +128,7 @@ Introduction to Data Science
 [sta199-f22-1.github.io](https://sta199-f22-1.github.io/)
 :::
 
-![](images/sta-199-topics.png){fig-align="center"fig-alt="List of topics in STA 199: Hello world, Exploring data (visualize, wrangle, import), Data science ethics (misrepresentation, data privacy, algorithmic bias), Making rigorous conclusions (model, predict, infer), Looking further."}
+![](images/sta-199-topics.png){fig-align="center" fig-alt="List of topics in STA 199: Hello world, Exploring data (visualize, wrangle, import), Data science ethics (misrepresentation, data privacy, algorithmic bias), Making rigorous conclusions (model, predict, infer), Looking further."}
 :::
 
 # principles of the tidyverse
@@ -137,7 +137,6 @@ Introduction to Data Science
 
 ::: columns
 ::: {.column width="80%"}
-
 meta R package that loads eight core packages when invoked and also bundles numerous other packages that share a design philosophy, common grammar, and data structures
 
 ::: {.fragment fragment-index="1"}
@@ -146,13 +145,12 @@ meta R package that loads eight core packages when invoked and also bundles nume
 
 library(tidyverse)
 ```
-```
-── Attaching packages ────────────────────-─ tidyverse 1.3.2 ──
-✔ ggplot2 3.4.0      ✔ purrr   0.3.5 
-✔ tibble  3.1.8      ✔ dplyr   1.0.10
-✔ tidyr   1.2.1      ✔ stringr 1.4.1 
-✔ readr   2.1.3      ✔ forcats 0.5.2
-```
+
+    ── Attaching packages ────────────────────-─ tidyverse 1.3.2 ──
+    ✔ ggplot2 3.4.0      ✔ purrr   0.3.5 
+    ✔ tibble  3.1.8      ✔ dplyr   1.0.10
+    ✔ tidyr   1.2.1      ✔ stringr 1.4.1 
+    ✔ readr   2.1.3      ✔ forcats 0.5.2
 :::
 :::
 
@@ -166,7 +164,9 @@ library(tidyverse)
 :::
 
 ::: aside
-Wickham et al., (2019). Welcome to the Tidyverse. Journal of Open Source Software, 4(43), 1686, [doi.org/10.21105/joss.01686](https://doi.org/10.21105/joss.01686).
+Wickham et al., (2019).
+Welcome to the Tidyverse.
+Journal of Open Source Software, 4(43), 1686, [doi.org/10.21105/joss.01686](https://doi.org/10.21105/joss.01686).
 :::
 
 ## examples: two "simple" tasks
@@ -223,7 +223,6 @@ loans |>
 
 ::: {.column width="48%"}
 ::: {.fragment fragment-index="2"}
-
 ### multivariable data visualizations:
 
 ::: goal
@@ -273,14 +272,12 @@ Display the results in descending order of average loan amount.
 :::
 
 ::: {.column width="60%"}
-
 ```{r}
 #| code-line-numbers: "2"
 
 loans |>
   group_by(homeownership)
 ```
-
 :::
 :::
 
@@ -354,7 +351,6 @@ loans |>
 
 ::: columns
 ::: {.column width="60%"}
-
 ::: in-out
 **\[input\]** data frame
 :::
@@ -378,10 +374,10 @@ loans |>
 :::
 
 ::: {.column width="36%"}
-::: {.incremental}
-- always start with a data frame and end with a data frame
-- variables are always accessed from within data frames
-- more verbose (than some other approaches), but also more expressive and extensible
+::: incremental
+-   always start with a data frame and end with a data frame
+-   variables are always accessed from within data frames
+-   more verbose (than some other approaches), but also more expressive and extensible
 :::
 :::
 :::
@@ -390,7 +386,6 @@ loans |>
 
 ::: columns
 ::: {.column width="60%"}
-
 ```{r}
 #| code-line-numbers: "|1-5|7-11|13|14-15"
 ns <- aggregate(
@@ -413,14 +408,12 @@ result[order(result$avg_loan_amount,
 
 ::: {.column width="40%"}
 :::
-
 :::
 
 ## task 1 with `aggregate()`
 
 ::: columns
 ::: {.column width="60%"}
-
 ```{r}
 ns <- aggregate(
   loan_amount ~ homeownership, 
@@ -446,7 +439,7 @@ result[order(result$avg_loan_amount,
 ::: {.column width="36%"}
 **challenges:** need to introduce
 
-::: {.incremental}
+::: incremental
 -   formula syntax
 -   passing functions as arguments
 -   merging datasets
@@ -459,7 +452,6 @@ result[order(result$avg_loan_amount,
 
 ::: columns
 ::: {.column width="60%"}
-
 ```{r}
 sort(
   tapply(loans$loan_amount, 
@@ -478,7 +470,6 @@ sort(
 
 ::: columns
 ::: {.column width="60%"}
-
 ```{r}
 sort(
   tapply(loans$loan_amount, 
@@ -495,7 +486,7 @@ sort(
 ::: {.column width="36%"}
 **challenges:** need to introduce
 
-::: {.incremental}
+::: incremental
 -   passing functions as arguments
 -   distinguishing between the various `apply()` functions
 -   ending up with a new data structure (`array`)
@@ -621,7 +612,6 @@ boxplot(loan_amount ~ application_type,
 
 ## tools designed for specific tasks vs. general tools
 
-
 ![](images/sets-vs-pieces.png){fig-alt="On one side Lego city sets, on the other size a lego base plate and loose classic Lego pieces."}
 
 ##  {data-menu-title="beyond the tidyverse" background-image="images/tidyverse-beyond.png" aria-label="All of the core packages in tidyverse and tidymodels as well as many of the non-core packages."}
@@ -631,7 +621,7 @@ boxplot(loan_amount ~ application_type,
 ## pedagogical strengths of the tidyverse
 
 | Concept              | Description                                                                                                |
-|---------------------------|---------------------------------------------|
+|----------------------|------------------------------------------------------------------------------------------------------------|
 | Consistency          | Syntax, function interfaces, argument names, and orders follow patterns                                    |
 | Mixability           | Ability to use base R and other functions within the tidyverse                                             |
 | Scalability          | Unified approach to data wrangling and visualization works for datasets of a wide range of types and sizes |
@@ -639,6 +629,7 @@ boxplot(loan_amount ~ application_type,
 | Readability          | Interfaces that are designed to produce readable code                                                      |
 | Community            | Large, active, welcoming community of users and resources                                                  |
 | Transfarability      | Data manipulation verbs inherit from SQL's query syntax                                                    |
+
 ## keeping up with the tidyverse
 
 -   Blog posts highlight updates, along with the reasoning behind them and worked examples
@@ -653,18 +644,20 @@ boxplot(loan_amount ~ application_type,
 
 -   Teach by learning goals, not packages
 
-## the curriculum we've built @ duke statsci
+## the curriculum we've built \@ duke statsci
 
 ::: incremental
 -   **STA 199: Introduction to Data Science**
 
 -   courses:
+
     -   STA 198: Introduction to Global Health Data Science
     -   STA 210: Regression Analysis
     -   STA 323: Statistical Computing
     -   STA 440: Case Studies
 
 -   programs:
+
     -   Inter-departmental major in Data Science (with CS)
     -   Data Science concentration for the StatSci major
 
