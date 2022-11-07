@@ -29,7 +29,7 @@ execute:
 
 [mine çetinkaya-rundel<br>duke university + posit]{.custom-author}
 
-[[bit.ly/tidyperspective-dds](https://bit.ly/tidyperspective-dds/)]{.custom-url}
+[[bit.ly/tidyperspective-dds](https://bit.ly/tidyperspective-dds)]{.custom-url}
 
 [[\@minebocek](https://twitter.com/minebocek)]{.custom-twitter}
 
