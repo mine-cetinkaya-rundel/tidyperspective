@@ -57,7 +57,7 @@ ggplot2::theme_set(ggplot2::theme_gray(base_size = 18))
 <br>
 
 ::: {.fragment fragment-index="2"}
-![](images-dds/icons8-female-teacher-64.png)
+![](images-dds/icons8-female-teacher-64.png){fig-alt="Female teacher icon"}
 
 **Focus:**
 
@@ -67,7 +67,7 @@ Data science for new learners
 <br>
 
 ::: {.fragment fragment-index="3"}
-![](images-dds/icons8-cake-64.png)
+![](images-dds/icons8-cake-64.png){fig-alt="Cake icon"}
 
 **Philosophy:**
 
@@ -83,7 +83,7 @@ Let them eat cake (first)!
 <br>
 
 ::: {.fragment fragment-index="5"}
-![](images-dds/icons8-code-64.png)
+![](images-dds/icons8-code-64.png){fig-alt="Code icon"}
 
 **Assumption 1:**
 
@@ -93,7 +93,7 @@ Teach authentic tools
 <br>
 
 ::: {.fragment fragment-index="6"}
-![](images-dds/icons8-code-R-64.png)
+![](images-dds/icons8-code-R-64.png){fig-alt="Code icon with R logo"}
 
 **Assumption 2:**
 
@@ -128,7 +128,7 @@ Introduction to Data Science
 [sta199-f22-1.github.io](https://sta199-f22-1.github.io/)
 :::
 
-![](images/sta-199-topics.png){fig-align="center"}
+![](images/sta-199-topics.png){fig-align="center"fig-alt="List of topics in STA 199: Hello world, Exploring data (visualize, wrangle, import), Data science ethics (misrepresentation, data privacy, algorithmic bias), Making rigorous conclusions (model, predict, infer), Looking further."}
 :::
 
 # principles of the tidyverse
@@ -157,12 +157,12 @@ library(tidyverse)
 :::
 
 ::: {.column width="20%"}
-![](images/tidyverse.png){fig-align="center"}
+![](images/tidyverse.png){fig-align="center" fig-alt="Tidyverse hex icon"}
 :::
 :::
 
 ::: {.fragment fragment-index="2"}
-![](images/data-science.png){fig-align="center" width="700"}
+![](images/data-science.png){fig-align="center" width="700" fig-alt="Data science cycle: import, tidy, transform, visualize, model, communicate. Packages readr and tibble are for import. Packages tidyr and purr for tidy and transform. Packages dplyr, stringr, forcats, and lubridate are for transform. Package ggplot2 is for visualize."}
 :::
 
 ::: aside
@@ -621,31 +621,8 @@ boxplot(loan_amount ~ application_type,
 
 ## tools designed for specific tasks vs. general tools
 
-::: columns
-::: {.fragment fragment-index="1"}
-::: {.column width="23%"}
-![](images-dds/city-1.png) ![](images-dds/city-2.png)
-:::
-:::
 
-::: {.fragment fragment-index="2"}
-::: {.column width="23%"}
-![](images-dds/city-3.png) ![](images-dds/city-4.png)
-:::
-:::
-
-::: {.fragment fragment-index="3"}
-::: {.column width="23%"}
-![](images-dds/city-5.png) ![](images-dds/city-6.png)
-:::
-:::
-
-::: {.fragment fragment-index="4"}
-::: {.column width="31%"}
-![](images-dds/base-2.png) ![](images-dds/base-1.png)
-:::
-:::
-:::
+![](images-dds/sets-vs-pieces.png){fig-alt="On one side Lego city sets, on the other size a lego base plate and loose classic Lego pieces."}
 
 ##  {data-menu-title="beyond the tidyverse" background-image="images-dds/tidyverse-beyond.png" aria-label="All of the core packages in tidyverse and tidymodels as well as many of the non-core packages."}
 
@@ -668,7 +645,7 @@ boxplot(loan_amount ~ application_type,
 
 -   [Lifecycle stages](https://lifecycle.r-lib.org/articles/stages.html) and badges
 
-    ![](images/lifecycle.png)
+    ![](images/lifecycle.png){fig-alt="Lifecycle stages of tidyverse functions and packages: experimental, stable, deprecated, superseded."}
 
 ## building a curriculum
 
@@ -706,7 +683,7 @@ boxplot(loan_amount ~ application_type,
 :::
 :::
 
-![](images/tidyverse.png){fig-align="center" width="400"}
+![](images/tidyverse.png){fig-align="center" width="400" fig-alt="Tidyverse hex logo"}
 :::
 
 ::: {.column width="50%"}
@@ -718,7 +695,7 @@ boxplot(loan_amount ~ application_type,
 [datasciencebox.org](https://datasciencebox.org)
 :::
 
-![](images/dsbox-rectangle.png){fig-align="center" width="400"}
+![](images/dsbox-rectangle.png){fig-align="center" width="400" fig-alt="Data science in a box hex logo"}
 :::
 :::
 
