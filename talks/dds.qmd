@@ -19,7 +19,7 @@ execute:
   freeze: auto
 ---
 
-#  {#title-slide data-menu-title="Welcoming new learners to data science with the tidyverse" background-image="images-dds/cover.png" aria-label="Stack of legos, in rainbow colors, making up a staircase."}
+#  {#title-slide data-menu-title="Welcoming new learners to data science with the tidyverse" background-image="images/cover-dds.png" aria-label="Stack of legos, in rainbow colors, making up a staircase."}
 
 [welcoming learners]{.custom-title-1}
 
@@ -57,7 +57,7 @@ ggplot2::theme_set(ggplot2::theme_gray(base_size = 18))
 <br>
 
 ::: {.fragment fragment-index="2"}
-![](images-dds/icons8-female-teacher-64.png){fig-alt="Female teacher icon"}
+![](images/icons8-female-teacher-64.png){fig-alt="Female teacher icon"}
 
 **Focus:**
 
@@ -67,7 +67,7 @@ Data science for new learners
 <br>
 
 ::: {.fragment fragment-index="3"}
-![](images-dds/icons8-cake-64.png){fig-alt="Cake icon"}
+![](images/icons8-cake-64.png){fig-alt="Cake icon"}
 
 **Philosophy:**
 
@@ -83,7 +83,7 @@ Let them eat cake (first)!
 <br>
 
 ::: {.fragment fragment-index="5"}
-![](images-dds/icons8-code-64.png){fig-alt="Code icon"}
+![](images/icons8-code-64.png){fig-alt="Code icon"}
 
 **Assumption 1:**
 
@@ -93,7 +93,7 @@ Teach authentic tools
 <br>
 
 ::: {.fragment fragment-index="6"}
-![](images-dds/icons8-code-R-64.png){fig-alt="Code icon with R logo"}
+![](images/icons8-code-R-64.png){fig-alt="Code icon with R logo"}
 
 **Assumption 2:**
 
@@ -622,9 +622,9 @@ boxplot(loan_amount ~ application_type,
 ## tools designed for specific tasks vs. general tools
 
 
-![](images-dds/sets-vs-pieces.png){fig-alt="On one side Lego city sets, on the other size a lego base plate and loose classic Lego pieces."}
+![](images/sets-vs-pieces.png){fig-alt="On one side Lego city sets, on the other size a lego base plate and loose classic Lego pieces."}
 
-##  {data-menu-title="beyond the tidyverse" background-image="images-dds/tidyverse-beyond.png" aria-label="All of the core packages in tidyverse and tidymodels as well as many of the non-core packages."}
+##  {data-menu-title="beyond the tidyverse" background-image="images/tidyverse-beyond.png" aria-label="All of the core packages in tidyverse and tidymodels as well as many of the non-core packages."}
 
 # final thoughts
 
