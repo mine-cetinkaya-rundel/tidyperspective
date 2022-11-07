@@ -1,0 +1,101 @@
+/*-- scss:defaults --*/
+
+// fonts
+@import 'https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap';
+
+$font-family-sans-serif: "Atkinson Hyperlegible", sans-serif;
+$presentation-heading-color: #017eae;
+$presentation-title-slide-text-align: "left";
+$code-block-font-size: 0.6em;
+$code-color: #5f5f5f;
+$presentation-h2-font-size: 1.4em;
+
+/*-- scss:rules --*/
+
+.reveal .custom-title-1 {
+  position: absolute;
+  color: #bc1318;
+  font-size: 3em;
+  text-align: right;
+  right: 20px;
+  top: -100px;
+}
+
+.reveal .custom-title-2 {
+  position: absolute;
+  color: #f18229;
+  font-size: 3em;
+  text-align: right;
+  right: 20px;
+  top: 50px;
+}
+
+.reveal .custom-title-3 {
+  position: absolute;
+  color: #f4bc01;
+  font-size: 3em;
+  text-align: right;
+  right: 20px;
+  top: 200px;
+}
+
+.reveal .custom-author {
+  position: absolute;
+  color: #026928;
+  font-size: 1.4em;
+  text-align: right;
+  right: 20px;
+  top: 400px;
+}
+
+.reveal .custom-twitter a {
+  position: absolute;
+  color: #017eae;
+  font-size: 1.3em;
+  text-align: right;
+  right: 20px;
+  top: 600px;
+}
+
+.reveal .custom-url a {
+  position: absolute;
+  color: #392969;
+  font-size: 1.5em;
+  text-align: right;
+  right: 20px;
+  top: 700px;
+}
+
+details>summary {
+  font-size: 0.75em;
+}
+
+
+.medium {
+  font-size: 0.85em;
+}
+
+.small {
+  font-size: 0.75em;
+}
+
+.reveal .slide .in-out {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  padding-left: 1em;
+  background: #E8E8E8;
+  font-family: $font-family-monospace;
+  font-size: 0.6em;
+}
+
+
+.reveal .slide .goal {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  padding-left: 1em;
+  background: #ccddeb;
+}
